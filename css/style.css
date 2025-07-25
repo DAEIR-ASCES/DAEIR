@@ -1,12 +1,12 @@
 /* Variáveis de cores */
 :root {
-    --primary: #03253F;
-    --secondary: #1F4E79;
-    --accent: #79AADB;
-    --light: #F2EFEA;
-    --dark: #03253F;
-    --text: #333;
-    --text-light: #7f8c8d;
+    --primary: #004731;
+    --secondary: #C1272D;
+    --accent: #EDB926;
+    --light: #F4F4F4;
+    --dark: #004731;
+    --text: #2C2C2C;
+    --text-light: #6D9D8F;
 }
 
 /* Reset e Estilos Base */
