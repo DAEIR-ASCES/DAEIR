@@ -3,53 +3,78 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DAEIR lança site oficial</title>
+  <title>Título da Notícia</title>
+
+  <!-- Fonte elegante do Correnteza -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  
   <style>
     body {
       font-family: 'Cormorant Garamond', serif;
-      color: #222;
       background-color: #fff;
+      color: #111;
       margin: 0;
-      padding: 0 20px;
-      line-height: 1.7;
+      padding: 0;
     }
 
-    .container {
-      max-width: 800px;
-      margin: 40px auto;
+    .wrapper {
+      max-width: 700px;
+      margin: 80px auto;
+      padding: 0 20px;
     }
 
     h1 {
-      font-size: 2.2rem;
+      font-size: 2.5rem;
+      font-weight: 500;
+      text-align: center;
       margin-bottom: 10px;
     }
 
+    .date {
+      text-align: center;
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 40px;
+    }
+
     p {
-      font-size: 1.1rem;
-      margin-bottom: 16px;
+      font-size: 1.3rem;
+      line-height: 1.8;
+      margin-bottom: 25px;
     }
 
     a.back-link {
-      display: inline-block;
-      margin-top: 30px;
-      font-size: 1rem;
-      color: #004085;
+      display: block;
+      text-align: center;
+      margin-top: 50px;
+      font-size: 1.1rem;
       text-decoration: none;
+      color: #004085;
     }
 
     a.back-link:hover {
       text-decoration: underline;
     }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1.1rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <main class="container">
-    <h1>DAEIR lança site oficial e inaugura novo canal de comunicação com os estudantes</h1>
-    <p><strong>25/07/2025</strong></p>
+  <div class="wrapper">
+    <h1>DAEIR lança site oficial e inaugura novo canal de comunicação</h1>
+    <div class="date">25/07/2025</div>
 
-    <p>Em mais um passo rumo à ampliação da transparência, da escuta ativa e da integração entre gestão e base estudantil, o Diretório Acadêmico de Enfermagem Irmã Ruth (DAEIR) lança oficialmente seu site institucional. A nova plataforma já está no ar e disponível para toda a comunidade acadêmica da ASCES-UNITA.</p>
+    <p>Em mais um passo rumo à ampliação da transparência, da escuta ativa e da integração entre gestão e base estudantil, o Diretório Acadêmico de Enfermagem Irmã Ruth (DAEIR) lança oficialmente seu site institucional.</p>
+
+    <p>A nova plataforma já está no ar e disponível para toda a comunidade acadêmica da ASCES-UNITA.</p>
 
     <p>O site foi projetado para ser um ambiente de fácil navegação, onde os estudantes poderão acessar informações atualizadas sobre eventos, campanhas, projetos, documentos oficiais, editais, formulários, notícias e canais de escuta, de forma prática e centralizada.</p>
 
@@ -58,6 +83,6 @@
     <p>Além das seções informativas, o site também conta com uma área dedicada à Ouvidoria Estudantil, ferramenta essencial para registro de dúvidas, sugestões, reclamações e denúncias, garantindo escuta ética e qualificada.</p>
 
     <a href="index.html" class="back-link">← Voltar para o site</a>
-  </main>
+  </div>
 </body>
 </html>
