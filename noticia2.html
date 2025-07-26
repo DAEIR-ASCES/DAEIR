@@ -1,23 +1,95 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ação de Boas-Vindas</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Fonte semelhante ao site Correnteza -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Cormorant Garamond', serif;
+      background-color: #f9f9f9;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 40px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      color: #1e1e1e;
+    }
+
+    .news-date {
+      font-size: 1rem;
+      color: #888;
+      margin-bottom: 30px;
+      display: block;
+    }
+
+    p {
+      font-size: 1.25rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    a.back-link {
+      display: inline-block;
+      margin-top: 30px;
+      text-decoration: none;
+      font-size: 1rem;
+      color: #333;
+      background-color: #eee;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background-color 0.2s ease;
+    }
+
+    a.back-link:hover {
+      background-color: #ddd;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 25px;
+        margin: 30px 15px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <main class="container">
-    <h1>DAEIR promove ação de boas-vindas com pipoca e algodão doce na segunda-feira (28)</h1>
-    <p><strong>28/07/2025</strong></p>
+  <main>
+    <div class="container">
+      <h1>DAEIR promove ação de boas-vindas com pipoca e algodão doce na segunda-feira (28)</h1>
+      <span class="news-date">28/07/2025</span>
 
-    <p>Em celebração ao retorno do semestre letivo, o Diretório Acadêmico de Enfermagem Irmã Ruth (DAEIR) promoverá uma ação simbólica e afetiva de acolhimento aos estudantes do curso de Enfermagem da ASCES-UNITA.</p>
+      <p>Em celebração ao retorno do semestre letivo, o Diretório Acadêmico de Enfermagem Irmã Ruth (DAEIR) promoverá uma ação simbólica e afetiva de acolhimento aos estudantes do curso de Enfermagem da ASCES-UNITA.</p>
 
-    <p>Na próxima segunda-feira, dia 28 de julho, a partir das 20h, serão distribuídos pipoca e algodão doce ao lado do Diretório Acadêmico de Enfermagem. A iniciativa busca marcar o início do período 2025.2 com um gesto simples, mas carregado de significado: reforçar o vínculo entre o Diretório e a comunidade discente, valorizando a leveza e a construção coletiva do ambiente acadêmico.</p>
+      <p>Na próxima segunda-feira, dia 28 de julho, a partir das 20h, serão distribuídos pipoca e algodão doce ao lado do Diretório Acadêmico de Enfermagem. A iniciativa busca marcar o início do período 2025.2 com um gesto simples, mas carregado de significado: reforçar o vínculo entre o Diretório e a comunidade discente, valorizando a leveza e a construção coletiva do ambiente acadêmico.</p>
 
-    <p>A proposta dialoga com o compromisso institucional do Diretório de cultivar espaços de escuta, bem-estar e integração. A distribuição será gratuita e aberta a todos os estudantes de Enfermagem.</p>
+      <p>A proposta dialoga com o compromisso institucional do Diretório de cultivar espaços de escuta, bem-estar e integração. A distribuição será gratuita e aberta a todos os estudantes de Enfermagem.</p>
 
-    <a href="index.html">← Voltar para o site</a>
+      <a href="index.html#noticias" class="back-link">← Voltar para o site</a>
+    </div>
   </main>
 </body>
 </html>
