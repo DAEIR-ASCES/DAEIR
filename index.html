@@ -7,8 +7,58 @@
   <meta name="description" content="Representação estudantil dos alunos de Enfermagem da ASCES-UNITA">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .news-ticker {
+      background-color: #f1f1f1;
+      overflow: hidden;
+      border-bottom: 1px solid #ccc;
+      font-family: sans-serif;
+      font-size: 16px;
+      padding: 5px 0;
+    }
+
+    .ticker-wrap {
+      white-space: nowrap;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    .ticker-move {
+      display: inline-block;
+      padding-left: 100%;
+      animation: ticker 25s linear infinite;
+    }
+
+    .ticker-move span {
+      display: inline-block;
+      padding: 0 2rem;
+    }
+
+    .ticker-move a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    .ticker-move a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes ticker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+  </style>
 </head>
 <body>
+
+<div class="news-ticker">
+  <div class="ticker-wrap">
+    <div class="ticker-move">
+      <span><a href="noticia1.html" target="_blank">📰 DAEIR lança site oficial e inaugura novo canal de comunicação</a></span>
+      <span><a href="noticia2.html" target="_blank">🎉 Ação de boas-vindas com pipoca e algodão doce</a></span>
+    </div>
+  </div>
+</div>
 
 <header class="main-header">
   <div class="container" style="text-align: center;">
@@ -19,6 +69,12 @@
     </div>
   </div>
 </header>
+
+<!-- (continua o restante do site como estava) -->
+<script src="js/script.js"></script>
+</body>
+</html>
+
 
 
   <nav class="main-nav">
