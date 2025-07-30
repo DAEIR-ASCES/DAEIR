@@ -82,3 +82,13 @@ function moveSlide(direction) {
 setInterval(() => {
     moveSlide(1);
 }, 6000);
+let currentSlide = 0;
+const slideContainer = document.getElementById('carousel-slide');
+const totalSlides = slideContainer.children.length;
+
+function moveSlide(direction) {
+  currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+  slideContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+}
+
+setInterval(() => moveSlide(1), 7000);
