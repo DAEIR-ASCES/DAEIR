@@ -68,3 +68,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+// Carrossel de Imagens na Home
+let currentIndex = 0;
+
+function moveSlide(direction) {
+    const slides = document.querySelector('.carousel-slide');
+    const totalSlides = slides.children.length;
+    currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+    slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+// Autoplay a cada 6 segundos
+setInterval(() => {
+    moveSlide(1);
+}, 6000);
