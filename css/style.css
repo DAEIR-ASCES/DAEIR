@@ -740,3 +740,66 @@ body {
 .carousel-container .next:hover {
   background-color: rgba(193, 39, 45, 0.8);
 }
+.carousel-section {
+  width: 100%;
+  overflow: hidden;
+  background-color: #f4f4f4;
+}
+
+.carousel-wrapper {
+  position: relative;
+  max-width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.carousel-slide {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+  height: 100%;
+}
+
+.carousel-slide a {
+  flex: 0 0 100%;
+  height: 100%;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Botões do carrossel */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.4);
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-btn.prev {
+  left: 20px;
+}
+
+.carousel-btn.next {
+  right: 20px;
+}
+
+@media (max-width: 768px) {
+  .carousel-wrapper {
+    height: 250px;
+  }
+}
