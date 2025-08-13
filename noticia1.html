@@ -1,6 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DAEIR - Diretório Acadêmico de Enfermagem Irmã Ruth</title>
+  <meta name="description" content="Representação estudantil dos alunos de Enfermagem da ASCES-UNITA">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="main-header">
+  <div class="container" style="text-align: center;">
+    <img src="images/logo.png" alt="Logo do DAEIR" class="logo" style="max-height: 130px; width: auto; margin: 0 auto; display: block;">
+    <div class="header-text">
+      <h1 style="margin: 0;">Diretório Acadêmico de Enfermagem Irmã Ruth</h1>
+      <p class="chapa" style="margin: 0;">CHAPA DAEIR 2025</p>
+    </div>
+  </div>
+</header>
+
+
+  <nav class="main-nav">
+    <div class="container">
+      <a href="#home"><i class="fas fa-home"></i> Início</a>
+      <a href="#quem-somos"><i class="fas fa-info-circle"></i> Sobre</a>
+      <a href="#membros"><i class="fas fa-users"></i> Membros</a>
+      <a href="#eventos"><i class="fas fa-calendar-alt"></i> Eventos</a>
+      <a href="downloads.html"><i class="fas fa-file-download"></i> Downloads</a>
+      <a href="#contato"><i class="fas fa-envelope"></i> Contato</a>
+      <a href="noticias.html"><i class="fas fa-newspaper"></i> Notícias</a>
+    </div>
+  </nav>
+
+  <!-- Carrossel de Destaques com Link para Notícias -->
+<section class="carousel-section">
+  <div class="carousel-wrapper">
+    <div class="carousel-slide" id="carousel-slide">
+      <a href="#"><img src="images/banner1.jpg" alt="Banner 1"></a>
+      <a href="#"><img src="images/banner2.jpg" alt="Banner 2"></a>
+      <a href="#"><img src="images/banner3.jpg" alt="Banner 3"></a>
+    </div>
+    <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+  </div>
+</section>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DAEIR lança site oficial</title>
@@ -87,3 +131,4 @@
   </div>
 </body>
 </html>
+
