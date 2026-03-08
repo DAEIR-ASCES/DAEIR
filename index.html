@@ -132,7 +132,7 @@
 
         .icon-wrapper { width: 85px; height: 85px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2.2rem; transition: var(--transition-smooth); }
 
-        /* 7. SEÇÃO NIC (AGORA NEUTRA E LUXUOSA) */
+        /* 7. SEÇÃO NIC */
         .nic-title-container { display: flex; align-items: center; justify-content: flex-start; gap: 20px; margin-bottom: 25px; }
         .nic-main-logo { width: 90px; height: 90px; object-fit: cover; border-radius: 50%; box-shadow: 0 8px 25px rgba(0,0,0,0.08); border: 4px solid var(--white-premium); }
         .nic-title-container h2 { color: var(--secondary); font-size: 2.5rem; margin: 0; font-weight: 800; letter-spacing: -1px; }
@@ -144,7 +144,6 @@
         .nic-btn:hover { background-color: var(--secondary); color: var(--white-premium); box-shadow: 0 8px 20px rgba(224, 62, 69, 0.2); transform: translateY(-3px); }
 
         .nic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        /* Cards com borda sutil para fundo branco */
         .nic-card { background: white; padding: 45px 35px; border-radius: var(--radius); text-align: center; border: 1px solid rgba(0, 0, 0, 0.06); box-shadow: var(--shadow-sm); transition: var(--transition-smooth); position: relative; top: 0; overflow: hidden; }
         .nic-card:hover { top: -10px; box-shadow: 0 12px 30px rgba(224, 62, 69, 0.12); border-color: rgba(224, 62, 69, 0.15); }
         
@@ -159,7 +158,7 @@
         .nic-card h3 { color: var(--secondary); margin-bottom: 15px; font-size: 1.5rem; font-weight: 700; }
         .nic-card p { color: var(--text-light); font-size: 1rem; line-height: 1.6; }
 
-        /* 8. SEÇÃO ATLÉTICA (MANTIDA VERDE CLARINHA) */
+        /* 8. SEÇÃO ATLÉTICA */
         .atletica-title-container { display: flex; align-items: center; justify-content: flex-start; gap: 20px; margin-bottom: 25px; }
         .atletica-icon-main { width: 90px; height: 90px; background-color: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; box-shadow: 0 8px 25px rgba(0, 90, 64, 0.2); }
         .atletica-title-container h2 { color: var(--primary-dark); font-size: 2.5rem; margin: 0; font-weight: 800; letter-spacing: -1px; }
@@ -187,58 +186,56 @@
 
         /* 9. CARDS DE NOTÍCIAS */
         .news-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-        .news-card { background-color: white; border-radius: var(--radius); padding: 25px; box-shadow: var(--shadow-sm); transition: var(--transition-smooth); border: 1px solid rgba(0,0,0,0.03); position: relative; top: 0;}
+        .news-card { background-color: white; border-radius: var(--radius); padding: 25px; box-shadow: var(--shadow-sm); transition: var(--transition-smooth); border: 1px solid rgba(0,0,0,0.03); position: relative; top: 0; cursor: pointer;}
         .news-card:hover { top: -10px; box-shadow: var(--shadow-md); border-color: rgba(0, 90, 64, 0.1);}
         
         .img-overflow { overflow: hidden; border-radius: 8px; margin-bottom: 15px; height: 200px; display: flex; align-items: center; justify-content: center; transition: var(--transition-smooth); }
         .img-overflow i { transition: transform 0.6s ease; color: white;}
         .news-card:hover .img-overflow i { transform: scale(1.1); }
         
-        .news-card:nth-child(1) .img-overflow { background: linear-gradient(135deg, #FF6B6B, #FFA8A8); }
-        .news-card:nth-child(2) .img-overflow { background: linear-gradient(135deg, #4DABF7, #A5D8FF); }
-        .news-card:nth-child(3) .img-overflow { background: linear-gradient(135deg, #20C997, #8CE99A); }
-
-        .news-date { color: var(--secondary); font-weight: 600; margin-bottom: 12px; font-size: 0.9rem; }
+        .news-date { color: var(--secondary); font-weight: 600; margin-bottom: 12px; font-size: 0.9rem; display: block; }
         .news-card h3 { color: var(--primary-dark); margin-bottom: 15px; font-size: 1.3rem; line-height: 1.4; }
         .news-card p { margin-bottom: 20px; color: var(--text-light); }
         .read-more { color: var(--primary); text-decoration: none; font-weight: 600; transition: var(--transition-smooth); display: inline-flex; align-items: center; gap: 5px; }
         .read-more:hover { color: var(--secondary); gap: 10px; }
 
-        /* 10. CONTATO E FORMULÁRIO */
-        .contact-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; margin-top: 40px; }
-        .contact-info h3 { color: var(--primary-dark); margin-bottom: 25px; font-size: 1.6rem; }
-        .contact-info p { margin-bottom: 18px; display: flex; align-items: center; gap: 12px; color: var(--text-light); transition: var(--transition-smooth);}
-        .contact-info p:hover { color: var(--primary); transform: translateX(5px); }
-        .contact-info i { color: var(--secondary); font-size: 1.2rem; width: 20px; text-align: center; }
-        
-        .social-media { display: flex; gap: 15px; margin-top: 30px; }
-        .social-icon { display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; background-color: white; box-shadow: var(--shadow-sm); color: var(--primary); border-radius: 50%; transition: var(--transition-smooth); font-size: 1.2rem; text-decoration: none;}
-        
-        .social-icon.instagram:hover { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; transform: translateY(-8px); }
-        .social-icon.whatsapp:hover { background-color: #25D366; color: white; transform: translateY(-8px); }
-        .social-icon.linkedin:hover { background-color: #0A66C2; color: white; transform: translateY(-8px); }
+        /* MODAIS */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85); display: none;
+            justify-content: center; align-items: center; z-index: 9999;
+            padding: 20px; backdrop-filter: blur(8px);
+        }
+        .modal-overlay.active { display: flex !important; }
+        .modal-content, .photo-modal-content {
+            background: var(--white-premium); width: 100%; max-width: 700px;
+            border-radius: var(--radius); position: relative; max-height: 90vh;
+            overflow-y: auto; box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            animation: modalEntrada 0.3s ease;
+        }
+        @keyframes modalEntrada {
+            from { opacity: 0; transform: translateY(-30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .photo-modal-content { background: transparent; box-shadow: none; text-align: center; max-width: 900px; }
+        .photo-modal-content img { max-width: 100%; max-height: 80vh; border-radius: var(--radius); border: 2px solid white; }
+        .photo-caption { color: white; margin-top: 15px; font-size: 1.2rem; font-weight: 600; }
+        .close-modal {
+            position: fixed; top: 20px; right: 30px; font-size: 45px;
+            color: white; cursor: pointer; z-index: 10001; transition: var(--transition-smooth); line-height: 1;
+        }
+        .close-modal:hover { color: var(--accent); transform: scale(1.1); }
 
-        .contact-form { background-color: white; padding: 35px; border-radius: var(--radius); box-shadow: var(--shadow-sm); }
-        .contact-form h3 { color: var(--primary-dark); margin-bottom: 25px; font-size: 1.6rem; }
-        .form-group { margin-bottom: 20px; }
-        .form-group input, .form-group textarea { width: 100%; padding: 14px 15px; border: 1px solid #E2E8F0; border-radius: 8px; font-family: inherit; transition: var(--transition-smooth); background-color: #FAFAFA; }
-        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--primary); background-color: white; box-shadow: 0 0 0 4px rgba(0, 90, 64, 0.1); transform: translateY(-2px); }
-        .submit-button { background-color: var(--primary); color: white; border: none; padding: 14px 30px; border-radius: 50px; font-weight: 600; font-family: 'Poppins', sans-serif; cursor: pointer; transition: var(--transition-smooth); width: 100%; font-size: 1.05rem;}
-        .submit-button:hover { background-color: var(--dark); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+        /* GALERIA GRID */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 20px 0; }
+        .gallery-item { position: relative; border-radius: var(--radius); overflow: hidden; cursor: pointer; height: 250px; box-shadow: var(--shadow-sm); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .gallery-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.9)); padding: 20px; color: white; opacity: 0; transition: 0.3s; display: flex; align-items: flex-end; }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        .gallery-item:hover img { transform: scale(1.1); }
 
         /* 11. RODAPÉ */
-        .main-footer { background-color: var(--dark); color: white; padding: 70px 0 0; }
-        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px; margin-bottom: 50px; }
-        .footer-logo h2 { margin:0; color: white;}
-        .footer-logo p { opacity: 0.8; line-height: 1.6; color: #E8F1EF; margin-top:10px;}
-        .footer-links h4 { font-size: 1.2rem; margin-bottom: 25px; position: relative; padding-bottom: 12px; color: white;}
-        .footer-links h4::after { content: ''; position: absolute; bottom: 0; left: 0; width: 40px; height: 3px; background-color: var(--accent); border-radius: 2px; }
-        .footer-links ul { list-style: none; padding: 0;}
-        .footer-links li { margin-bottom: 12px; }
-        .footer-links a { color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: var(--transition-smooth); display: inline-block; }
-        .footer-links a:hover { color: var(--accent); transform: translateX(8px); }
-        .footer-bottom { text-align: center; padding: 25px 0; border-top: 1px solid rgba(255,255,255,0.05); background-color: #0A1611; }
-        .footer-bottom p { opacity: 0.6; font-size: 0.9rem; margin: 0; }
+        .main-footer { background-color: var(--dark); color: white; padding: 30px 0; text-align: center; }
 
         /* 12. RESPONSIVIDADE (MOBILE) */
         @media (max-width: 900px) {
@@ -379,27 +376,37 @@
         </div>
     </section>
 
-    <section id="noticias" class="section">
+    <section id="noticias" class="section" style="background-color: #ffffff;">
         <div class="container">
             <h2 class="section-title">Comunicados</h2>
-            <span class="section-subtitle">Fique por dentro das últimas atualizações do diretório.</span>
-            <div class="news-grid" id="newsContainer"></div>
+            <span class="section-subtitle" style="display: block; color: var(--text-light); margin-top: -30px; margin-bottom: 20px;">Fique por dentro das últimas atualizações do diretório.</span>
+            <div class="news-container" id="newsContainer"></div>
         </div>
     </section>
 
     <section id="galeria" class="section" style="background-color: #f0f2f1;">
         <div class="container">
             <h2 class="section-title">Galeria de Fotos</h2>
-            <span class="section-subtitle">Registros dos nossos momentos e eventos acadêmicos.</span>
+            <span class="section-subtitle" style="display: block; color: var(--text-light); margin-top: -30px; margin-bottom: 20px;">Registros dos nossos momentos e eventos acadêmicos.</span>
             <div class="gallery-grid" id="galleryContainer"></div>
+        </div>
+    </section>
+
+    <section id="downloads" class="section" style="background-color: #ffffff;">
+        <div class="container" data-aos="fade-up">
+            <h2 class="section-title">Downloads e Documentos</h2>
+            <p style="color: var(--text-light); margin-top: -30px; margin-bottom: 30px;">Acesse os formulários, editais e documentos importantes.</p>
+            
+            <div style="padding: 40px; background: var(--light); border-radius: var(--radius); text-align: center; border: 1px dashed #ccc;">
+                <p>Em breve: Links para Editais, Certificados e Formulários.</p>
+            </div>
         </div>
     </section>
 
     <div class="modal-overlay" id="newsModal">
         <span class="close-modal" onclick="closeAllModals()">&times;</span>
         <div class="modal-content">
-            <div id="modalBody" style="padding: 40px;">
-                </div>
+            <div id="modalBody"></div>
         </div>
     </div>
 
@@ -415,17 +422,26 @@
         <p>&copy; 2026 DAEIR - Todos os direitos reservados.</p>
     </footer>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
 
-        // --- BANCO DE DADOS DE NOTÍCIAS (Agora com imagens) ---
+        // Menu Mobile Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        if(menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        // --- BANCO DE DADOS DE NOTÍCIAS ---
         const noticias = [
             {
                 id: 1,
                 title: "Inscrições para o Simpósio",
                 date: "12 Março, 2026",
-                image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1000", // Coloque o link da imagem da notícia aqui
+                image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1000",
                 excerpt: "As inscrições para o II Simpósio de Ética estão abertas.",
                 content: "<p>O evento ocorrerá no auditório principal com convidados da rede municipal de saúde. Garanta seu certificado de 20 horas complementares!</p><br><p><strong>Local:</strong> Auditório Principal</p>"
             },
@@ -433,7 +449,7 @@
                 id: 2,
                 title: "Ajuste de Grade Curricular",
                 date: "08 Março, 2026",
-                image: "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=1000", // Coloque o link da imagem da notícia aqui
+                image: "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=1000",
                 excerpt: "Confira as mudanças nos horários do 4º e 6º período.",
                 content: "<p>Devido à reforma nos laboratórios de anatomia, as aulas práticas foram realocadas para o turno da tarde temporariamente. Procure o representante da sua turma para pegar o PDF com a nova grade.</p>"
             }
@@ -449,16 +465,16 @@
             { url: "https://images.unsplash.com/photo-1551601651-2a8555f1a136?q=80&w=1000", caption: "Comemoração Dia do Enfermeiro" }
         ];
 
-        // Renderizar Notícias na Tela (Agora mostra a imagem no cardzinho)
+        // Renderizar Notícias na Tela (Resolvido com a div img-overflow como fundo)
         const newsContainer = document.getElementById('newsContainer');
         if (newsContainer) {
             newsContainer.innerHTML = noticias.map(n => `
                 <div class="news-card" onclick="openNews(${n.id})" data-aos="fade-up">
-                    <img src="${n.image}" alt="${n.title}">
-                    <small style="color:var(--secondary); font-weight: 600;">${n.date}</small>
-                    <h3 style="margin: 10px 0;">${n.title}</h3>
-                    <p style="color: var(--text-muted);">${n.excerpt}</p>
-                    <strong style="display:block; margin-top:15px; color:var(--primary)">Ler mais +</strong>
+                    <div class="img-overflow" style="background-image: url('${n.image}'); background-size: cover; background-position: center;"></div>
+                    <small class="news-date">${n.date}</small>
+                    <h3>${n.title}</h3>
+                    <p>${n.excerpt}</p>
+                    <span class="read-more">Ler mais <i class="fas fa-arrow-right"></i></span>
                 </div>
             `).join('');
         }
@@ -477,200 +493,44 @@
         }
 
         // --- FUNÇÕES DOS MODAIS ---
-
         function openNews(id) {
             const n = noticias.find(item => item.id === id);
             if (!n) return;
 
-            // Injeta a imagem no topo e o texto dentro da div correta
+            // Injeta a imagem no topo e o texto formatado no corpo do modal
             document.getElementById('modalBody').innerHTML = `
-                <img src="${n.image}" class="modal-news-img" alt="Capa da Notícia">
-                <div class="modal-news-body">
-                    <small style="color:var(--secondary); font-weight: 600;">${n.date}</
-
-script>
-    
-</body>
-
-</section>
-
-    <section id="downloads" class="section" style="background-color: #ffffff;">
-        <div class="container" data-aos="fade-up">
-            <h2 class="section-title center"><i class="fas fa-download"></i> Central de Downloads</h2>
-            <p style="text-align: center; color: var(--text-light); font-size: 1.1rem;">Manuais, Editais e Documentos Oficiais em um só lugar.</p>
-        </div>
-    </section>
-
-    <section id="contato" class="section" style="background-color: #f4f7f6;">
-        <div class="container" data-aos="fade-up">
-            <h2 class="section-title"><i class="fas fa-envelope"></i> Fale Conosco</h2>
-            
-            <div class="contact-container">
-                <div class="contact-info" data-aos="fade-right">
-                    <h3>Nossos Canais</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Sede do DAEIR - ASCES-UNITA</p>
-                    <p><i class="fas fa-envelope"></i> ouvidoriadaeir@gmail.com</p>
-                    <p><i class="fas fa-clock"></i> Segunda a Sexta - 08h às 18h</p>
-                    
-                    <div class="social-media">
-                        <a href="#" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+                <img src="${n.image}" style="width: 100%; height: 280px; object-fit: cover; border-radius: 12px 12px 0 0;" alt="Capa da Notícia">
+                <div style="padding: 30px;">
+                    <small style="color:var(--secondary); font-weight: 600;">${n.date}</small>
+                    <h2 style="margin: 10px 0 20px 0; color:var(--primary-dark); font-family: 'Poppins', sans-serif;">${n.title}</h2>
+                    <div style="color: var(--text-main); line-height: 1.7;">
+                        ${n.content}
                     </div>
                 </div>
-
-                <div class="contact-form" data-aos="fade-left">
-                    <h3>Envie sua mensagem</h3>
-                    <form action="#" method="POST">
-                        <div class="form-group">
-                            <input type="text" placeholder="Seu Nome Completo" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Seu E-mail Institucional" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea rows="4" placeholder="Como podemos ajudar?" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-button">Enviar Mensagem <i class="fas fa-paper-plane" style="margin-left: 5px;"></i></button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="main-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h2>DAEIR</h2>
-                    <p>Diretório Acadêmico de Enfermagem Irmã Ruth<br>ASCES-UNITA</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Links Rápidos</h4>
-                    <ul>
-                        <li><a href="#inicio">Início</a></li>
-                        <li><a href="#nic">NIC</a></li>
-                        <li><a href="#atletica">Atlética</a></li>
-                        <li><a href="#noticias">Notícias</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Ajuda e Suporte</h4>
-                    <ul>
-                        <li><a href="#downloads">Documentos</a></li>
-                        <li><a href="#contato">Fale Conosco</a></li>
-                        <li><a href="#">Ouvidoria</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 DAEIR - Todos os direitos reservados. Feito com ❤️ por estudantes de enfermagem!</p>
-            </div>
-        </div>
-    </footer>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-    <script>
-<script>
-    AOS.init();
-
-    // BANCO DE DADOS DE NOTÍCIAS (Agora com campo 'image')
-    const noticias = [
-        {
-            id: 1,
-            title: "Semana da Enfermagem 2026",
-            date: "12 Março, 2026",
-            image: "https://daeir-asces.github.io/DAEIR/images/IMG-20250512-WA0421%20(1).jpg", // Link da imagem aqui
-            excerpt: "Inscrições abertas para a nossa jornada acadêmica.",
-            content: "O evento contará com palestras exclusivas e oficinas práticas no laboratório de semiologia. Não perca o prazo de inscrição via formulário oficial."
-        },
-        {
-            id: 2,
-            title: "Edital de Monitoria NIC",
-            date: "08 Março, 2026",
-            image: "https://daeir-asces.github.io/DAEIR/images/IMG-20250512-WA0418.jpg", // Outra imagem aqui
-            excerpt: "Confira as vagas disponíveis para o núcleo científico.",
-            content: "O Núcleo de Incentivo à Ciência (NIC) abre vagas para novos pesquisadores voluntários. Os pré-requisitos incluem estar cursando a partir do 3º período."
+            `;
+            document.getElementById('newsModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
-    ];
 
-    // Renderizar os cards na tela
-    const newsContainer = document.getElementById('newsContainer');
-    if (newsContainer) {
-        newsContainer.innerHTML = noticias.map(n => `
-            <div class="news-card" onclick="openNews(${n.id})" style="cursor:pointer; background:#f9f9f9; padding:20px; border-radius:15px; margin-bottom:15px;">
-                <img src="${n.image}" style="width:100%; height:150px; object-fit:cover; border-radius:10px; margin-bottom:10px;">
-                <small style="color:var(--secondary)">${n.date}</small>
-                <h3 style="margin:5px 0">${n.title}</h3>
-                <p style="font-size:14px; color:#666">${n.excerpt}</p>
-            </div>
-        `).join('');
-    }
-
-    // FUNÇÃO PARA ABRIR A NOTÍCIA
-    function openNews(id) {
-        const n = noticias.find(item => item.id === id);
-        if (!n) return;
-
-        const modalBody = document.getElementById('modalBody');
-        const modal = document.getElementById('newsModal');
-
-        // Criando o conteúdo com imagem e texto
-        modalBody.innerHTML = `
-            <img src="${n.image}" class="modal-news-img" onerror="this.style.display='none'">
-            <div class="modal-news-body">
-                <small style="color:var(--secondary)">${n.date}</small>
-                <h2 style="margin: 15px 0; color:var(--primary)">${n.title}</h2>
-                <div style="line-height:1.6; color:#444">${n.content}</div>
-            </div>
-        `;
-
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Trava o fundo
-    }
-
-    // FUNÇÃO PARA FECHAR
-    function closeAllModals() {
-        document.getElementById('newsModal').classList.remove('active');
-        document.getElementById('photoModal').classList.remove('active');
-        document.body.style.overflow = 'auto'; // Libera o fundo
-    }
-
-    // Fechar ao clicar fora do conteúdo branco
-    window.onclick = function(event) {
-        const newsModal = document.getElementById('newsModal');
-        const photoModal = document.getElementById('photoModal');
-        if (event.target == newsModal || event.target == photoModal) {
-            closeAllModals();
+        function openPhoto(url, caption) {
+            document.getElementById('expandedImg').src = url;
+            document.getElementById('photoCaption').innerText = caption;
+            document.getElementById('photoModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
-    }
-</script>
 
-</script>
-    
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 800, once: true, offset: 50 });
+        function closeAllModals() {
+            document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('active'));
+            document.body.style.overflow = 'auto';
+        }
 
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-        
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            const icon = menuToggle.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-        });
-
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                const icon = menuToggle.querySelector('i');
-                icon.classList.add('fa-bars');
-                icon.classList.remove('fa-times');
-            });
-        });
+        // Fechar modal ao clicar fora ou apertar ESC
+        window.onclick = (e) => {
+            if (e.target.classList.contains('modal-overlay')) closeAllModals();
+        };
+        window.onkeydown = (e) => {
+            if (e.key === "Escape") closeAllModals();
+        };
     </script>
 </body>
 </html>
