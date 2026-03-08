@@ -3,223 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DAEIR</title>
+    <title>DAEIR - Enfermagem</title>
     
     <link rel="icon" type="image/png" href="DAEIR/images/Logotipo DAEIR-fotor-20260308125841.png">
+    
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
 
     <style>
+        /* Variáveis de Cores e Design System */
         :root {
-            --primary: #006437; /* Verde padrão Enfermagem */
-            --secondary: #c8102e;
-            --accent: #ffcd00;
-            --light: #f8f9fa;
-            --dark: #212529;
+            --primary: #005A40; 
+            --primary-light: #E8F1EF; 
+            --secondary: #E03E45; 
+            --accent: #F2C94C; 
+            --light: #F8F9FA;
+            --dark: #12261E; 
+            --text: #333333;
+            --text-light: #64746B;
+            
+            --radius: 12px;
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 12px 30px rgba(0, 90, 64, 0.12);
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
+        /* Reset e Estilos Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            line-height: 1.6; 
+            color: var(--text); 
+            background-color: #FAFAFA; 
+            overflow-x: hidden; 
+        }
+        h1, h2, h3, h4, .chapa { font-family: 'Poppins', sans-serif; }
+        .container { width: 95%; max-width: 1200px; margin: 0 auto; }
+
+        /* Animações */
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(242, 201, 76, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(242, 201, 76, 0); } 100% { box-shadow: 0 0 0 0 rgba(242, 201, 76, 0); } }
+        @keyframes kenburns { 0% { transform: scale(1); } 100% { transform: scale(1.15); } }
+
+        /* Cabeçalho */
         .main-header { 
             background-color: #ffffff; 
-            color: var(--primary); 
-            padding: 25px 0; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06); 
-            z-index: 2000; 
-            position: relative;
-        }
-
-        .logo-container { 
-            display: flex; 
-            align-items: center; 
+            padding: 20px 0; 
+            box-shadow: var(--shadow-sm); 
             position: relative; 
-            min-height: 80px; 
+            z-index: 2000;
         }
-
+        .logo-container { display: flex; align-items: center; position: relative; min-height: 80px; }
         .logo { 
-            position: absolute; 
-            left: 10px; 
-            top: -15px; 
-            width: 180px; 
-            height: auto; 
-            z-index: 3000; 
-            border-radius: 50%; 
-            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3)); 
-            transition: transform 0.3s ease;
+            position: absolute; left: 0; top: -10px; width: 170px; height: auto; 
+            z-index: 3000; border-radius: 50%; filter: drop-shadow(0 8px 16px rgba(0,0,0,0.2));
+            animation: float 6s ease-in-out infinite;
         }
+        .header-text { margin-left: 190px; }
+        .header-text h1 { font-size: 1.7rem; color: var(--primary); font-weight: 700; margin: 0; }
+        .chapa { color: var(--secondary); font-weight: 600; text-transform: uppercase; font-size: 1rem; letter-spacing: 1px; }
 
-        .logo:hover {
-            transform: scale(1.05); 
-        }
-
-        .header-text { 
-            margin-left: 210px; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .header-text h1 { 
-            margin: 0; 
-            font-size: 1.9rem; 
-            font-weight: 700; 
-            letter-spacing: -0.5px; 
-            color: var(--primary); 
-        }
-
-        .chapa { 
-            margin: 4px 0 0; 
-            font-weight: 600; 
-            color: var(--secondary); 
-            font-size: 1.15rem; 
-            letter-spacing: 1px; 
-            text-transform: uppercase; 
-        }
-
-        .main-nav { 
-            background-color: var(--primary); 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
-        }
-
-        .nav-container {
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.8rem;
-            cursor: pointer;
-            padding: 15px 20px;
-            transition: color 0.3s;
-        }
-
-        .nav-links {
-            display: flex;
-            flex-wrap: nowrap;
-            justify-content: flex-start;
-            padding-left: 240px; /* Aumentado para não cobrir o botão Início */
+        /* Navegação */
+        .main-nav { background-color: var(--primary); position: sticky; top: 0; z-index: 1500; box-shadow: var(--shadow-md); }
+        .nav-container { display: flex; align-items: center; justify-content: space-between; position: relative; }
+        .mobile-menu-btn { display: none; background: none; border: none; color: white; font-size: 1.6rem; cursor: pointer; padding: 15px; }
+        
+        .nav-links { 
+            display: flex; 
+            padding-left: 190px; /* Alinhado para não bater no logo no desktop */
             width: 100%;
         }
-
         .nav-links a { 
-            color: rgba(255, 255, 255, 0.9); 
-            text-decoration: none; 
-            padding: 16px 15px;
-            display: inline-block; 
-            transition: 0.3s; 
-            font-size: 0.90rem; 
-            font-weight: 500; 
-            position: relative;
-            white-space: nowrap; 
+            color: rgba(255,255,255,0.9); text-decoration: none; padding: 18px 20px; 
+            font-size: 0.9rem; font-weight: 500; transition: var(--transition); position: relative;
         }
-        
         .nav-links a::after { content: ''; position: absolute; width: 0; height: 3px; bottom: 0; left: 50%; background-color: var(--accent); transition: 0.3s; transform: translateX(-50%); }
         .nav-links a:hover::after { width: 100%; }
-        .nav-links a:hover { color: white; background-color: rgba(255,255,255,0.05);}
-        .nav-links a i { margin-right: 8px; }
+        .nav-links a:hover { background-color: rgba(255,255,255,0.05); color: white; }
 
-        /* --- ESTILOS DA SEÇÃO HERO COM ZOOM --- */
+        /* Hero Section com Zoom Background */
         .hero-section {
             position: relative;
-            height: 85vh;
+            height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden; /* Garante que o zoom não vaze */
-            color: white;
+            overflow: hidden;
             text-align: center;
+            color: white;
         }
-
-        .hero-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            /* Substitua 'seu-caminho/foto.jpg' pela URL da sua imagem de grupo */
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
+        .hero-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(to right, rgba(0, 90, 64, 0.6), rgba(18, 38, 30, 0.7)), 
+                              url('https://daeir-asces.github.io/DAEIR/images/IMG-20250512-WA0421 (1).jpg');
+            background-size: cover; background-position: center;
             z-index: -1;
-            animation: zoomEffect 20s infinite alternate ease-in-out;
+            animation: kenburns 15s ease-in-out infinite alternate;
         }
-
-        @keyframes zoomEffect {
-            from { transform: scale(1); }
-            to { transform: scale(1.15); }
+        .hero-content { max-width: 850px; padding: 20px; }
+        .hero-content h2 { font-size: 3.5rem; text-shadow: 2px 4px 10px rgba(0,0,0,0.5); margin-bottom: 20px; }
+        .hero-content p { font-size: 1.3rem; margin-bottom: 30px; text-shadow: 1px 2px 5px rgba(0,0,0,0.5); }
+        .cta-button { 
+            display: inline-block; background-color: var(--accent); color: var(--dark); padding: 15px 35px; 
+            border-radius: 50px; text-decoration: none; font-weight: 700; transition: var(--transition);
         }
+        .pulse-btn { animation: pulse 2s infinite; }
+        .cta-button:hover { transform: translateY(-5px); background-color: #fce28b; }
 
-        .hero-content {
-            z-index: 1;
-            max-width: 800px;
-            padding: 20px;
+        /* Seção NIC Estilizada */
+        .section { padding: 90px 0; }
+        .section h2 { color: var(--primary); font-size: 2.2rem; margin-bottom: 40px; }
+        .nic-header-desc { max-width: 800px; margin-bottom: 50px; color: var(--text-light); font-size: 1.1rem; }
+        
+        .nic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .nic-card { 
+            background: white; padding: 40px 30px; border-radius: var(--radius); text-align: center;
+            box-shadow: var(--shadow-sm); transition: var(--transition); border-bottom: 4px solid transparent;
         }
+        .nic-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-md); border-color: var(--secondary); }
+        .nic-card i { font-size: 3rem; color: var(--primary); margin-bottom: 20px; }
+        .nic-card h3 { color: var(--primary); margin-bottom: 15px; font-size: 1.4rem; }
+        .nic-card p { color: var(--text-light); font-size: 0.95rem; }
 
-        .hero-content h2 { font-size: 3rem; margin-bottom: 20px; font-family: 'Poppins', sans-serif; }
-        .hero-content p { font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9; }
+        /* Rodapé */
+        .main-footer { background-color: var(--dark); color: white; padding: 60px 0 30px; margin-top: 50px; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        .footer-bottom { text-align: center; padding-top: 40px; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; opacity: 0.7; }
 
-        /* --- MOBILE --- */
-        @media (max-width: 1000px) {
-            .nav-links { padding-left: 0; justify-content: center; }
-            .logo { width: 140px; top: -10px; }
-            .header-text { margin-left: 160px; }
-            .header-text h1 { font-size: 1.4rem; }
-        }
-
+        /* Responsividade */
         @media (max-width: 900px) {
-            .logo-container { flex-direction: column; text-align: center; }
-            .logo { position: relative; top: 0; left: 0; width: 130px; margin-bottom: 20px; display: block; }
-            .header-text { margin-left: 0; }
-            .header-text h1 { font-size: 1.5rem; text-align: center; }
-            .mobile-menu-btn { display: block; width: 100%; background-color: var(--primary); }
+            .logo { position: relative; top: 0; width: 130px; margin: 0 auto 15px; }
+            .header-text { margin-left: 0; text-align: center; }
+            .header-text h1 { font-size: 1.4rem; }
+            .mobile-menu-btn { display: block; }
             .nav-links { 
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                background-color: var(--primary);
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.4s ease-out;
+                display: none; flex-direction: column; width: 100%; padding: 0; 
+                background-color: var(--primary); position: absolute; top: 100%; left: 0;
             }
-            .nav-links.active { max-height: 500px; }
-            .nav-links a { display: block; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
-            .hero-content h2 { font-size: 2rem; }
+            .nav-links.active { display: flex; }
+            .nav-links a { text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
+            .hero-content h2 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
-    <header class="main-header" data-aos="fade-down" data-aos-duration="800">
+    <header class="main-header" data-aos="fade-down">
         <div class="container logo-container">
-            <img src="/DAEIR/images/Logotipo DAEIR-fotor-20260308125841.png" alt="Logo DAEIR" class="logo anime-float">
+            <img src="/DAEIR/images/Logotipo DAEIR-fotor-20260308125841.png" alt="Logo DAEIR" class="logo">
             <div class="header-text">
-                <h1>Diretório Acadêmico de Enfermagem Irmã Ruth - DAEIR</h1>
+                <h1>Diretório Acadêmico de Enfermagem Irmã Ruth</h1>
                 <p class="chapa">Gestão 2025 - 2026</p>
             </div>
         </div>
     </header>
 
-    <nav class="main-nav" data-aos="fade-down" data-aos-duration="800" data-aos-delay="100">
+    <nav class="main-nav">
         <div class="container nav-container">
-            <button class="mobile-menu-btn" id="menuToggle" aria-label="Abrir menu">
+            <button class="mobile-menu-btn" id="menuToggle">
                 <i class="fas fa-bars"></i> Menu
             </button>
-            
             <div class="nav-links" id="navLinks">
                 <a href="#inicio"><i class="fas fa-home"></i> Início</a>
-                <a href="#nic"><i class="fas fa-microscope"></i> Núcleo de Incentivo à Ciência</a>
-                <a href="#atletica"><i class="fas fa-trophy"></i> Atlética Enfurecidos</a>
+                <a href="#nic"><i class="fas fa-microscope"></i> NIC</a>
+                <a href="#atletica"><i class="fas fa-trophy"></i> Atlética</a>
                 <a href="#noticias"><i class="fas fa-newspaper"></i> Notícias</a>
                 <a href="#downloads"><i class="fas fa-download"></i> Downloads</a>
                 <a href="#contato"><i class="fas fa-envelope"></i> Contato</a>
@@ -228,22 +178,34 @@
     </nav>
 
     <section id="inicio" class="hero-section">
-        <div class="hero-background"></div> <div class="container hero-content" data-aos="zoom-in" data-aos-duration="1200">
+        <div class="hero-bg"></div>
+        <div class="hero-content" data-aos="zoom-in">
             <h2>Somos a enfermagem que queremos ter!</h2>
-            <p>Representando os estudantes, lutando por melhorias no ensino e promovendo a integração e a ciência dentro e fora da universidade.</p>
-            <a href="#noticias" class="cta-button pulse-btn">Ver Últimas Atualizações</a>
+            <p>Representando, integrando e produzindo ciência com excelência acadêmica.</p>
+            <a href="#noticias" class="cta-button pulse-btn">Ver Últimas Notícias</a>
         </div>
     </section>
 
-    <section id="nic" class="section" style="background-color: #e8f4ee;">
+    <section id="nic" class="section" style="background-color: var(--primary-light);">
         <div class="container">
             <h2 data-aos="fade-right"><i class="fas fa-microscope"></i> Núcleo de Incentivo à Ciência (NIC)</h2>
-            <div class="featured-event">
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="Pesquisa" data-aos="fade-right" class="hover-zoom">
-                <div class="event-details" data-aos="fade-left">
-                    <h3>Pesquisa e Inovação na Enfermagem</h3>
-                    <p class="event-description">O NIC é o coração científico do nosso curso. Nosso objetivo é fomentar a pesquisa, auxiliar na produção de artigos e conectar os estudantes com projetos de iniciação científica.</p>
-                    <a href="#" class="event-button">Conheça nossos projetos</a>
+            <p class="nic-header-desc" data-aos="fade-up">O NIC é o braço científico do DAEIR, dedicado a transformar o potencial dos estudantes em produções de impacto na área da saúde.</p>
+            
+            <div class="nic-grid">
+                <div class="nic-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-flask"></i>
+                    <h3>Iniciação Científica</h3>
+                    <p>Orientação e suporte para alunos ingressarem em projetos de pesquisa institucionais.</p>
+                </div>
+                <div class="nic-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-file-signature"></i>
+                    <h3>Escrita Científica</h3>
+                    <p>Mentoria para produção de resumos, artigos e submissões em congressos nacionais.</p>
+                </div>
+                <div class="nic-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Ligas Acadêmicas</h3>
+                    <p>Gestão e apoio às ligas, fortalecendo o ensino prático e teórico especializado.</p>
                 </div>
             </div>
         </div>
@@ -252,38 +214,43 @@
     <footer class="main-footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <h2 style="color: white; margin-bottom: 15px;">DAEIR</h2>
-                    <p>Diretório Acadêmico de Enfermagem Irmã Ruth - Gestão 2025 - 2026.<br>Este site foi desenvolvido com ❤️ por estudantes!</p>
+                <div>
+                    <h2>DAEIR</h2>
+                    <p>Diretório Acadêmico de Enfermagem Irmã Ruth<br>ASCES-UNITA</p>
+                </div>
+                <div>
+                    <h4>Links Úteis</h4>
+                    <p>Editais do NIC</p>
+                    <p>Manual do Calouro</p>
+                    <p>Estatuto Oficial</p>
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="container"><p>&copy; 2026 Diretório Acadêmico de Enfermagem (DAEIR). Todos os direitos reservados.</p></div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 DAEIR - Todos os direitos reservados.</p>
+            </div>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ once: true, offset: 100 });
+        AOS.init({ duration: 1000, once: true });
 
+        // Menu Mobile
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
-        const icon = menuToggle.querySelector('i');
-
+        
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            if(navLinks.classList.contains('active')) {
-                icon.classList.replace('fa-bars', 'fa-times');
-            } else {
-                icon.classList.replace('fa-times', 'fa-bars');
-            }
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
         });
 
+        // Fecha menu ao clicar no link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
-                icon.classList.replace('fa-times', 'fa-bars');
+                menuToggle.querySelector('i').className = 'fas fa-bars';
             });
         });
     </script>
