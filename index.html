@@ -97,6 +97,26 @@
             z-index: -1; animation: kenburns 20s infinite alternate;
         }
         
+        /* Ajustes de tamanho e espaçamento do conteúdo do Banner */
+        .hero-content {
+            z-index: 1;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+        .hero-content h2 {
+            font-size: 3.5rem; /* Deixa o título grandão e proporcional */
+            font-weight: 800;
+            margin-bottom: 20px; /* Espaço entre o título e o parágrafo */
+            line-height: 1.2;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5); /* Sombrinha para leitura melhor */
+        }
+        .hero-content p {
+            font-size: 1.3rem; /* Aumenta o subtítulo */
+            margin-bottom: 45px; /* Empurra o botão bem para baixo, dando respiro */
+            font-weight: 500;
+            opacity: 0.95;
+        }
+
         /* Classe do Botão Pulsando */
         .pulse-btn { animation: pulse-yellow 2s infinite; }
         .cta-button { 
@@ -136,7 +156,10 @@
             .logo-container { flex-direction: column; text-align: center; gap: 15px; }
             .header-text { border-left: none; padding-left: 0; }
             .header-text h1 { font-size: 1.5rem; }
+            
+            /* Ajustes do banner para celular */
             .hero-content h2 { font-size: 2.2rem; }
+            .hero-content p { font-size: 1.1rem; margin-bottom: 30px; }
             
             .mobile-menu-btn { display: block; }
             .nav-container { justify-content: flex-end; }
