@@ -19,7 +19,7 @@
             color: var(--primary); 
             padding: 25px 0; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.06); 
-            z-index: 10; 
+            z-index: 2000; /* IMPORTANTE: Maior que o menu para a logo ficar na frente */
             position: relative;
         }
 
@@ -30,17 +30,17 @@
             min-height: 80px; 
         }
 
-        /* Efeito da Logo Grande Vazando (Overlap) */
+        /* Efeito da Logo Grande Vazando na Faixa Verde */
         .logo { 
             position: absolute; 
-            left: 0; 
+            left: 10px; 
             top: -15px; 
-            width: 180px; /* LOGO BEM MAIOR */
+            width: 180px; /* LOGO GIGANTE */
             height: auto; 
-            z-index: 2000; 
+            z-index: 3000; /* Fica na frente de absolutamente tudo */
             border-radius: 50%; 
-            filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.3)); /* Sombra 3D */
-            transition: transform 0.4s ease;
+            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3)); /* Sombra para destacar da faixa verde */
+            transition: transform 0.3s ease;
         }
 
         .logo:hover {
@@ -56,7 +56,7 @@
 
         .header-text h1 { 
             margin: 0; 
-            font-size: 2rem; 
+            font-size: 1.9rem; 
             font-weight: 700; 
             letter-spacing: -0.5px; 
             color: var(--primary); 
@@ -75,32 +75,47 @@
             background-color: var(--primary); 
             position: sticky; 
             top: 0; 
-            z-index: 1000; 
+            z-index: 1000; /* Menor que o cabeçalho para a logo passar por cima */
             box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
         }
 
         .main-nav .container { 
             display: flex; 
             flex-wrap: wrap; 
-            justify-content: center; 
-            padding-left: 100px; /* Desvia os botões da logo */
+            justify-content: flex-start; /* Alinha os botões a partir do limite estabelecido abaixo */
+            padding-left: 220px; /* EMPURRA AS CATEGORIAS PARA O LADO PARA DESVIAR DA LOGO */
         }
 
-        /* Ajuste para celular não quebrar */
-        @media (max-width: 768px) {
+        /* Estilo dos Links do Menu */
+        .main-nav a { 
+            color: rgba(255, 255, 255, 0.9); 
+            text-decoration: none; 
+            padding: 16px 18px; 
+            display: inline-block; 
+            transition: 0.3s; 
+            font-size: 0.95rem; 
+            font-weight: 500; 
+            position: relative;
+        }
+        .main-nav a::after { content: ''; position: absolute; width: 0; height: 3px; bottom: 0; left: 50%; background-color: var(--accent); transition: 0.3s; transform: translateX(-50%); }
+        .main-nav a:hover::after { width: 100%; }
+        .main-nav a:hover { color: white; background-color: rgba(255,255,255,0.05);}
+        .main-nav a i { margin-right: 8px; }
+
+        /* Ajuste para não quebrar no celular */
+        @media (max-width: 900px) {
             .logo-container { flex-direction: column; text-align: center; }
             .logo { 
                 position: relative; 
                 top: 0; 
+                left: 0;
                 width: 130px; 
                 margin-bottom: 20px; 
-                margin-left: auto;
-                margin-right: auto;
                 display: block;
             }
             .header-text { margin-left: 0; }
-            .header-text h1 { font-size: 1.6rem; }
-            .main-nav .container { padding-left: 0; }
+            .header-text h1 { font-size: 1.5rem; text-align: center; }
+            .main-nav .container { padding-left: 0; justify-content: center; }
         }
     </style>
 </head>
