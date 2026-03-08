@@ -513,6 +513,53 @@
                 icon.classList.remove('fa-times');
             });
         });
+
+// 1. Cadastre suas notícias aqui!
+const listaNoticias = [
+    {
+      {
+    data: "12 Maio 2025",
+    titulo: "Prêmio Ivanete Alves do Nascimento",
+    resumo: "A Enfermagem Asces-Unita marcou presença na cerimônia do Prêmio Ivanete Alves do Nascimento, em Caruaru, celebrando o reconhecimento e a excelência da nossa categoria.",
+    link: "#", // Se tiver uma postagem no Instagram, coloque o link aqui
+    cor: "linear-gradient(135deg, #005A40, #003222)" // Verde institucional para destacar a faculdade
+}
+    {
+        data: "08 Março 2026",
+        titulo: "Inscrições Abertas: Atlética",
+        resumo: "Venha fazer parte dos Enfurecidos! Seletivas para o time de vôlei e futsal.",
+        link: "link-atletica.html",
+        cor: "linear-gradient(135deg, #20C997, #8CE99A)" // Verde (Atlética)
+    },
+    {
+        data: "01 Março 2026",
+        titulo: "Edital de Monitoria",
+        resumo: "Estão abertas as inscrições para monitores das disciplinas do ciclo básico.",
+        link: "#",
+        cor: "linear-gradient(135deg, #4DABF7, #A5D8FF)" // Azul
+    }
+];
+
+// 2. Função para renderizar as notícias na tela
+function carregarNoticias() {
+    const wrapper = document.getElementById('newsWrapper');
+    
+    wrapper.innerHTML = listaNoticias.map((noticia, index) => `
+        <div class="news-card" data-aos="fade-up" data-aos-delay="${index * 100}">
+            <div class="img-overflow" style="background: ${noticia.cor}">
+                <i class="fas fa-newspaper fa-3x"></i> 
+            </div>
+            <div class="news-date">${noticia.data}</div>
+            <h3>${noticia.titulo}</h3>
+            <p>${noticia.resumo}</p>
+            <a href="${noticia.link}" class="read-more">Leia mais <i class="fas fa-arrow-right"></i></a>
+        </div>
+    `).join('');
+}
+
+// Executar ao carregar a página
+carregarNoticias();
+        
     </script>
 </body>
 </html>
