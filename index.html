@@ -39,135 +39,66 @@
         a { text-decoration: none; color: inherit; }
 
         /* ============================================================
-           2. CABEÇALHO (LOGO E NOME)
+           2. CABEÇALHO
            ============================================================ */
-        .main-header { 
-            background: var(--white); 
-            padding: 20px 0; 
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-
+        .main-header { background: var(--white); padding: 20px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
         .header-flex { display: flex; align-items: center; gap: 25px; }
-        
         .logo-img { height: 90px; width: auto; transition: var(--transition); }
         .logo-img:hover { transform: scale(1.05); }
-
-        .header-text h1 { 
-            font-family: 'Poppins', sans-serif; 
-            font-size: 1.8rem; 
-            color: var(--primary); 
-            font-weight: 800;
-            line-height: 1.1;
-        }
-
-        .chapa-tag { 
-            color: var(--secondary); 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            font-size: 0.85rem; 
-            letter-spacing: 2px;
-            display: block;
-            margin-top: 5px;
-        }
+        .header-text h1 { font-family: 'Poppins', sans-serif; font-size: 1.8rem; color: var(--primary); font-weight: 800; line-height: 1.1; }
+        .chapa-tag { color: var(--secondary); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 2px; display: block; margin-top: 5px; }
 
         /* ============================================================
-           3. NAVEGAÇÃO PREMIUM (STICKY)
+           3. NAVEGAÇÃO
            ============================================================ */
-        .nav-bar { 
-            background: var(--primary-dark); 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
+        .nav-bar { background: var(--primary-dark); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         .nav-container { display: flex; justify-content: center; align-items: center; height: 65px; }
-
         .nav-links { display: flex; gap: 10px; }
-        
-        .nav-links a { 
-            color: rgba(255,255,255,0.8); 
-            padding: 20px 25px; 
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.85rem; 
-            font-weight: 600; 
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
-            transition: var(--transition);
-        }
-
+        .nav-links a { color: rgba(255,255,255,0.8); padding: 20px 25px; font-family: 'Poppins', sans-serif; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; position: relative; transition: var(--transition); }
         .nav-links a:hover { color: var(--accent); }
-        
-        .nav-links a::after {
-            content: ''; position: absolute; bottom: 0; left: 50%;
-            width: 0; height: 4px; background: var(--accent);
-            transform: translateX(-50%); transition: var(--transition);
-        }
-
+        .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 4px; background: var(--accent); transform: translateX(-50%); transition: var(--transition); }
         .nav-links a:hover::after { width: 100%; }
-
         .menu-mobile-btn { display: none; color: white; font-size: 1.5rem; cursor: pointer; }
 
         /* ============================================================
-           4. HERO SECTION (BANNER)
+           4. HERO
            ============================================================ */
-        .hero {
-            height: 550px;
-            background: linear-gradient(rgba(0, 90, 64, 0.7), rgba(0,0,0,0.6)), 
-                        url('https://daeir-asces.github.io/DAEIR/images/IMG-20250512-WA0421%20(1).jpg');
-            background-size: cover; background-position: center;
-            display: flex; align-items: center; justify-content: center;
-            text-align: center; color: white;
-        }
-
+        .hero { height: 550px; background: linear-gradient(rgba(0, 90, 64, 0.7), rgba(0,0,0,0.6)), url('https://daeir-asces.github.io/DAEIR/images/IMG-20250512-WA0421%20(1).jpg'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; color: white; }
         .hero-content h2 { font-family: 'Poppins', sans-serif; font-size: 3.5rem; font-weight: 800; margin-bottom: 15px; }
         .hero-content p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; opacity: 0.9; }
-
-        .btn-cta { 
-            background: var(--accent); color: var(--primary-dark); 
-            padding: 15px 35px; border-radius: 50px; font-weight: 700;
-            display: inline-block; transition: var(--transition);
-        }
+        .btn-cta { background: var(--accent); color: var(--primary-dark); padding: 15px 35px; border-radius: 50px; font-weight: 700; display: inline-block; transition: var(--transition); }
         .btn-cta:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(242, 201, 76, 0.4); }
 
         /* ============================================================
-           5. SEÇÕES (NIC E ATLÉTICA)
+           5. SEÇÕES E CARDS
            ============================================================ */
         .section { padding: 80px 0; }
         .section-header { display: flex; align-items: center; gap: 20px; margin-bottom: 40px; }
-        
         .circle-img { width: 100px; height: 100px; border-radius: 50%; border: 4px solid var(--primary); object-fit: cover; }
         .section-title h2 { font-family: 'Poppins', sans-serif; font-size: 2.2rem; color: var(--primary-dark); }
-
         .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         
-        .card { 
-            background: white; padding: 40px; border-radius: 15px; 
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05); text-align: center;
-            transition: var(--transition); border-top: 5px solid transparent;
-        }
-        
+        .card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); text-align: center; transition: var(--transition); border-top: 5px solid transparent; }
         .card:hover { transform: translateY(-10px); border-top-color: var(--secondary); }
-        
         .card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
         .card h3 { margin-bottom: 15px; color: var(--primary-dark); }
 
         /* ============================================================
-           6. NOTÍCIAS E RODAPÉ
+           6. NOTÍCIAS (ESTILIZAÇÃO DINÂMICA)
            ============================================================ */
-        .news-card { background: var(--bg-light); border-radius: 12px; overflow: hidden; }
-        .news-thumb { height: 200px; background: #ddd; display: flex; align-items: center; justify-content: center; }
-        .news-body { padding: 25px; }
-        .news-date { color: var(--secondary); font-weight: 700; font-size: 0.8rem; }
+        .news-card { background: var(--bg-light); border-radius: 12px; overflow: hidden; transition: var(--transition); display: flex; flex-direction: column; }
+        .news-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .news-thumb { height: 180px; display: flex; align-items: center; justify-content: center; color: white; }
+        .news-body { padding: 25px; flex-grow: 1; }
+        .news-date { color: var(--secondary); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        .news-body h3 { margin-bottom: 10px; font-size: 1.25rem; color: var(--primary-dark); }
+        .news-body p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 15px; }
+        .read-more { font-weight: 700; color: var(--primary); font-size: 0.9rem; }
 
         .footer { background: var(--primary-dark); color: white; padding: 60px 0 30px; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
         .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; font-size: 0.9rem; opacity: 0.7; }
 
-        /* ============================================================
-           7. RESPONSIVIDADE
-           ============================================================ */
         @media (max-width: 900px) {
             .header-flex { flex-direction: column; text-align: center; }
             .nav-links { display: none; flex-direction: column; width: 100%; background: var(--primary-dark); position: absolute; top: 65px; left: 0; }
@@ -275,26 +206,9 @@
     <section id="noticias" class="section">
         <div class="container">
             <div class="section-title center" style="margin-bottom: 40px;">
-                <h2 style="text-align: center;">Mural de Notícias</h2>
+                <h2 style="text-align: center;"><i class="fas fa-bullhorn"></i> Mural de Notícias</h2>
             </div>
-            <div class="card-grid">
-                <div class="news-card" data-aos="fade-up">
-                    <div class="news-thumb"><i class="fas fa-camera fa-3x" style="color:#ccc"></i></div>
-                    <div class="news-body">
-                        <span class="news-date">10 Março 2026</span>
-                        <h3>Semana da Enfermagem 2026</h3>
-                        <p>Inscrições abertas para a maior jornada acadêmica do semestre.</p>
-                    </div>
-                </div>
-                <div class="news-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="news-thumb"><i class="fas fa-file-pdf fa-3x" style="color:#ccc"></i></div>
-                    <div class="news-body">
-                        <span class="news-date">08 Março 2026</span>
-                        <h3>Edital de Monitoria</h3>
-                        <p>Confira as vagas disponíveis para monitoria bolsista e voluntária.</p>
-                    </div>
-                </div>
-            </div>
+            <div class="card-grid" id="lista-noticias"></div>
         </div>
     </section>
 
@@ -319,10 +233,10 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Inicializa animações
+        // 1. INICIALIZAÇÃO DE ANIMAÇÕES
         AOS.init({ duration: 800, once: true });
 
-        // Menu Mobile
+        // 2. MENU MOBILE
         const mobileBtn = document.getElementById('mobileMenuIcon');
         const navLinks = document.getElementById('navLinks');
 
@@ -332,6 +246,55 @@
             icon.classList.toggle('fa-bars');
             icon.classList.toggle('fa-times');
         });
+
+        // 3. SISTEMA PRÁTICO DE NOTÍCIAS
+        // Para adicionar uma notícia, basta copiar um bloco {...} abaixo e colar no topo da lista
+        const noticias = [
+            {
+                data: "10 Março 2026",
+                titulo: "Semana da Enfermagem 2026",
+                resumo: "Inscrições abertas para a maior jornada acadêmica do semestre. Participe!",
+                link: "#",
+                icone: "fas fa-stethoscope",
+                cor: "linear-gradient(135deg, #005A40, #20C997)"
+            },
+            {
+                data: "08 Março 2026",
+                titulo: "Edital de Monitoria",
+                resumo: "Confira as vagas disponíveis para monitoria bolsista e voluntária deste ano.",
+                link: "#",
+                icone: "fas fa-file-signature",
+                cor: "linear-gradient(135deg, #E03E45, #FF6B6B)"
+            },
+            {
+                data: "05 Março 2026",
+                titulo: "Produtos da Atlética",
+                resumo: "Novos moletons e canecas da Enfurecidos já estão em pré-venda. Garanta o seu!",
+                link: "#",
+                icone: "fas fa-shopping-bag",
+                cor: "linear-gradient(135deg, #F2C94C, #ffd43b)"
+            }
+        ];
+
+        function renderizarNoticias() {
+            const container = document.getElementById('lista-noticias');
+            container.innerHTML = noticias.map(n => `
+                <div class="news-card" data-aos="fade-up">
+                    <div class="news-thumb" style="background: ${n.cor}">
+                        <i class="${n.icone} fa-3x"></i>
+                    </div>
+                    <div class="news-body">
+                        <span class="news-date">${n.data}</span>
+                        <h3>${n.titulo}</h3>
+                        <p>${n.resumo}</p>
+                        <a href="${n.link}" class="read-more">Leia mais →</a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Inicia as notícias
+        renderizarNoticias();
 
         // Fecha menu ao clicar em link
         document.querySelectorAll('.nav-links a').forEach(link => {
