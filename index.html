@@ -13,14 +13,33 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        /* 1. VARIÁVEIS DE DESIGN PREMIUM */
+        /* 1. VARIÁVEIS DE DESIGN PREMIUM (Restauradas e Melhoradas) */
         :root {
-            /* ... suas variáveis ... */
-            --primary-dark: #003222; /* Um verde mais fechado para títulos */
-            --white-premium: #ffffff; /* Um branco puro */
+            --primary: #005A40; 
+            --primary-dark: #003222;
+            --primary-light: #E8F1EF; 
+            --secondary: #E03E45; 
+            --accent: #F2C94C; 
+            --light: #F8F9FA;
+            --dark: #12261E; 
+            --white-premium: #ffffff;
+            --text-main: #333333;
+            --text-light: #64746B;
+            
+            /* Cores dos Ícones */
+            --icon-home: #4DABF7;    /* Azul claro */
+            --icon-nic: #B197FC;     /* Roxo claro */
+            --icon-atletica: #FFD43B;/* Amarelo */
+            --icon-news: #FF8787;    /* Vermelho claro */
+            --icon-download: #69DB7C;/* Verde claro */
+            --icon-contact: #38D9A9; /* Teal claro */
+            
+            --radius: 12px;
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 12px 30px rgba(0, 90, 64, 0.12);
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
         
-
         /* 2. RESET E ESTILOS BASE */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
@@ -42,154 +61,59 @@
             70% { box-shadow: 0 0 0 15px rgba(242, 201, 76, 0); } 
             100% { box-shadow: 0 0 0 0 rgba(242, 201, 76, 0); } 
         }
-        
         .pulse-btn { animation: pulse-yellow 2s infinite; }
 
         /* --- 4. CABEÇALHO PREMIUM COM EFEITOS LEGAIS --- */
         .main-header { 
-            /* Um degradê sutil para dar volume */
             background: linear-gradient(180deg, #ffffff 0%, #f9f9f9 100%);
-            padding: 25px 0; 
-            position: relative; 
-            z-index: 2000;
-            border-bottom: 1px solid rgba(0,0,0,0.03); /* Linha divisória quase imperceptível */
+            padding: 25px 0; position: relative; z-index: 2000;
+            border-bottom: 1px solid rgba(0,0,0,0.03); 
         }
-
-        .logo-container { 
-            display: flex; 
-            align-items: center; 
-            gap: 30px; /* Mais espaço entre logo e texto */
-        }
-
-        /* Logo com efeito de flutuação e sombra premium */
+        .logo-container { display: flex; align-items: center; gap: 30px; }
         .logo { 
-            width: 150px; 
-            height: auto; 
+            width: 150px; height: auto; 
             filter: drop-shadow(0 8px 15px rgba(0, 50, 30, 0.15));
-            animation: float 6s ease-in-out infinite;
-            transition: var(--transition-smooth);
+            animation: float 6s ease-in-out infinite; transition: var(--transition-smooth);
         }
+        .logo:hover { transform: translateY(-3px) scale(1.02); filter: drop-shadow(0 12px 20px rgba(0, 50, 30, 0.2)); }
         
-        .logo:hover {
-            transform: translateY(-3px) scale(1.02);
-            filter: drop-shadow(0 12px 20px rgba(0, 50, 30, 0.2));
-        }
+        .header-text { border-left: 2px solid rgba(0, 90, 64, 0.1); padding-left: 30px; }
+        .header-text h1 { font-size: 2rem; color: var(--primary); font-weight: 800; margin: 0; letter-spacing: -0.5px; line-height: 1.1; }
+        .chapa { display: inline-block; margin-top: 8px; color: var(--secondary); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 3px; opacity: 0.9; }
 
-        /* Tipografia de Alta Qualidade */
-        .header-text {
-            border-left: 2px solid rgba(0, 90, 64, 0.1); /* Divisor elegante */
-            padding-left: 30px;
-        }
-
-        .header-text h1 { 
-            font-size: 2rem; 
-            color: var(--primary); 
-            font-weight: 800; 
-            margin: 0; 
-            letter-spacing: -0.5px;
-            line-height: 1.1;
-        }
-
-        .chapa { 
-            display: inline-block;
-            margin-top: 8px;
-            color: var(--secondary); 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            font-size: 0.85rem; 
-            letter-spacing: 3px; /* Espaçamento entre letras estilo corporativo */
-            opacity: 0.9;
-        }
-
-        /* --- 5. NAVEGAÇÃO MODERNIZADA (GLASSMORPHISM EFFECT) --- */
-        .main-nav { 
-            background-color: var(--primary); 
-            position: sticky; 
-            top: 0; 
-            z-index: 1500; 
-            /* Sombra suave e difusa para o efeito de flutuação */
-            box-shadow: 0 10px 30px rgba(0, 50, 30, 0.15);
-        }
-
-        .nav-container { 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; /* Centralizado para parecer mais harmônico */
-            position: relative; 
-            min-height: 60px; 
-        }
-
+        /* --- 5. NAVEGAÇÃO MODERNIZADA --- */
+        .main-nav { background-color: var(--primary); position: sticky; top: 0; z-index: 1500; box-shadow: 0 10px 30px rgba(0, 50, 30, 0.15); }
+        .nav-container { display: flex; align-items: center; justify-content: center; position: relative; min-height: 60px; }
         .mobile-menu-btn { display: none; background: none; border: none; color: white; font-size: 1.6rem; cursor: pointer; padding: 15px; position: absolute; left: 20px; }
-        
         .nav-links { display: flex; }
-
         .nav-links a { 
-            color: rgba(255,255,255,0.85); 
-            text-decoration: none; 
-            padding: 18px 25px; 
-            font-size: 1.05rem; 
-            font-weight: 600; 
-            transition: var(--transition-smooth);
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            color: rgba(255,255,255,0.85); text-decoration: none; padding: 18px 25px; 
+            font-size: 1.05rem; font-weight: 600; transition: var(--transition-smooth);
+            display: flex; align-items: center; gap: 8px;
         }
+        
+        /* Cores exclusivas para os ícones da nav */
+        .nav-links a i { font-size: 1rem; opacity: 0.9; transition: var(--transition-smooth); }
+        .nav-links a:nth-child(1) i { color: var(--icon-home); }
+        .nav-links a:nth-child(2) i { color: var(--icon-nic); }
+        .nav-links a:nth-child(3) i { color: var(--icon-atletica); }
+        .nav-links a:nth-child(4) i { color: var(--icon-news); }
+        .nav-links a:nth-child(5) i { color: var(--icon-download); }
+        .nav-links a:nth-child(6) i { color: var(--icon-contact); }
 
-        /* Efeito legal: ícone fica mais visível no hover */
-        .nav-links a i {
-            font-size: 0.9rem;
-            opacity: 0.7;
-            transition: var(--transition-smooth);
-        }
-
-        .nav-links a:hover { 
-            color: #fff;
-            background: rgba(255,255,255,0.1); /* Fundo sutil */
-            transform: translateY(-2px); /* Desliza para cima */
-        }
-        .nav-links a:hover i {
-            opacity: 1;
-            color: var(--accent); /* Ícone fica amarelo */
-        }
-
-        /* Indicador de página ativa (Você pode aplicar a classe 'active' via JS) */
-        .nav-links a.active {
-            color: #fff;
-            background: rgba(255,255,255,0.15);
-        }
-        .nav-links a.active i {
-            color: var(--accent);
-            opacity: 1;
-        }
+        .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+        .nav-links a:hover i { transform: scale(1.2); }
         
         /* 6. HERO SECTION (BANNER) */
         .hero-section {
             background: linear-gradient(to right, rgba(0, 90, 64, 0.6), rgba(18, 38, 30, 0.7)), url('https://daeir-asces.github.io/DAEIR/images/IMG-20250512-WA0421%20(1).jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 160px 0;
-            text-align: center;
-            animation: kenburns 20s ease-out forwards;
-            overflow: hidden;
-            position: relative;
+            background-size: cover; background-position: center; color: white; padding: 160px 0;
+            text-align: center; animation: kenburns 20s ease-out forwards; overflow: hidden; position: relative;
         }
         .hero-content { max-width: 800px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px;}
-        .hero-content h2 { 
-            font-size: 3.5rem; margin-bottom: 20px; font-weight: 800; line-height: 1.2; 
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 90, 64, 0.8);
-            letter-spacing: 1px;
-        }
-        .hero-content p { 
-            font-size: 1.25rem; margin-bottom: 45px; font-weight: 500;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9); line-height: 1.6;
-        }
-        .cta-button {
-            display: inline-block; background-color: var(--accent); color: var(--primary-dark); 
-            padding: 16px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; 
-            font-family: 'Poppins', sans-serif; transition: var(--transition-smooth); 
-            box-shadow: 0 4px 15px rgba(242, 201, 76, 0.3);
-        }
+        .hero-content h2 { font-size: 3.5rem; margin-bottom: 20px; font-weight: 800; line-height: 1.2; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 90, 64, 0.8); letter-spacing: 1px; }
+        .hero-content p { font-size: 1.25rem; margin-bottom: 45px; font-weight: 500; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9); line-height: 1.6; }
+        .cta-button { display: inline-block; background-color: var(--accent); color: var(--primary-dark); padding: 16px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; font-family: 'Poppins', sans-serif; transition: var(--transition-smooth); box-shadow: 0 4px 15px rgba(242, 201, 76, 0.3); }
         .cta-button:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(242, 201, 76, 0.5); background-color: #fce28b; animation: none;}
 
         /* 7. SEÇÕES GERAIS E NIC PREMIUM */
@@ -200,17 +124,26 @@
         .section-title.center::after { left: 50%; transform: translateX(-50%); }
         .section-title i { margin-right: 15px; color: var(--secondary); }
 
-        /* Estilos do NIC */
+        /* Estilos do NIC - Agora com cores nos ícones */
         .nic-title-container { display: flex; align-items: center; justify-content: flex-start; gap: 20px; margin-bottom: 25px; }
         .nic-main-logo { width: 90px; height: 90px; object-fit: cover; border-radius: 50%; box-shadow: 0 8px 25px rgba(0,0,0,0.08); border: 4px solid var(--white-premium); }
         .nic-title-container h2 { color: var(--primary-dark); font-size: 2.5rem; margin: 0; font-weight: 800; letter-spacing: -1px; }
         .nic-header-desc { max-width: 850px; margin-bottom: 60px; color: var(--text-light); font-size: 1.15rem; line-height: 1.8; }
-
         .nic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .nic-card { background: white; padding: 45px 35px; border-radius: var(--radius); text-align: center; box-shadow: var(--shadow-sm); transition: var(--transition-smooth); border: 1px solid rgba(0, 90, 64, 0.05); position: relative; top: 0; overflow: hidden; }
         .nic-card:hover { top: -10px; box-shadow: var(--shadow-md); border-color: rgba(0, 90, 64, 0.15); }
-        .icon-wrapper { width: 85px; height: 85px; background: rgba(0, 90, 64, 0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; color: var(--primary); font-size: 2.2rem; transition: var(--transition-smooth); }
-        .nic-card:hover .icon-wrapper { background: var(--primary); color: white; transform: scale(1.1); }
+        
+        .icon-wrapper { width: 85px; height: 85px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2.2rem; transition: var(--transition-smooth); }
+        
+        /* Cores específicas para cada card do NIC */
+        .nic-card:nth-child(1) .icon-wrapper { background: rgba(151, 117, 250, 0.15); color: #845EF7; }
+        .nic-card:nth-child(2) .icon-wrapper { background: rgba(51, 154, 240, 0.15); color: #339AF0; }
+        .nic-card:nth-child(3) .icon-wrapper { background: rgba(255, 146, 43, 0.15); color: #FF922B; }
+        
+        .nic-card:nth-child(1):hover .icon-wrapper { background: #845EF7; color: white; transform: scale(1.1); }
+        .nic-card:nth-child(2):hover .icon-wrapper { background: #339AF0; color: white; transform: scale(1.1); }
+        .nic-card:nth-child(3):hover .icon-wrapper { background: #FF922B; color: white; transform: scale(1.1); }
+        
         .nic-card h3 { color: var(--primary-dark); margin-bottom: 15px; font-size: 1.5rem; font-weight: 700; }
         .nic-card p { color: var(--text-light); font-size: 1rem; line-height: 1.6; }
 
@@ -218,9 +151,16 @@
         .news-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
         .news-card { background-color: white; border-radius: var(--radius); padding: 25px; box-shadow: var(--shadow-sm); transition: var(--transition-smooth); border: 1px solid rgba(0,0,0,0.03); position: relative; top: 0;}
         .news-card:hover { top: -10px; box-shadow: var(--shadow-md); border-color: rgba(0, 90, 64, 0.1);}
-        .img-overflow { overflow: hidden; border-radius: 8px; margin-bottom: 15px; background-color: var(--primary-light); height: 200px; display: flex; align-items: center; justify-content: center; color: var(--primary);}
-        .img-overflow img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; display: block;}
-        .news-card:hover .img-overflow img { transform: scale(1.1); }
+        
+        .img-overflow { overflow: hidden; border-radius: 8px; margin-bottom: 15px; height: 200px; display: flex; align-items: center; justify-content: center; transition: var(--transition-smooth); }
+        .img-overflow i { transition: transform 0.6s ease; color: white;}
+        .news-card:hover .img-overflow i { transform: scale(1.1); }
+        
+        /* Degradês para os placeholders de imagens */
+        .news-card:nth-child(1) .img-overflow { background: linear-gradient(135deg, #FF6B6B, #FFA8A8); }
+        .news-card:nth-child(2) .img-overflow { background: linear-gradient(135deg, #4DABF7, #A5D8FF); }
+        .news-card:nth-child(3) .img-overflow { background: linear-gradient(135deg, #20C997, #8CE99A); }
+
         .news-date { color: var(--secondary); font-weight: 600; margin-bottom: 12px; font-size: 0.9rem; }
         .news-card h3 { color: var(--primary-dark); margin-bottom: 15px; font-size: 1.3rem; line-height: 1.4; }
         .news-card p { margin-bottom: 20px; color: var(--text-light); }
@@ -233,9 +173,14 @@
         .contact-info p { margin-bottom: 18px; display: flex; align-items: center; gap: 12px; color: var(--text-light); transition: var(--transition-smooth);}
         .contact-info p:hover { color: var(--primary); transform: translateX(5px); }
         .contact-info i { color: var(--secondary); font-size: 1.2rem; width: 20px; text-align: center;}
+        
         .social-media { display: flex; gap: 15px; margin-top: 30px; }
         .social-icon { display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; background-color: white; box-shadow: var(--shadow-sm); color: var(--primary); border-radius: 50%; transition: var(--transition-smooth); font-size: 1.2rem; text-decoration: none;}
-        .social-icon:hover { background-color: var(--secondary); color: white; transform: translateY(-8px) rotate(360deg); }
+        
+        /* Cores oficiais das marcas no Hover */
+        .social-icon.instagram:hover { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; transform: translateY(-8px); }
+        .social-icon.whatsapp:hover { background-color: #25D366; color: white; transform: translateY(-8px); }
+        .social-icon.linkedin:hover { background-color: #0A66C2; color: white; transform: translateY(-8px); }
 
         .contact-form { background-color: white; padding: 35px; border-radius: var(--radius); box-shadow: var(--shadow-sm); }
         .contact-form h3 { color: var(--primary-dark); margin-bottom: 25px; font-size: 1.6rem; }
@@ -269,12 +214,8 @@
             
             .mobile-menu-btn { display: block; }
             .nav-container { justify-content: flex-end; }
-            .nav-links { 
-                display: none; flex-direction: column; width: 100%; padding: 0; 
-                background-color: var(--primary); position: absolute; top: 100%; left: 0;
-            }
+            .nav-links { display: none; flex-direction: column; width: 100%; padding: 0; background-color: var(--primary); position: absolute; top: 100%; left: 0; }
             .nav-links.active { display: flex; }
-            /* Correção do display flex adicionada aqui para alinhar os ícones no mobile */
             .nav-links a { display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(255,255,255,0.05); padding: 20px; }
             
             .nic-title-container { flex-direction: column; text-align: center; }
@@ -322,7 +263,7 @@
     <section id="nic" class="section" style="background-color: var(--primary-light);">
         <div class="container">
             <div class="nic-title-container" data-aos="fade-right">
-                <img src="images/IMG-20250907-WA0241(1).jpg" alt="NIC Logo" class="nic-main-logo">
+                <img src="images/images/IMG-20250907-WA0241(1).jpg" alt="NIC Logo" class="nic-main-logo">
                 <h2>Núcleo de Incentivo à Ciência (NIC)</h2>
             </div>
             
@@ -358,7 +299,7 @@
         <div class="container" data-aos="fade-up">
             <h2 class="section-title center"><i class="fas fa-trophy"></i> Atlética Enfurecidos</h2>
             <p style="text-align: center; color: var(--text-light); font-size: 1.1rem; margin-bottom: 40px;">Em breve, todas as novidades esportivas e produtos da nossa atlética!</p>
-            </div>
+        </div>
     </section>
 
     <section id="noticias" class="section" style="background-color: #f4f7f6;">
@@ -369,7 +310,8 @@
             <div class="news-container">
                 <div class="news-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="img-overflow">
-                        <i class="fas fa-camera fa-3x"></i> </div>
+                        <i class="fas fa-camera fa-3x"></i> 
+                    </div>
                     <div class="news-date">10 Março 2026</div>
                     <h3>Semana da Enfermagem 2026</h3>
                     <p>Confira a programação completa da nossa semana acadêmica, com palestras, minicursos e muito mais.</p>
@@ -401,7 +343,7 @@
         <div class="container" data-aos="fade-up">
             <h2 class="section-title center"><i class="fas fa-download"></i> Central de Downloads</h2>
             <p style="text-align: center; color: var(--text-light); font-size: 1.1rem;">Manuais, Editais e Documentos Oficiais em um só lugar.</p>
-            </div>
+        </div>
     </section>
 
     <section id="contato" class="section" style="background-color: #f4f7f6;">
@@ -416,9 +358,9 @@
                     <p><i class="fas fa-clock"></i> Segunda a Sexta - 08h às 18h</p>
                     
                     <div class="social-media">
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
 
@@ -474,10 +416,8 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Inicializa as animações de rolagem
         AOS.init({ duration: 800, once: true, offset: 50 });
 
-        // Lógica do Menu Mobile
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
         
@@ -488,7 +428,6 @@
             icon.classList.toggle('fa-times');
         });
 
-        // Fecha o menu ao clicar em um link (mobile)
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
