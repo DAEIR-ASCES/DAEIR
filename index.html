@@ -10,15 +10,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        /* 1. VARIÁVEIS DE DESIGN PREMIUM */
+        /* 1. VARIÁVEIS DE DESIGN PREMIUM (Restauradas e Melhoradas) */
         :root {
             --primary: #005A40; 
             --primary-dark: #003222;
-            --primary-light: #E8F1EF;
+            --primary-light: #E8F1EF; /* Verde clarinho para fundo neutro */
             --secondary: #E03E45; 
             --accent: #F2C94C; 
             --light: #F8F9FA;
@@ -59,7 +58,7 @@
         /* --- 4. CABEÇALHO --- */
         .main-header { 
             background: linear-gradient(180deg, #ffffff 0%, #f9f9f9 100%);
-            padding: 25px 0; position: relative; z-index: 1000;
+            padding: 25px 0; position: relative; z-index: 2000;
             border-bottom: 1px solid rgba(0,0,0,0.03); 
         }
         .logo-container { display: flex; align-items: center; gap: 30px; }
@@ -68,90 +67,197 @@
             filter: drop-shadow(0 8px 15px rgba(0, 50, 30, 0.15));
             animation: float 6s ease-in-out infinite; transition: var(--transition-smooth);
         }
+        .logo:hover { transform: translateY(-3px) scale(1.02); filter: drop-shadow(0 12px 20px rgba(0, 50, 30, 0.2)); }
+        
         .header-text { border-left: 2px solid rgba(0, 90, 64, 0.1); padding-left: 30px; }
-        .header-text h1 { font-size: 2rem; color: var(--primary); font-weight: 800; margin: 0; letter-spacing: -0.5px; }
-        .chapa { display: inline-block; margin-top: 8px; color: var(--secondary); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 3px; }
+        .header-text h1 { font-size: 2rem; color: var(--primary); font-weight: 800; margin: 0; letter-spacing: -0.5px; line-height: 1.1; }
+        .chapa { display: inline-block; margin-top: 8px; color: var(--secondary); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 3px; opacity: 0.9; }
 
-        /* --- 5. NAVEGAÇÃO --- */
+        /* --- 5. NAVEGAÇÃO LUXUOSA --- */
         .main-nav { 
             background-color: var(--primary-dark);
             position: sticky; top: 0; z-index: 1500; 
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
         }
-        .nav-container { display: flex; align-items: center; justify-content: center; min-height: 65px; position: relative; }
-        .mobile-menu-btn { display: none; background: none; border: none; color: white; font-size: 1.6rem; cursor: pointer; }
+        .nav-container { display: flex; align-items: center; justify-content: center; position: relative; min-height: 65px; }
+        .mobile-menu-btn { display: none; background: none; border: none; color: white; font-size: 1.6rem; cursor: pointer; padding: 15px; position: absolute; left: 20px; }
         .nav-links { display: flex; height: 100%; }
+        
         .nav-links a { 
-            color: rgba(255, 255, 255, 0.75); text-decoration: none; padding: 22px 28px; 
-            font-family: 'Poppins', sans-serif; font-size: 0.85rem; font-weight: 500; text-transform: uppercase; 
-            letter-spacing: 1.5px; display: flex; align-items: center; gap: 10px; transition: var(--transition-smooth);
+            position: relative; 
+            color: rgba(255, 255, 255, 0.75); 
+            text-decoration: none; 
+            padding: 22px 28px; 
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px;
+            display: flex; align-items: center; gap: 10px;
+            transition: var(--transition-smooth);
         }
-        .nav-links a:hover { color: var(--accent); background: rgba(255,255,255,0.05); }
+        
+        .nav-links a i { font-size: 1.1rem; color: inherit; transition: var(--transition-smooth); }
 
-        /* --- 6. HERO SECTION --- */
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: 0; left: 50%;
+            width: 0; height: 3px; background-color: var(--accent);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transform: translateX(-50%); border-radius: 3px 3px 0 0;
+        }
+
+        .nav-links a:hover { color: var(--accent); background: linear-gradient(to top, rgba(242, 201, 76, 0.08) 0%, transparent 100%); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover i { transform: translateY(-2px); }
+
+        /* 6. HERO SECTION (BANNER) */
         .hero-section {
             background: linear-gradient(to right, rgba(0, 90, 64, 0.7), rgba(18, 38, 30, 0.8)), url('https://daeir-asces.github.io/DAEIR/images/IMG-20250512-WA0421%20(1).jpg');
             background-size: cover; background-position: center; color: white; padding: 160px 0;
-            text-align: center; overflow: hidden; position: relative;
+            text-align: center; animation: kenburns 20s ease-out forwards; overflow: hidden; position: relative;
         }
-        .hero-content h2 { font-size: 3.5rem; margin-bottom: 20px; font-weight: 800; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-        .cta-button { display: inline-block; background-color: var(--accent); color: var(--primary-dark); padding: 16px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: var(--transition-smooth); }
+        .hero-content { max-width: 800px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px;}
+        .hero-content h2 { font-size: 3.5rem; margin-bottom: 20px; font-weight: 800; line-height: 1.2; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 90, 64, 0.8); letter-spacing: 1px; }
+        .hero-content p { font-size: 1.25rem; margin-bottom: 45px; font-weight: 500; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9); line-height: 1.6; }
+        .cta-button { display: inline-block; background-color: var(--accent); color: var(--primary-dark); padding: 16px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; font-family: 'Poppins', sans-serif; transition: var(--transition-smooth); box-shadow: 0 4px 15px rgba(242, 201, 76, 0.3); }
+        .cta-button:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(242, 201, 76, 0.5); background-color: #fce28b; animation: none;}
 
-        /* --- 7. NOTÍCIAS DINÂMICAS E MODAL --- */
-        .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-        .news-card { 
-            background: white; border-radius: var(--radius); padding: 25px; 
-            box-shadow: var(--shadow-sm); cursor: pointer; transition: var(--transition-smooth);
-            border: 1px solid rgba(0,0,0,0.05); position: relative; top: 0;
-        }
-        .news-card:hover { top: -10px; box-shadow: var(--shadow-md); border-color: var(--primary); }
-        
-        .news-badge { 
-            background: var(--secondary); color: white; padding: 4px 12px; 
-            border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
-            margin-bottom: 15px; display: inline-block;
-        }
-
-        /* MODAL PREMIUM */
-        .modal-overlay {
-            position: fixed; inset: 0; background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(8px); display: none; align-items: center; justify-content: center;
-            z-index: 3000; padding: 20px;
-        }
-        .modal-overlay.active { display: flex; }
-        .modal-content {
-            background: white; width: 100%; max-width: 800px; max-height: 90vh;
-            border-radius: 20px; overflow-y: auto; position: relative;
-            animation: modalIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-        @keyframes modalIn { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
-        
-        .close-modal {
-            position: absolute; top: 20px; right: 20px; font-size: 2rem;
-            color: var(--primary); cursor: pointer; z-index: 10;
-        }
-        .modal-header-img { width: 100%; height: 300px; object-fit: cover; background: var(--primary); display: flex; align-items: center; justify-content: center; color: white;}
-        .modal-body { padding: 40px; }
-        .modal-body h2 { color: var(--primary); font-size: 2rem; margin-bottom: 10px; }
-        .modal-date { color: var(--secondary); font-weight: 600; margin-bottom: 20px; display: block; }
-        .modal-text { font-size: 1.1rem; color: var(--text-main); line-height: 1.8; text-align: justify; }
-
-        /* --- 8. OUTRAS SEÇÕES (REDUZIDAS PARA ESPAÇO) --- */
+        /* ESTILOS COMUNS DAS SEÇÕES */
         .section { padding: 90px 0; }
-        .section-title { color: var(--primary); font-size: 2.2rem; margin-bottom: 50px; text-align: left; }
-        
-        /* 9. RODAPÉ */
-        .main-footer { background-color: var(--dark); color: white; padding: 70px 0 30px; margin-top: 50px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 40px; }
-        .footer-bottom { text-align: center; padding-top: 30px; opacity: 0.6; font-size: 0.9rem; }
+        .section-title { color: var(--primary); font-size: 2.2rem; margin-bottom: 50px; position: relative; padding-bottom: 15px; text-align: left;}
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 4px; background-color: var(--secondary); border-radius: 2px; }
+        .section-title.center { text-align: center; }
+        .section-title.center::after { left: 50%; transform: translateX(-50%); }
+        .section-title i { margin-right: 15px; color: var(--secondary); }
 
-        /* RESPONSIVIDADE */
+        .icon-wrapper { width: 85px; height: 85px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2.2rem; transition: var(--transition-smooth); }
+
+        /* 7. SEÇÃO NIC (AGORA NEUTRA E LUXUOSA) */
+        .nic-title-container { display: flex; align-items: center; justify-content: flex-start; gap: 20px; margin-bottom: 25px; }
+        .nic-main-logo { width: 90px; height: 90px; object-fit: cover; border-radius: 50%; box-shadow: 0 8px 25px rgba(0,0,0,0.08); border: 4px solid var(--white-premium); }
+        .nic-title-container h2 { color: var(--secondary); font-size: 2.5rem; margin: 0; font-weight: 800; letter-spacing: -1px; }
+        
+        .nic-header-desc { max-width: 850px; margin-bottom: 30px; color: var(--text-light); font-size: 1.15rem; line-height: 1.8; text-align: justify; }
+        
+        .nic-action { margin-bottom: 60px; display: flex; justify-content: flex-start; }
+        .nic-btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 28px; border: 2px solid var(--secondary); color: var(--secondary); background-color: transparent; border-radius: 50px; text-decoration: none; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; transition: var(--transition-smooth); }
+        .nic-btn:hover { background-color: var(--secondary); color: var(--white-premium); box-shadow: 0 8px 20px rgba(224, 62, 69, 0.2); transform: translateY(-3px); }
+
+        .nic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        /* Cards com borda sutil para fundo branco */
+        .nic-card { background: white; padding: 45px 35px; border-radius: var(--radius); text-align: center; border: 1px solid rgba(0, 0, 0, 0.06); box-shadow: var(--shadow-sm); transition: var(--transition-smooth); position: relative; top: 0; overflow: hidden; }
+        .nic-card:hover { top: -10px; box-shadow: 0 12px 30px rgba(224, 62, 69, 0.12); border-color: rgba(224, 62, 69, 0.15); }
+        
+        .nic-card:nth-child(1) .icon-wrapper { background: rgba(151, 117, 250, 0.15); color: #845EF7; }
+        .nic-card:nth-child(2) .icon-wrapper { background: rgba(51, 154, 240, 0.15); color: #339AF0; }
+        .nic-card:nth-child(3) .icon-wrapper { background: rgba(255, 146, 43, 0.15); color: #FF922B; }
+        
+        .nic-card:nth-child(1):hover .icon-wrapper { background: #845EF7; color: white; transform: scale(1.1); }
+        .nic-card:nth-child(2):hover .icon-wrapper { background: #339AF0; color: white; transform: scale(1.1); }
+        .nic-card:nth-child(3):hover .icon-wrapper { background: #FF922B; color: white; transform: scale(1.1); }
+        
+        .nic-card h3 { color: var(--secondary); margin-bottom: 15px; font-size: 1.5rem; font-weight: 700; }
+        .nic-card p { color: var(--text-light); font-size: 1rem; line-height: 1.6; }
+
+        /* 8. SEÇÃO ATLÉTICA (MANTIDA VERDE CLARINHA) */
+        .atletica-title-container { display: flex; align-items: center; justify-content: flex-start; gap: 20px; margin-bottom: 25px; }
+        .atletica-icon-main { width: 90px; height: 90px; background-color: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; box-shadow: 0 8px 25px rgba(0, 90, 64, 0.2); }
+        .atletica-title-container h2 { color: var(--primary-dark); font-size: 2.5rem; margin: 0; font-weight: 800; letter-spacing: -1px; }
+        
+        .atletica-header-desc { max-width: 850px; margin-bottom: 30px; color: var(--text-light); font-size: 1.15rem; line-height: 1.8; text-align: justify; }
+        
+        .atletica-action { margin-bottom: 60px; display: flex; justify-content: flex-start; }
+        .atletica-btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 28px; border: 2px solid var(--primary); color: var(--primary); background-color: transparent; border-radius: 50px; text-decoration: none; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; transition: var(--transition-smooth); }
+        .atletica-btn:hover { background-color: var(--primary); color: var(--white-premium); box-shadow: 0 8px 20px rgba(0, 90, 64, 0.2); transform: translateY(-3px); }
+
+        .atletica-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .atletica-card { background: white; padding: 45px 35px; border-radius: var(--radius); text-align: center; box-shadow: var(--shadow-sm); transition: var(--transition-smooth); border: 1px solid rgba(0, 90, 64, 0.05); position: relative; top: 0; overflow: hidden; }
+        .atletica-card:hover { top: -10px; box-shadow: 0 12px 30px rgba(0, 90, 64, 0.12); border-color: rgba(0, 90, 64, 0.15); }
+        
+        .atletica-card:nth-child(1) .icon-wrapper { background: rgba(224, 62, 69, 0.15); color: var(--secondary); }
+        .atletica-card:nth-child(2) .icon-wrapper { background: rgba(242, 201, 76, 0.2); color: #D4A017; }
+        .atletica-card:nth-child(3) .icon-wrapper { background: rgba(0, 90, 64, 0.15); color: var(--primary); }
+        
+        .atletica-card:nth-child(1):hover .icon-wrapper { background: var(--secondary); color: white; transform: scale(1.1); }
+        .atletica-card:nth-child(2):hover .icon-wrapper { background: #D4A017; color: white; transform: scale(1.1); }
+        .atletica-card:nth-child(3):hover .icon-wrapper { background: var(--primary); color: white; transform: scale(1.1); }
+        
+        .atletica-card h3 { color: var(--primary-dark); margin-bottom: 15px; font-size: 1.5rem; font-weight: 700; }
+        .atletica-card p { color: var(--text-light); font-size: 1rem; line-height: 1.6; }
+
+        /* 9. CARDS DE NOTÍCIAS */
+        .news-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .news-card { background-color: white; border-radius: var(--radius); padding: 25px; box-shadow: var(--shadow-sm); transition: var(--transition-smooth); border: 1px solid rgba(0,0,0,0.03); position: relative; top: 0;}
+        .news-card:hover { top: -10px; box-shadow: var(--shadow-md); border-color: rgba(0, 90, 64, 0.1);}
+        
+        .img-overflow { overflow: hidden; border-radius: 8px; margin-bottom: 15px; height: 200px; display: flex; align-items: center; justify-content: center; transition: var(--transition-smooth); }
+        .img-overflow i { transition: transform 0.6s ease; color: white;}
+        .news-card:hover .img-overflow i { transform: scale(1.1); }
+        
+        .news-card:nth-child(1) .img-overflow { background: linear-gradient(135deg, #FF6B6B, #FFA8A8); }
+        .news-card:nth-child(2) .img-overflow { background: linear-gradient(135deg, #4DABF7, #A5D8FF); }
+        .news-card:nth-child(3) .img-overflow { background: linear-gradient(135deg, #20C997, #8CE99A); }
+
+        .news-date { color: var(--secondary); font-weight: 600; margin-bottom: 12px; font-size: 0.9rem; }
+        .news-card h3 { color: var(--primary-dark); margin-bottom: 15px; font-size: 1.3rem; line-height: 1.4; }
+        .news-card p { margin-bottom: 20px; color: var(--text-light); }
+        .read-more { color: var(--primary); text-decoration: none; font-weight: 600; transition: var(--transition-smooth); display: inline-flex; align-items: center; gap: 5px; }
+        .read-more:hover { color: var(--secondary); gap: 10px; }
+
+        /* 10. CONTATO E FORMULÁRIO */
+        .contact-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; margin-top: 40px; }
+        .contact-info h3 { color: var(--primary-dark); margin-bottom: 25px; font-size: 1.6rem; }
+        .contact-info p { margin-bottom: 18px; display: flex; align-items: center; gap: 12px; color: var(--text-light); transition: var(--transition-smooth);}
+        .contact-info p:hover { color: var(--primary); transform: translateX(5px); }
+        .contact-info i { color: var(--secondary); font-size: 1.2rem; width: 20px; text-align: center; }
+        
+        .social-media { display: flex; gap: 15px; margin-top: 30px; }
+        .social-icon { display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; background-color: white; box-shadow: var(--shadow-sm); color: var(--primary); border-radius: 50%; transition: var(--transition-smooth); font-size: 1.2rem; text-decoration: none;}
+        
+        .social-icon.instagram:hover { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; transform: translateY(-8px); }
+        .social-icon.whatsapp:hover { background-color: #25D366; color: white; transform: translateY(-8px); }
+        .social-icon.linkedin:hover { background-color: #0A66C2; color: white; transform: translateY(-8px); }
+
+        .contact-form { background-color: white; padding: 35px; border-radius: var(--radius); box-shadow: var(--shadow-sm); }
+        .contact-form h3 { color: var(--primary-dark); margin-bottom: 25px; font-size: 1.6rem; }
+        .form-group { margin-bottom: 20px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 14px 15px; border: 1px solid #E2E8F0; border-radius: 8px; font-family: inherit; transition: var(--transition-smooth); background-color: #FAFAFA; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--primary); background-color: white; box-shadow: 0 0 0 4px rgba(0, 90, 64, 0.1); transform: translateY(-2px); }
+        .submit-button { background-color: var(--primary); color: white; border: none; padding: 14px 30px; border-radius: 50px; font-weight: 600; font-family: 'Poppins', sans-serif; cursor: pointer; transition: var(--transition-smooth); width: 100%; font-size: 1.05rem;}
+        .submit-button:hover { background-color: var(--dark); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+
+        /* 11. RODAPÉ */
+        .main-footer { background-color: var(--dark); color: white; padding: 70px 0 0; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px; margin-bottom: 50px; }
+        .footer-logo h2 { margin:0; color: white;}
+        .footer-logo p { opacity: 0.8; line-height: 1.6; color: #E8F1EF; margin-top:10px;}
+        .footer-links h4 { font-size: 1.2rem; margin-bottom: 25px; position: relative; padding-bottom: 12px; color: white;}
+        .footer-links h4::after { content: ''; position: absolute; bottom: 0; left: 0; width: 40px; height: 3px; background-color: var(--accent); border-radius: 2px; }
+        .footer-links ul { list-style: none; padding: 0;}
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: var(--transition-smooth); display: inline-block; }
+        .footer-links a:hover { color: var(--accent); transform: translateX(8px); }
+        .footer-bottom { text-align: center; padding: 25px 0; border-top: 1px solid rgba(255,255,255,0.05); background-color: #0A1611; }
+        .footer-bottom p { opacity: 0.6; font-size: 0.9rem; margin: 0; }
+
+        /* 12. RESPONSIVIDADE (MOBILE) */
         @media (max-width: 900px) {
-            .logo-container { flex-direction: column; text-align: center; }
-            .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: var(--primary-dark); }
-            .nav-links.active { display: flex; }
-            .mobile-menu-btn { display: block; position: absolute; left: 20px; }
+            .logo-container { flex-direction: column; text-align: center; gap: 10px;}
+            .header-text h1 { font-size: 1.6rem; }
             .hero-content h2 { font-size: 2.2rem; }
+            .hero-content p { font-size: 1.1rem; margin-bottom: 30px; }
+            .section { padding: 60px 0; }
+            
+            .mobile-menu-btn { display: block; }
+            .nav-container { justify-content: flex-end; }
+            .nav-links { display: none; flex-direction: column; width: 100%; padding: 0; background-color: var(--primary-dark); position: absolute; top: 100%; left: 0; box-shadow: 0 10px 20px rgba(0,0,0,0.2);}
+            .nav-links.active { display: flex; }
+            .nav-links a { display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(255,255,255,0.05); padding: 20px; width: 100%;}
+            
+            .nic-title-container, .atletica-title-container { flex-direction: column; text-align: center; }
+            .nic-action, .atletica-action { justify-content: center; }
+            .section-title::after { left: 50%; transform: translateX(-50%); }
+            .section-title { text-align: center; }
         }
     </style>
 </head>
@@ -169,12 +275,15 @@
 
     <nav class="main-nav">
         <div class="container nav-container">
-            <button class="mobile-menu-btn" id="menuToggle"><i class="fas fa-bars"></i></button>
+            <button class="mobile-menu-btn" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
             <div class="nav-links" id="navLinks">
                 <a href="#inicio"><i class="fas fa-home"></i> Início</a>
-                <a href="#noticias"><i class="fas fa-newspaper"></i> Notícias</a>
                 <a href="#nic"><i class="fas fa-microscope"></i> NIC</a>
                 <a href="#atletica"><i class="fas fa-trophy"></i> Atlética</a>
+                <a href="#noticias"><i class="fas fa-newspaper"></i> Notícias</a>
+                <a href="#downloads"><i class="fas fa-download"></i> Downloads</a>
                 <a href="#contato"><i class="fas fa-envelope"></i> Contato</a>
             </div>
         </div>
@@ -183,127 +292,383 @@
     <section id="inicio" class="hero-section">
         <div class="hero-content" data-aos="zoom-in">
             <h2>Somos a enfermagem que queremos ter!</h2>
-            <p>Representando, integrando e produzindo ciência com excelência.</p>
-            <a href="#noticias" class="cta-button pulse-btn">Ver Mural de Notícias</a>
+            <p>Representando, integrando e produzindo ciência com excelência acadêmica.</p>
+            <a href="#noticias" class="cta-button pulse-btn">Ver Últimas Notícias</a>
+        </div>
+    </section>
+
+    <section id="nic" class="section" style="background-color: #ffffff;">
+        <div class="container">
+            <div class="nic-title-container" data-aos="fade-right">
+                <img src="images/images/IMG-20250907-WA0241(1).jpg" alt="NIC Logo" class="nic-main-logo">
+                <h2>Núcleo de Incentivo à Ciência (NIC)</h2>
+            </div>
+            
+            <p class="nic-header-desc" data-aos="fade-up">Acreditamos que a excelência na enfermagem nasce da união perfeita entre o cuidado e a ciência. O NIC é o coração da pesquisa no DAEIR, criado para impulsionar a sua jornada acadêmica e transformar a sua curiosidade de sala de aula em publicações, inovações e projetos que impactam o futuro da saúde.</p>
+
+            <div class="nic-action" data-aos="fade-up" data-aos-delay="50">
+                <a href="https://instagram.com/seu_instagram_do_nic" target="_blank" class="nic-btn">
+                    <i class="fab fa-instagram" style="font-size: 1.2rem;"></i> Siga o NIC
+                </a>
+            </div>
+
+            <div class="nic-grid">
+                <div class="nic-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Iniciação Científica</h3>
+                    <p>Orientação e suporte para alunos ingressarem em projetos de pesquisa institucionais, desenvolvendo uma base científica sólida.</p>
+                </div>
+                <div class="nic-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
+                    <h3>Escrita Científica</h3>
+                    <p>Mentoria prática para produção de resumos, artigos e pôsteres, preparando você para brilhar nos maiores congressos do país.</p>
+                </div>
+                <div class="nic-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Ligas Acadêmicas</h3>
+                    <p>Apoio à gestão e integração das ligas, fortalecendo o ensino prático e teórico especializado nas diversas áreas da enfermagem.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="atletica" class="section" style="background-color: var(--primary-light);">
+        <div class="container">
+            <div class="atletica-title-container" data-aos="fade-right">
+                <div class="atletica-icon-main"><i class="fas fa-paw"></i></div>
+                <h2>Atlética Enfurecidos</h2>
+            </div>
+            
+            <p class="atletica-header-desc" data-aos="fade-up">A Atlética Enfurecidos é o motor do esporte e da integração no DAEIR. Aqui, unimos a garra da enfermagem com a paixão pelo esporte, promovendo saúde física, mental e momentos inesquecíveis para todos os estudantes.</p>
+
+            <div class="atletica-action" data-aos="fade-up" data-aos-delay="50">
+                <a href="https://instagram.com/atleticaenfurecidos" target="_blank" class="atletica-btn">
+                    <i class="fab fa-instagram" style="font-size: 1.2rem;"></i> Siga a Atlética
+                </a>
+            </div>
+
+            <div class="atletica-grid">
+                <div class="atletica-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-volleyball-ball"></i>
+                    </div>
+                    <h3>Esportes</h3>
+                    <p>Faça parte dos nossos times! Treinos regulares, competições intercursos e muita dedicação nas quadras.</p>
+                </div>
+                <div class="atletica-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3>Produtos Oficiais</h3>
+                    <p>Vista a nossa camisa! Adquira produtos exclusivos da Atlética e mostre seu orgulho de ser Enfurecido.</p>
+                </div>
+                <div class="atletica-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-drum"></i>
+                    </div>
+                    <h3>Eventos e Festas</h3>
+                    <p>A melhor integração da faculdade! Organizamos eventos, calouradas e ações para celebrar nossa união.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="noticias" class="section" style="background-color: #f4f7f6;">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-right"><i class="fas fa-newspaper"></i> Notícias e Comunicados</h2>
-            <div class="news-grid" id="newsContainer"></div>
+        <div class="container" data-aos="fade-up">
+            <h2 class="section-title"><i class="fas fa-newspaper"></i> Mural de Notícias</h2>
+            <p style="color: var(--text-light); margin-bottom: 30px;">Acompanhe nossas últimas ações, eventos e comunicados importantes.</p>
+            
+            <div class="news-container">
+                <div class="news-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="img-overflow">
+                        <i class="fas fa-camera fa-3x"></i> 
+                    </div>
+                    <div class="news-date">10 Março 2026</div>
+                    <h3>Semana da Enfermagem 2026</h3>
+                    <p>Confira a programação completa da nossa semana acadêmica, com palestras, minicursos e muito mais.</p>
+                    <a href="#" class="read-more">Leia mais <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="news-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="img-overflow">
+                        <i class="fas fa-users fa-3x"></i>
+                    </div>
+                    <div class="news-date">05 Março 2026</div>
+                    <h3>Recepção dos Feras</h3>
+                    <p>Veja como foi a recepção calorosa dos novos alunos de enfermagem deste semestre pela gestão.</p>
+                    <a href="#" class="read-more">Leia mais <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="news-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="img-overflow">
+                        <i class="fas fa-book-medical fa-3x"></i>
+                    </div>
+                    <div class="news-date">28 Fevereiro 2026</div>
+                    <h3>Edital NIC Aberto</h3>
+                    <p>O Núcleo de Incentivo à Ciência abriu edital para novos membros. Saiba como participar e submeter seu projeto.</p>
+                    <a href="#" class="read-more">Leia mais <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal-content">
-            <span class="close-modal" id="closeModal">&times;</span>
-            <div class="modal-header-img" id="modalImg">
-                <i class="fas fa-briefcase-medical fa-4x"></i>
-            </div>
-            <div class="modal-body">
-                <span class="modal-date" id="modalDate"></span>
-                <h2 id="modalTitle"></h2>
-                <div class="modal-text" id="modalText"></div>
+    <section id="downloads" class="section" style="background-color: #ffffff;">
+        <div class="container" data-aos="fade-up">
+            <h2 class="section-title center"><i class="fas fa-download"></i> Central de Downloads</h2>
+            <p style="text-align: center; color: var(--text-light); font-size: 1.1rem;">Manuais, Editais e Documentos Oficiais em um só lugar.</p>
+        </div>
+    </section>
+
+    <section id="contato" class="section" style="background-color: #f4f7f6;">
+        <div class="container" data-aos="fade-up">
+            <h2 class="section-title"><i class="fas fa-envelope"></i> Fale Conosco</h2>
+            
+            <div class="contact-container">
+                <div class="contact-info" data-aos="fade-right">
+                    <h3>Nossos Canais</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Sede do DAEIR - ASCES-UNITA</p>
+                    <p><i class="fas fa-envelope"></i> ouvidoriadaeir@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> Segunda a Sexta - 08h às 18h</p>
+                    
+                    <div class="social-media">
+                        <a href="#" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="contact-form" data-aos="fade-left">
+                    <h3>Envie sua mensagem</h3>
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <input type="text" placeholder="Seu Nome Completo" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Seu E-mail Institucional" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea rows="4" placeholder="Como podemos ajudar?" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">Enviar Mensagem <i class="fas fa-paper-plane" style="margin-left: 5px;"></i></button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <footer class="main-footer">
         <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <h3>DAEIR</h3>
-                    <p>ASCES-UNITA<br>Caruaru - PE</p>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>DAEIR</h2>
+                    <p>Diretório Acadêmico de Enfermagem Irmã Ruth<br>ASCES-UNITA</p>
                 </div>
-                <div>
-                    <h4>Contato</h4>
-                    <p>ouvidoriadaeir@gmail.com</p>
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#nic">NIC</a></li>
+                        <li><a href="#atletica">Atlética</a></li>
+                        <li><a href="#noticias">Notícias</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Ajuda e Suporte</h4>
+                    <ul>
+                        <li><a href="#downloads">Documentos</a></li>
+                        <li><a href="#contato">Fale Conosco</a></li>
+                        <li><a href="#">Ouvidoria</a></li>
+                    </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 DAEIR - Todos os direitos reservados.</p>
+                <p>&copy; 2026 DAEIR - Todos os direitos reservados. Feito com ❤️ por estudantes de enfermagem!</p>
             </div>
         </div>
     </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script>
+
         AOS.init({ duration: 1000, once: true });
 
+
+
         // MENU MOBILE
+
         const menuToggle = document.getElementById('menuToggle');
+
         const navLinks = document.getElementById('navLinks');
+
         menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
 
+
+
         // BANCO DE DADOS DE NOTÍCIAS (Adicione novas notícias aqui!)
+
         const noticias = [
+
             {
+
                 id: 1,
+
                 badge: "Posse da nova diretoria do Diretório Acadêmico de Enfermagem Irmã Ruth é realizada nesta terça",
+
                 date: "01 de Abril, 2025",
+
                 title: "Posse da nova diretoria do Diretório Acadêmico de Enfermagem Irmã Ruth é realizada neste",
+
                 excerpt: "Nesta terça-feira, ocorre a cerimônia oficial de posse da nova diretoria do Diretório Acadêmico de Enfermagem Irmã Ruth (DAENF). O evento marca o início de um novo ciclo para a representação estudantil do curso, consolidando os planos de gestão para o próximo período letivo. A nova chapa assume com a proposta de fortalecer o diálogo entre o corpo discente e a coordenação do curso, além de promover eventos científicos, projetos de extensão e ações de acolhimento. 'Nosso objetivo é ser um elo eficiente e humano, garantindo que o estudante de enfermagem tenha o suporte necessário para sua formação técnica e política', afirmou a nova presidência."
+
             },
+
             {
+
                 id: 2,
+
                 badge: "Acadêmico",
+
                 date: "05 de Março, 2026",
+
                 title: "Edital de Monitoria Aberto",
+
                 excerpt: "Oportunidade para os alunos de 3º ao 8º período. Confira as disciplinas disponíveis.",
+
                 content: "Estão abertas as vagas para monitoria das disciplinas de Anatomia Humana, Farmacologia e Semiotécnica. Ser monitor é uma excelente forma de fortalecer o currículo e aprofundar conhecimentos técnicos. Os interessados devem enviar a carta de intenção e o histórico escolar para o e-mail da coordenação até sexta-feira."
+
             },
+
             {
+
                 id: 3,
+
                 badge: "Ação Social",
+
                 date: "01 de Março, 2026",
+
                 title: "Campanha de Doação de Sangue",
+
                 excerpt: "O DAEIR em parceria com o Hemope convida todos para uma manhã de solidariedade.",
+
                 content: "Nesta próxima quarta-feira, estaremos com um ônibus especial saindo do Campus II para o Hemope Caruaru. Doar sangue é um ato de amor e cuidado, valores fundamentais da nossa profissão. Todos os doadores receberão certificado de horas complementares de extensão."
+
             }
+
         ];
 
+
+
         // RENDERIZAR NOTÍCIAS
+
         const newsContainer = document.getElementById('newsContainer');
+
         
+
         function renderNews() {
+
             newsContainer.innerHTML = noticias.map(n => `
+
                 <div class="news-card" onclick="openNews(${n.id})" data-aos="fade-up">
+
                     <span class="news-badge">${n.badge}</span>
+
                     <p style="font-size: 0.8rem; color: var(--secondary); font-weight:600">${n.date}</p>
+
                     <h3 style="margin: 10px 0; color: var(--primary)">${n.title}</h3>
+
                     <p style="color: var(--text-light); font-size: 0.95rem">${n.excerpt}</p>
+
                     <div style="margin-top: 15px; color: var(--primary); font-weight:700">Ler matéria completa →</div>
+
                 </div>
+
             `).join('');
+
         }
+
+
 
         // LÓGICA DO MODAL
+
         const modal = document.getElementById('modalOverlay');
+
         const closeModal = document.getElementById('closeModal');
 
+
+
         function openNews(id) {
+
             const noticia = noticias.find(n => n.id === id);
+
             document.getElementById('modalTitle').innerText = noticia.title;
+
             document.getElementById('modalDate').innerText = noticia.date;
+
             document.getElementById('modalText').innerText = noticia.content;
+
             modal.classList.add('active');
+
             document.body.style.overflow = 'hidden'; // Trava o scroll do fundo
+
         }
 
+
+
         closeModal.addEventListener('click', () => {
+
             modal.classList.remove('active');
+
             document.body.style.overflow = 'auto';
+
         });
 
+
+
         window.onclick = (event) => {
+
             if (event.target == modal) {
+
                 modal.classList.remove('active');
+
                 document.body.style.overflow = 'auto';
+
             }
+
         };
 
+
+
         renderNews();
+
+    </script>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 50 });
+
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            });
+        });
     </script>
 </body>
-</html> 
+</html>
