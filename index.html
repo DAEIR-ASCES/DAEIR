@@ -19,7 +19,7 @@
             color: var(--primary); 
             padding: 25px 0; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.06); 
-            z-index: 2000; /* IMPORTANTE: Maior que o menu para a logo ficar na frente */
+            z-index: 2000; 
             position: relative;
         }
 
@@ -30,16 +30,15 @@
             min-height: 80px; 
         }
 
-        /* Efeito da Logo Grande Vazando na Faixa Verde */
         .logo { 
             position: absolute; 
             left: 10px; 
             top: -15px; 
-            width: 180px; /* LOGO GIGANTE */
+            width: 180px; 
             height: auto; 
-            z-index: 3000; /* Fica na frente de absolutamente tudo */
+            z-index: 3000; 
             border-radius: 50%; 
-            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3)); /* Sombra para destacar da faixa verde */
+            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3)); 
             transition: transform 0.3s ease;
         }
 
@@ -48,7 +47,7 @@
         }
 
         .header-text { 
-            margin-left: 210px; /* Empurra o texto para dar espaço pra logo gigante */
+            margin-left: 210px; 
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -75,19 +74,43 @@
             background-color: var(--primary); 
             position: sticky; 
             top: 0; 
-            z-index: 1000; /* Menor que o cabeçalho para a logo passar por cima */
+            z-index: 1000; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
         }
 
-        .main-nav .container { 
-            display: flex; 
-            flex-wrap: wrap; 
-            justify-content: flex-start; /* Alinha os botões a partir do limite estabelecido abaixo */
-            padding-left: 220px; /* EMPURRA AS CATEGORIAS PARA O LADO PARA DESVIAR DA LOGO */
+        /* Container do Menu para alinhar o botão no mobile */
+        .nav-container {
+            display: flex;
+            align-items: center;
+            position: relative;
         }
 
-        /* Estilo dos Links do Menu */
-        .main-nav a { 
+        /* Botão Mobile Invisível no Desktop */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 15px 20px;
+            transition: color 0.3s;
+        }
+
+        .mobile-menu-btn:hover {
+            color: var(--accent);
+        }
+
+        /* Agrupamento dos links */
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            padding-left: 220px; 
+            width: 100%;
+        }
+
+        .nav-links a { 
             color: rgba(255, 255, 255, 0.9); 
             text-decoration: none; 
             padding: 16px 18px; 
@@ -97,12 +120,13 @@
             font-weight: 500; 
             position: relative;
         }
-        .main-nav a::after { content: ''; position: absolute; width: 0; height: 3px; bottom: 0; left: 50%; background-color: var(--accent); transition: 0.3s; transform: translateX(-50%); }
-        .main-nav a:hover::after { width: 100%; }
-        .main-nav a:hover { color: white; background-color: rgba(255,255,255,0.05);}
-        .main-nav a i { margin-right: 8px; }
+        
+        .nav-links a::after { content: ''; position: absolute; width: 0; height: 3px; bottom: 0; left: 50%; background-color: var(--accent); transition: 0.3s; transform: translateX(-50%); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: white; background-color: rgba(255,255,255,0.05);}
+        .nav-links a i { margin-right: 8px; }
 
-        /* Ajuste para não quebrar no celular */
+        /* ESTILOS PREMIUM PARA MOBILE */
         @media (max-width: 900px) {
             .logo-container { flex-direction: column; text-align: center; }
             .logo { 
@@ -115,7 +139,45 @@
             }
             .header-text { margin-left: 0; }
             .header-text h1 { font-size: 1.5rem; text-align: center; }
-            .main-nav .container { padding-left: 0; justify-content: center; }
+            
+            /* Mostra o botão hambúrguer e ajusta a barra verde */
+            .mobile-menu-btn {
+                display: block;
+                width: 100%;
+                text-align: center; /* Centraliza o ícone no celular */
+                background-color: var(--primary);
+            }
+
+            /* Transforma os links num menu que desce */
+            .nav-links { 
+                flex-direction: column;
+                padding-left: 0;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: var(--primary);
+                width: 100%;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+                
+                /* Efeito gaveta escondida */
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease-out;
+            }
+
+            /* Quando o menu ganha a classe 'active' via JavaScript */
+            .nav-links.active {
+                max-height: 500px; /* Altura suficiente para mostrar os links */
+            }
+
+            .nav-links a {
+                display: block;
+                text-align: center;
+                padding: 15px 20px;
+                border-top: 1px solid rgba(255,255,255,0.05); /* Linha divisória sutil */
+            }
+            
+            .nav-links a::after { display: none; /* Tira o sublinhado animado no mobile */ }
         }
     </style>
 </head>
@@ -123,7 +185,7 @@
 
     <header class="main-header" data-aos="fade-down" data-aos-duration="800">
         <div class="container logo-container">
-            <img src="images/Logotipo DAEIR-fotor-20260308125841.png" alt="Logo DAEIR" class="logo anime-float">
+            <img src="images/Logotipon.png" alt="Logo DAEIR" class="logo anime-float">
             <div class="header-text">
                 <h1>Diretório Acadêmico de Enfermagem Irmã Ruth - DAEIR</h1>
                 <p class="chapa">Gestão 2025 - 2026</p>
@@ -132,13 +194,19 @@
     </header>
 
     <nav class="main-nav" data-aos="fade-down" data-aos-duration="800" data-aos-delay="100">
-        <div class="container">
-            <a href="#inicio"><i class="fas fa-home"></i> Início</a>
-            <a href="#nic"><i class="fas fa-microscope"></i> Núcleo de Incentivo à Ciência</a>
-            <a href="#atletica"><i class="fas fa-trophy"></i> Atlética Enfurecidos</a>
-            <a href="#noticias"><i class="fas fa-newspaper"></i> Notícias</a>
-            <a href="#downloads"><i class="fas fa-download"></i> Downloads</a>
-            <a href="#contato"><i class="fas fa-envelope"></i> Contato</a>
+        <div class="container nav-container">
+            <button class="mobile-menu-btn" id="menuToggle" aria-label="Abrir menu">
+                <i class="fas fa-bars"></i> Menu
+            </button>
+            
+            <div class="nav-links" id="navLinks">
+                <a href="#inicio"><i class="fas fa-home"></i> Início</a>
+                <a href="#nic"><i class="fas fa-microscope"></i> Núcleo de Incentivo à Ciência</a>
+                <a href="#atletica"><i class="fas fa-trophy"></i> Atlética Enfurecidos</a>
+                <a href="#noticias"><i class="fas fa-newspaper"></i> Notícias</a>
+                <a href="#downloads"><i class="fas fa-download"></i> Downloads</a>
+                <a href="#contato"><i class="fas fa-envelope"></i> Contato</a>
+            </div>
         </div>
     </nav>
 
@@ -293,10 +361,39 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Inicia as animações quando o usuário rola a página
+        // Animações de rolagem
         AOS.init({
             once: true,
             offset: 100, 
+        });
+
+        // SCRIPT DO MENU MOBILE
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        const icon = menuToggle.querySelector('i');
+
+        menuToggle.addEventListener('click', () => {
+            // Adiciona ou tira a classe que abre o menu
+            navLinks.classList.toggle('active');
+            
+            // Troca o ícone de hambúrguer para o "X" de fechar
+            if(navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Fecha o menu automaticamente quando clica em algum link
+        const links = navLinks.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
         });
     </script>
 </body>
