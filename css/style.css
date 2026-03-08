@@ -187,7 +187,52 @@
         }
         .nic-title-container h2 { color: var(--primary-dark); font-size: 2.8rem; margin: 0; font-weight: 800; letter-spacing: -1px; }
         .nic-title-container h2::after { display: none; /* Remove a linha vermelha do título do NIC para ficar clean */ }
-        .nic-header-desc { max-width: 850px; margin-bottom: 60px; color: var(--text-light); font-size: 1.15rem; line-height: 1.8; }
+       .nic-header-desc { 
+            max-width: 850px; 
+            margin-bottom: 30px; /* Diminuí a margem para dar espaço ao botão */
+            color: var(--text-light); 
+            font-size: 1.15rem; 
+            line-height: 1.8; 
+            text-align: justify; /* Texto justificado adicionado aqui */
+        }
+
+        /* --- NOVOS ESTILOS PARA O BOTÃO DO NIC --- */
+        .nic-action {
+            margin-bottom: 60px; /* Margem transferida para o container do botão */
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .nic-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background-color: transparent;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: var(--transition-smooth);
+        }
+
+        .nic-btn:hover {
+            background-color: var(--primary);
+            color: var(--white-premium);
+            box-shadow: 0 8px 20px rgba(0, 90, 64, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        /* Ajuste para centralizar o botão no celular */
+        @media (max-width: 900px) {
+            .nic-action { justify-content: center; }
+        }
+
 
         .nic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .nic-card { background: white; padding: 45px 35px; border-radius: var(--radius); text-align: center; box-shadow: var(--shadow-sm); transition: var(--transition); border: 1px solid rgba(0, 90, 64, 0.05); position: relative; top: 0; overflow: hidden; }
@@ -269,5 +314,6 @@
             
             .nic-title-container { flex-direction: column; text-align: center; }
         }
+
 
 
