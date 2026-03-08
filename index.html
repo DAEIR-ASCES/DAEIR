@@ -102,23 +102,25 @@
         }
 
         /* Agrupamento dos links */
+        ./* Agrupamento dos links */
         .nav-links {
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap; /* Mudado de wrap para nowrap para forçar 1 linha */
             justify-content: flex-start;
-            padding-left: 220px; 
+            padding-left: 190px; /* Reduzido de 220px para ganhar mais espaço na tela */
             width: 100%;
         }
 
         .nav-links a { 
             color: rgba(255, 255, 255, 0.9); 
             text-decoration: none; 
-            padding: 16px 18px; 
+            padding: 16px 12px; /* Reduzido de 18px para 12px para aproximar os links */
             display: inline-block; 
             transition: 0.3s; 
-            font-size: 0.95rem; 
+            font-size: 0.90rem; /* Reduzido levemente de 0.95rem para caber melhor */
             font-weight: 500; 
             position: relative;
+            white-space: nowrap; /* Garante que o texto de um link não quebre dentro dele mesmo */
         }
         
         .nav-links a::after { content: ''; position: absolute; width: 0; height: 3px; bottom: 0; left: 50%; background-color: var(--accent); transition: 0.3s; transform: translateX(-50%); }
