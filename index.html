@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DAEIR - Enfermagem</title>
     
-    <link rel="icon" type="image/png" href="/images/Logotipo DAEIR-fotor-20260308125841.png">
+    <link rel="icon" type="image/png" href="images/Logotipo DAEIR-fotor-20260308125841.png">
     
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
@@ -85,7 +85,7 @@
         }
         .nav-links a:hover { background-color: rgba(255,255,255,0.1); color: var(--accent); }
 
-        //* 6. HERO SECTION COM BOTÃO PULSANDO */
+        /* 6. HERO SECTION COM BOTÃO PULSANDO */
         .hero-section {
             position: relative; height: 80vh; display: flex; align-items: center; justify-content: center;
             overflow: hidden; text-align: center; color: white;
@@ -99,6 +99,11 @@
         
         /* Classe do Botão Pulsando */
         .pulse-btn { animation: pulse-yellow 2s infinite; }
+        .cta-button { 
+            display: inline-block; background-color: var(--accent); color: var(--primary-dark); 
+            padding: 16px 40px; border-radius: 50px; text-decoration: none; font-weight: 800; 
+            transition: var(--transition-smooth);
+        }
         .cta-button:hover { transform: translateY(-5px); background-color: #fce28b; animation: none; box-shadow: 0 15px 25px rgba(242, 201, 76, 0.4); }
 
         /* 7. SEÇÕES GERAIS E NIC */
@@ -150,7 +155,7 @@
 
     <header class="main-header" data-aos="fade-down">
         <div class="container logo-container">
-            <img src="DAEIR/images/Logotipo DAEIR-fotor-20260308125841.png" alt="Logo DAEIR" class="logo">
+            <img src="images/Logotipo DAEIR-fotor-20260308125841.png" alt="Logo DAEIR" class="logo">
             <div class="header-text">
                 <h1>Diretório Acadêmico de Enfermagem <span style="color: var(--primary-dark);">Irmã Ruth</span></h1>
                 <p class="chapa">Gestão 2025 - 2026</p>
