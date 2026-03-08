@@ -1,469 +1,176 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DAEIR - Diretório Acadêmico de Enfermagem Irmã Ruth</title>
-  <meta name="description" content="Representação estudantil dos alunos de Enfermagem da ASCES-UNITA">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAEIR - Diretório Acadêmico de Enfermagem</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header id="home" class="main-header">
-  <div class="container" style="text-align: center;">
-    <img src="images/logo.png" alt="Logo do DAEIR" class="logo" style="max-height: 130px; width: auto; margin: 0 auto; display: block;">
-    <div class="header-text">
-      <h1 style="margin: 0;">Diretório Acadêmico de Enfermagem Irmã Ruth</h1>
-      <p class="chapa" style="margin: 0;">CHAPA DAEIR 2025</p>
-    </div>
-  </div>
-</header>
-
-
- <nav class="main-nav">
-  <div class="container">
-    <a href="#home"><i class="fas fa-home"></i> Início</a>
-    <a href="#quem-somos"><i class="fas fa-info-circle"></i> Sobre</a>
-    <a href="#membros"><i class="fas fa-users"></i> Membros</a>
-    <a href="#eventos"><i class="fas fa-calendar-alt"></i> Eventos</a>
-    <a href="#downloads"><i class="fas fa-file-download"></i> Downloads</a>
-    <a href="#noticias"><i class="fas fa-newspaper"></i> Notícias</a>
-    <a href="#contato"><i class="fas fa-envelope"></i> Contato</a>
-  </div>
-</nav>
-
-  <!-- Carrossel de Destaques com Link para Notícias -->
-<section class="carousel-section">
-  <div class="carousel-wrapper">
-    <div class="carousel-slide" id="carousel-slide">
-      <a href="#"><img src="images/banner1.jpg" alt="Banner 1"></a>
-      <a href="#"><img src="images/banner2.jpg" alt="Banner 2"></a>
-      <a href="#"><img src="images/banner3.jpg" alt="Banner 3"></a>
-    </div>
-    <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
-    <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
-  </div>
-</section>
-  
-<section id="quem-somos" class="section">
-  <div class="container">
-    <h2><i class="fas fa-info-circle"></i> Quem Somos</h2>
-    <div class="about-content">
-      <p>
-        O Diretório Acadêmico de Enfermagem Irmã Ruth (DAEIR), da ASCES-UNITA, é a entidade que representa os estudantes de Enfermagem. 
-        Nosso propósito é defender direitos, fortalecer a vida acadêmica e promover iniciativas que integrem ensino, pesquisa, extensão e comunidade. 
-        Atuamos como a voz ativa do corpo discente, incentivando a participação estudantil, apoiando projetos e contribuindo para a formação 
-        ética, crítica e humanizada dos futuros enfermeiros e enfermeiras.
-      </p>
-
-      <h3 class="subtitle">Nossos Objetivos</h3>
-      <ul class="objectives-list">
-        <li><i class="fas fa-users"></i> <strong>Fortalecer a Representatividade:</strong> defender as demandas e interesses dos alunos junto à instituição.</li>
-        <li><i class="fas fa-hand-holding-heart"></i> <strong>Promover Integração:</strong> organizar eventos e projetos que unam estudantes de diferentes períodos.</li>
-        <li><i class="fas fa-chalkboard-teacher"></i> <strong>Ampliar Oportunidades:</strong> oferecer palestras, minicursos, visitas técnicas e atividades complementares.</li>
-        <li><i class="fas fa-hands-helping"></i> <strong>Estimular Engajamento Social:</strong> aproximar a universidade da comunidade por meio de ações de extensão.</li>
-        <li><i class="fas fa-stethoscope"></i> <strong>Valorizar a Enfermagem:</strong> reforçar o orgulho pela profissão e seu compromisso ético e humanizado.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-    <div class="mission-cards">
-      <div class="card">
-        <i class="fas fa-handshake"></i>
-        <h3>Representação</h3>
-        <p>Defender os interesses dos estudantes perante a instituição.</p>
-      </div>
-      <div class="card">
-        <i class="fas fa-book"></i>
-        <h3>Apoio Acadêmico</h3>
-        <p>Promover atividades que complementem a formação.</p>
-      </div>
-      <div class="card">
-        <i class="fas fa-calendar-check"></i>
-        <h3>Eventos</h3>
-        <p>Organizar atividades culturais, científicas e de integração.</p>
-      </div>
-    </div>
-  </div>
-</section>
-  
-        <div class="mission-cards">
-          <div class="card">
-            <i class="fas fa-handshake"></i>
-            <h3>Representação</h3>
-            <p>Defender os interesses dos estudantes perante a instituição</p>
-          </div>
-          <div class="card">
-            <i class="fas fa-book"></i>
-            <h3>Apoio Acadêmico</h3>
-            <p>Promover atividades que complementem a formação</p>
-          </div>
-          <div class="card">
-            <i class="fas fa-calendar-check"></i>
-            <h3>Eventos</h3>
-            <p>Organizar atividades culturais e científicas</p>
-          </div>
+    <header class="main-header" data-aos="fade-down" data-aos-duration="800">
+        <div class="container logo-container">
+            <img src="https://via.placeholder.com/80x80/005A40/FFFFFF?text=Logo" alt="Logo DAEIR" class="logo anime-float">
+            <div class="header-text">
+                <h1>Diretório Acadêmico de Enfermagem - DAEIR</h1>
+                <p class="chapa">Gestão Atual - Construindo o Futuro</p>
+            </div>
         </div>
-      </div>
+    </header>
+
+    <nav class="main-nav" data-aos="fade-down" data-aos-duration="800" data-aos-delay="100">
+        <div class="container">
+            <a href="#inicio"><i class="fas fa-home"></i> Início</a>
+            <a href="#nic"><i class="fas fa-microscope"></i> NIC</a>
+            <a href="#atletica"><i class="fas fa-trophy"></i> Atlética</a>
+            <a href="#noticias"><i class="fas fa-newspaper"></i> Notícias</a>
+            <a href="#contato"><i class="fas fa-envelope"></i> Contato</a>
+        </div>
+    </nav>
+
+    <section id="inicio" class="hero-section">
+        <div class="container hero-content" data-aos="zoom-in" data-aos-duration="1200">
+            <h2>A voz e a força da Enfermagem</h2>
+            <p>Representando os estudantes, lutando por melhorias no ensino e promovendo a integração e a ciência dentro e fora da universidade.</p>
+            <a href="#noticias" class="cta-button pulse-btn">Ver Últimas Atualizações</a>
+        </div>
     </section>
 
-   <section id="membros" class="section">
-  <h2><i class="fas fa-users"></i> Nossa Diretoria</h2>
-  <div class="members-grid">
-
-    <!-- Iago -->
-    <div class="member-card">
-      <div class="member-photo">
-        <img src="images/Iago.jpg" alt="Iago">
-      </div>
-      <h3>Iago</h3>
-      <p class="position">Presidente</p>
-      <div class="social-links">
-        <a href="https://www.instagram.com/souza.et.al/" target="_blank"><i class="fab fa-instagram"></i></a>
-      </div>
-    </div>
-
-    <!-- Ketyllly -->
-    <div class="member-card">
-      <div class="member-photo">
-        <img src="images/Ketyllly.jpg" alt="Ketyllly">
-      </div>
-      <h3>Ketyllly</h3>
-      <p class="position">Vice-presidente</p>
-      <!-- Sem rede social -->
-    </div>
-
-    <!-- Giovanna -->
-    <div class="member-card">
-      <div class="member-photo">
-        <img src="images/Giovanna.jpg" alt="Giovanna">
-      </div>
-      <h3>Giovanna</h3>
-      <p class="position">Assistência Estudantil</p>
-      <!-- Sem rede social -->
-    </div>
-
-    <!-- Guilherme lucena -->
-    <div class="member-card">
-      <div class="member-photo">
-        <img src="images/Guilherme lucena.jpg" alt="Guilherme lucena">
-      </div>
-      <h3>Guilherme lucena</h3>
-      <p class="position">Tesoureiro</p>
-      <!-- Sem rede social -->
-    </div>
-
-    <!-- Luciana Lima -->
-    <div class="member-card">
-      <div class="member-photo">
-        <img src="images/Luciana Lima.jpg" alt="Luciana Lima">
-      </div>
-      <h3>Luciana Lima</h3>
-      <p class="position">Tesouraria</p>
-      <!-- Sem rede social -->
-    </div>
-
- <!-- Celeste ádla -->
-    <div class="member-card">
-      <div class="member-photo">
-        <img src="images/Celeste ádla.jpg" alt="Celeste ádla">
-      </div>
-      <h3>Celeste ádla</h3>
-      <p class="position">Cultura e Eventos</p>
-      <!-- Sem rede social -->
-    </div>
-
- <!-- Luana Lúcia -->
-    <div class="member-card">
-      <div class="member-photo">
-        <img src="images/Luana Lúcia.jpg" alt="Luana Lúcia">
-      </div>
-      <h3>Luana Lúcia</h3>
-      <p class="position">Ensino e Pesquisa</p>
-      <!-- Sem rede social -->
-    </div>
-
- <!-- Pedro Henrique -->
-    <div class="member-card">
-      <div class="member-photo">
-        <img src="images/Pedro Henrique.jpg" alt="Pedro Henrique">
-      </div>
-      <h3>Pedro Henrique</h3>
-      <p class="position">Assistência Estudantil</p>
-      <!-- Sem rede social -->
-    </div>
-
-     <!-- Victoria Camilly -->
-    <div class="member-card">
-      <div class="member-photo">
-        <img src="images/Victoria Camilly.jpg" alt="Victoria Camilly">
-      </div>
-      <h3>Victoria Camilly</h3>
-      <p class="position">Assistência Estudantil</p>
-      <!-- Sem rede social -->
-    </div>
-
- <!-- Luana Rodrigues-->
-    <div class="member-card">
-      <div class="member-photo">
-        <img src="images/Luana Rodrigues.jpg" alt="Luana Rodrigues">
-      </div>
-      <h3>Luana Rodrigues</h3>
-      <p class="position">Comunicação</p>
-      <!-- Sem rede social -->
-    </div>
-
- <!-- Maria Luiza-->
-    <div class="member-card">
-      <div class="member-photo">
-        <img src="images/Maria Luiza.jpg" alt="Maria Luiza">
-      </div>
-      <h3>Maria Luiza</h3>
-      <p class="position">Comunicação</p>
-      <!-- Sem rede social -->
-    </div>
-
-<!-- Bárbara Azevedo-->
-    <div class="member-card">
-      <div class="member-photo">
-        <img src="images/Bárbara Azevedo.jpg" alt="Bárbara Azevedo">
-      </div>
-      <h3>Bárbara Azevedo</h3>
-      <p class="position">Comunicação</p>
-      <!-- Sem rede social -->
-    </div>
-    
-    <!-- Maria Yasmin -->
-    <div class="member-card">
-      <div class="member-photo">
-        <img src="images/Maria Yasmim.jpg" alt="Maria Yasmin">
-      </div>
-      <h3>Maria Yasmin</h3>
-      <p class="position">Comunicação</p>
-      <div class="social-links">
-        <a href="https://www.instagram.com/mariaycavalcanti/" target="_blank"><i class="fab fa-instagram"></i></a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-    <!-- Quadro de Avisos -->
-    <section id="avisos" class="section">
-      <div class="container">
-        <h2>Quadro de Avisos</h2>
-        <div class="info-box">
-          <p>📣 Quer participar de grupos de incentivo à pesquisa? Participe do Núcleo de Incentivo à Ciência
-            <strong><a href="https://www.instagram.com/nic.daeir/">clicando aqui</a></strong>.
-          </p>
-          <p>📣 Tem dúvidas, sugestões ou reclamações? Acesse nosso 
-            <strong><a href="https://forms.gle/5co5xviNmCMuY2jo7" target="_blank">SAC do Diretório Acadêmico</a></strong> e fale conosco!
-          </p>
+    <section id="nic" class="section" style="background-color: var(--primary-light);">
+        <div class="container">
+            <h2 data-aos="fade-right"><i class="fas fa-microscope"></i> Núcleo de Incentivo à Ciência (NIC)</h2>
+            <div class="featured-event">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="Pesquisa" data-aos="fade-right" data-aos-delay="200" class="hover-zoom">
+                <div class="event-details" data-aos="fade-left" data-aos-delay="400">
+                    <h3>Pesquisa e Inovação na Enfermagem</h3>
+                    <p class="event-description">O NIC é o coração científico do nosso curso. Nosso objetivo é fomentar a pesquisa, auxiliar na produção de artigos, organizar simpósios e conectar os estudantes com projetos de iniciação científica e ligas acadêmicas.</p>
+                    <a href="#" class="event-button">Conheça nossos projetos</a>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-   <!-- Quadro de Notícias -->
-<section id="noticias" class="section news-container">
-  <div class="container">
-    <h2>Últimas Notícias</h2>
+    <section id="atletica" class="section">
+        <div class="container">
+            <h2 data-aos="fade-right"><i class="fas fa-trophy"></i> Atlética de Enfermagem</h2>
+            <div class="featured-event" style="display: flex; flex-wrap: wrap; flex-direction: row-reverse;">
+                <img src="https://images.unsplash.com/photo-1526676037777-05a232554f77?auto=format&fit=crop&w=800&q=80" alt="Torcida" style="flex: 1; min-width: 300px;" data-aos="fade-left" data-aos-delay="200" class="hover-zoom">
+                <div class="event-details" style="flex: 1; min-width: 300px; padding-right: 20px;" data-aos="fade-right" data-aos-delay="400">
+                    <h3>Integração, Esporte e Sangue no Olho!</h3>
+                    <p class="event-description">A vida acadêmica vai além das salas de aula e estágios. Nossa Atlética promove o esporte, o bem-estar e, principalmente, a união entre os períodos. Venha fazer parte dos nossos times!</p>
+                    <a href="#" class="event-button" style="background-color: var(--accent); color: var(--dark);">Siga a Atlética</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <article class="news-card">
-      <div class="news-date">25/07/2025</div>
-      <h3>DAEIR lança site oficial e inaugura novo canal de comunicação</h3>
-      <p>O DAEIR lança oficialmente seu site institucional como novo canal de comunicação com os estudantes...</p>
-      <a href="DAEIR-lança-site-oficial.html" class="read-more" target="_blank">Ler mais →</a>
-    </article>
+    <section id="noticias" class="section" style="background-color: var(--light);">
+        <div class="container">
+            <h2 data-aos="fade-up"><i class="fas fa-bullhorn"></i> Mural de Notícias e Avisos</h2>
+            
+            <div class="news-container">
+                <div class="news-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="img-overflow"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=400&q=80" alt="Documentos"></div>
+                    <p class="news-date">📢 Urgente • Seleção</p>
+                    <h3>Edital da Comissão Eleitoral do DAEIR 2026</h3>
+                    <p>O edital para a formação da nova comissão eleitoral já está disponível. Participe ativamente do processo.</p>
+                    <a href="#" class="read-more">Ler o Edital <i class="fas fa-arrow-right"></i></a>
+                </div>
 
-    <article class="news-card">
-      <div class="news-date">28/07/2025</div>
-      <h3>DAEIR promove ação de boas-vindas com pipoca e algodão doce</h3>
-      <p>Acolhimento com pipoca e algodão doce marca o retorno do semestre 2025.2...</p>
-      <a href="noticia2.html" class="read-more" target="_blank">Ler mais →</a>
-    </article>
-    
-    <article class="news-card">
-      <div class="news-date">29/07/2025</div>
-      <h3>Noite de Acolhida marca início do semestre com integração e afeto</h3>
-      <p>Evento promovido pelo DAEIR reuniu calouros, veteranos e professores na Capela Ecumênica do Campus II...</p>
-      <a href="noticia3.html" class="read-more">Ler mais →</a>
-    </article>
+                <div class="news-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="img-overflow"><img src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?auto=format&fit=crop&w=400&q=80" alt="Reunião"></div>
+                    <p class="news-date">🏛️ Oficial • Convocação</p>
+                    <h3>Chamamento para Assembleia Geral</h3>
+                    <p>Convocamos todos os estudantes de Enfermagem para a nossa próxima Assembleia Geral. Pautas importantes.</p>
+                    <a href="#" class="read-more">Ver pauta e data <i class="fas fa-arrow-right"></i></a>
+                </div>
 
-    <article class="news-card">
-      <div class="news-date">03/08/2025</div>
-      <h3>Estudantes reivindicam UNE combativa no 60º Congresso da entidade</h3>
-      <p>Movimento Correnteza cresce como principal força de oposição ao governismo estudantil...</p>
-      <a href="une-estudantes-reivindicam.html" class="read-more" target="_blank">Ler mais →</a>
-    </article>
-  </div>
-</section>
+                <div class="news-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="img-overflow"><img src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&w=400&q=80" alt="Acolhida"></div>
+                    <p class="news-date">🎉 Evento • 2026.1</p>
+                    <h3>Acolhida dos Calouros 2026.1</h3>
+                    <p>A recepção aos novos estudantes foi um absoluto sucesso! Sejam bem-vindos à família!</p>
+                    <a href="#" class="read-more">Ver galeria de fotos <i class="fas fa-arrow-right"></i></a>
+                </div>
 
-  </div>
-</section>
-
-   <section id="eventos" class="section">
-  <h2><i class="fas fa-calendar-alt"></i> Próximos Eventos</h2>
-
-  <!-- Evento 1 -->
-  <div class="featured-event">
-    <img src="images/evento6.jpg" alt="VIII Colóquios de Enfermagem">
-    <div class="event-details">
-      <h3>VIII Colóquios de Enfermagem</h3>
-      <p class="event-date"><i class="far fa-calendar"></i> 13, 14 e 15 de Maio</p>
-      <p class="event-description">Evento científico com palestras, workshops e apresentação de trabalhos acadêmicos.</p>
-      <a href="https://www.even3.com.br/viii-coloquio-de-enfermagem-asces-unita-562511/" class="event-button" target="_blank">Mais informações</a>
-    </div>
-  </div>
-
-  <!-- Evento 2 -->
-  <div class="featured-event">
-    <img src="images/evento-ceara.jpg" alt="I Congresso Estadual de Estudantes de Enfermagem do Ceará">
-    <div class="event-details">
-      <h3>I Congresso Estadual de Estudantes de Enfermagem do Ceará</h3>
-      <p class="event-date"><i class="far fa-calendar"></i> 16 e 17 de Agosto</p>
-      <p class="event-description">O primeiro congresso voltado para estudantes de enfermagem no Ceará, com debates sobre saúde pública, formação e militância estudantil.</p>
-      <a href="https://www.cofen.gov.br/cofen-coren-ce-e-coeenf-lancam-o-i-congresso-estadual-de-estudantes-de-enfermagem-do-ceara_120215.html" class="event-button" target="_blank">Saiba mais</a>
-    </div>
-  </div>
-
-  <!-- Evento 3 -->
-  <div class="featured-event">
-    <img src="images/cbcenf.jpg" alt="25º CBCENF - Congresso Brasileiro dos Conselhos de Enfermagem">
-    <div class="event-details">
-      <h3>25º CBCENF - Congresso Brasileiro dos Conselhos de Enfermagem</h3>
-      <p class="event-date"><i class="far fa-calendar"></i> 17 a 20 de Setembro</p>
-      <p class="event-description">Maior evento científico anual da área de enfermagem na América Latina, reunindo milhares de profissionais e estudantes.</p>
-      <a href="https://cbcenf.cofen.gov.br/" class="event-button" target="_blank">Visitar site oficial</a>
-    </div>
-  </div>
-
-  <h3>Eventos Realizados</h3>
-  <div class="events-gallery">
-    <div class="gallery-item">
-      <img src="images/evento1.jpg" alt="Evento 1">
-      <p>Workshop de Primeiros Socorros</p>
-    </div>
-    <div class="gallery-item">
-      <img src="images/evento4.jpg" alt="Saída Granado">
-      <p>Palestras</p>
-    </div>
-  </div>
-</section>
-
-    <section id="downloads" class="section">
-  <h2><i class="fas fa-file-download"></i> Materiais para Download</h2>
-  <div class="downloads-grid">
-
-    <div class="download-item">
-      <i class="fas fa-file-pdf"></i>
-      <div class="download-info">
-        <h3>Modelo de TCC</h3>
-        <p>Modelo formatado conforme normas da instituição</p>
-        <a href="downloads/modelo_tcc.pdf" class="download-button" download>Baixar (PDF - 250KB)</a>
-      </div>
-    </div>
-
- <div class="download-item">
-      <i class="fas fa-file-pdf"></i>
-      <div class="download-info">
-        <h3>MANUAL PARA ELABORAÇÃO DE PROJETOS</h3>
-        <p>Este Manual tem por objetivo principal facilitar e uniformizar a apresentação 
-dos projetos de pesquisa</p>
-        <a href="downloads/Manual-para-projetos.pdf.pdf" class="download-button" download></a>
-      </div>
-    </div>
-    
-    <div class="download-item">
-      <i class="fas fa-file-pdf"></i>
-      <div class="download-info">
-        <h3>Proposta de Estatuto - DAEIR</h3>
-        <p>Propostas da 1ª versão do estatuto do diretório</p>
-        <a href="downloads/Estatuto - DAEIR - 1º Versão.pdf" class="download-button" target="_blank">Baixar Estatuto</a>
-      </div>
-    </div>
-
-     <div class="download-item">
-      <i class="fas fa-file-pdf"></i>
-      <div class="download-info">
-        <h3>EDITAL PROJETOS DE EXTENSAO 2025.2</h3>
-        <a href="downloads/EDITAL-PROJETOS-DE-EXTENSAO-2025.2.pdf" class="download-button" target="_blank">Baixar Edital</a>
-      </div>
-    </div>
-
-    <div class="download-item">
-      <i class="fas fa-file-pdf"></i>
-      <div class="download-info">
-        <h3>Regulamento do TCC</h3>
-        <p>Normas e diretrizes para conclusão de curso</p>
-        <a href="downloads/REGULAMENTO DO TRABALHO DE CONCLUSÃO DE CURSO EM SAÚDE.pdf" class="download-button" target="_blank">Baixar Regulamento</a>
-      </div>
-    </div>
-
-    <div class="download-item">
-      <i class="fas fa-file-pdf"></i>
-      <div class="download-info">
-        <h3>Manual para Projetos</h3>
-        <p>Guia completo para estruturação de projetos acadêmicos</p>
-        <a href="downloads/Manual-para-projetos.pdf" class="download-button" target="_blank">Baixar Manual</a>
-      </div>
-    </div>
-
-    <div class="download-item">
-      <i class="fas fa-file-excel"></i>
-      <div class="download-info">
-        <h3>Prestação Preliminar de Contas</h3>
-        <p>Transparência financeira do diretório</p>
-        <a href="downloads/Prestação Preliminar de Contas.xlsx" class="download-button" target="_blank">Baixar Planilha</a>
-      </div>
-    </div>
-
-  </div>
-</section>
+                <div class="news-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="img-overflow"><img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=400&q=80" alt="Esportes"></div>
+                    <p class="news-date">🏆 Esportes • Integração</p>
+                    <h3>Resultados dos Jogos Intermódulos</h3>
+                    <p>Nossos atletas deram um show de garra nos Jogos Intermódulos deste semestre. Confira os placares.</p>
+                    <a href="#" class="read-more">Ver resultados <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="contato" class="section">
-      <h2><i class="fas fa-envelope"></i> Fale Conosco</h2>
-      <div class="contact-container">
-        <div class="contact-info">
-          <h3>Nossos Canais</h3>
-          <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/daeirascesunita/" target="_blank">@daeirascesunita</a></p>
-          <p><i class="fas fa-envelope"></i> ouvidoriadaeir@gmail.com</p>
+        <div class="container">
+            <h2 data-aos="zoom-in"><i class="fas fa-envelope"></i> Fale com o DAEIR</h2>
+            <div class="contact-container">
+                <div class="contact-info" data-aos="fade-right" data-aos-delay="200">
+                    <h3>Nossos Canais</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Sala do DAEIR - Bloco da Enfermagem</p>
+                    <p><i class="fas fa-envelope"></i> daeir.enfermagem@email.com</p>
+                    <div class="social-media">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form" data-aos="fade-left" data-aos-delay="400">
+                    <h3>Mande sua mensagem ou sugestão</h3>
+                    <form>
+                        <div class="form-group"><input type="text" placeholder="Seu Nome e Período" required></div>
+                        <div class="form-group"><input type="email" placeholder="Seu E-mail" required></div>
+                        <div class="form-group"><textarea rows="4" placeholder="Como podemos ajudar?" required></textarea></div>
+                        <button type="submit" class="submit-button">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
-  </main>
 
-  <footer class="main-footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo">
-          <img src="images/logo.png" alt="Logo DAEIR" class="footer-logo-img">
-          <p>Diretório Acadêmico de Enfermagem Irmã Ruth</p>
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2 style="color: white; margin-bottom: 15px;">DAEIR</h2>
+                    <p>Diretório Acadêmico de Enfermagem.<br>Construindo o futuro da nossa profissão com ética, ciência e união.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Acesso Rápido</h4>
+                    <ul>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#nic">NIC</a></li>
+                        <li><a href="#atletica">Atlética</a></li>
+                        <li><a href="#noticias">Notícias e Editais</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="footer-links">
-          <h4>Links Rápidos</h4>
-          <ul>
-            <li><a href="#home">Início</a></li>
-            <li><a href="#quem-somos">Sobre</a></li>
-            <li><a href="#eventos">Eventos</a></li>
-            <li><a href="#downloads">Downloads</a></li>
-          </ul>
+        <div class="footer-bottom">
+            <div class="container"><p>&copy; 2026 Diretório Acadêmico de Enfermagem (DAEIR). Todos os direitos reservados.</p></div>
         </div>
-        <div class="footer-contact">
-          <h4>Contato</h4>
-          <p>ASCES-UNITA</p>
-          <p>Av. Portugal, 584 - Bairro Universitário</p>
-          <p>Caruaru - PE, 55016-400</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 DAEIR - Todos os direitos reservados</p>
-        <p>Desenvolvido com ❤️ pelos estudantes de Enfermagem</p>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
-  <script src="js/script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inicia as animações quando o usuário rola a página
+        AOS.init({
+            once: true, // A animação acontece só uma vez quando o elemento aparece
+            offset: 100, // Começa a animar um pouco antes do elemento aparecer todo
+        });
+    </script>
 </body>
 </html>
