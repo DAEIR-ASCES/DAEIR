@@ -578,157 +578,102 @@
 
     <script>
 
-        AOS.init({ duration: 1000, once: true });
+       <script>
+           
+        // Inicializa animações
+        AOS.init({ duration: 800, once: true });
 
-
-
-        // MENU MOBILE
-
-        const menuToggle = document.getElementById('menuToggle');
-
-        const navLinks = document.getElementById('navLinks');
-
-        menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
-
-
-
-        // BANCO DE DADOS DE NOTÍCIAS (Adicione novas notícias aqui!)
-
+        // --- BANCO DE DADOS DE NOTÍCIAS ---
         const noticias = [
-
             {
-
                 id: 1,
-
-                badge: "Posse da nova diretoria do Diretório Acadêmico de Enfermagem Irmã Ruth é realizada nesta terça",
-
-                date: "01 de Abril, 2025",
-
-                title: "Posse da nova diretoria do Diretório Acadêmico de Enfermagem Irmã Ruth é realizada neste",
-
-                excerpt: "Nesta terça-feira, ocorre a cerimônia oficial de posse da nova diretoria do Diretório Acadêmico de Enfermagem Irmã Ruth (DAENF). O evento marca o início de um novo ciclo para a representação estudantil do curso, consolidando os planos de gestão para o próximo período letivo. A nova chapa assume com a proposta de fortalecer o diálogo entre o corpo discente e a coordenação do curso, além de promover eventos científicos, projetos de extensão e ações de acolhimento. 'Nosso objetivo é ser um elo eficiente e humano, garantindo que o estudante de enfermagem tenha o suporte necessário para sua formação técnica e política', afirmou a nova presidência."
-
+                title: "Inscrições para o Simpósio",
+                date: "12 Março, 2026",
+                excerpt: "As inscrições para o II Simpósio de Ética estão abertas.",
+                content: `
+                    <h2 style="color:var(--primary); margin-bottom:15px;">II Simpósio de Ética em Enfermagem</h2>
+                    <p style="margin-bottom:10px;">O evento ocorrerá no auditório principal com convidados renomados da rede municipal de saúde.</p>
+                    <p><strong>Carga Horária:</strong> 20 horas complementares.</p>
+                    <p><strong>Local:</strong> Auditório Bloco C.</p>
+                `
             },
-
             {
-
                 id: 2,
-
-                badge: "Acadêmico",
-
-                date: "05 de Março, 2026",
-
-                title: "Edital de Monitoria Aberto",
-
-                excerpt: "Oportunidade para os alunos de 3º ao 8º período. Confira as disciplinas disponíveis.",
-
-                content: "Estão abertas as vagas para monitoria das disciplinas de Anatomia Humana, Farmacologia e Semiotécnica. Ser monitor é uma excelente forma de fortalecer o currículo e aprofundar conhecimentos técnicos. Os interessados devem enviar a carta de intenção e o histórico escolar para o e-mail da coordenação até sexta-feira."
-
-            },
-
-            {
-
-                id: 3,
-
-                badge: "Ação Social",
-
-                date: "01 de Março, 2026",
-
-                title: "Campanha de Doação de Sangue",
-
-                excerpt: "O DAEIR em parceria com o Hemope convida todos para uma manhã de solidariedade.",
-
-                content: "Nesta próxima quarta-feira, estaremos com um ônibus especial saindo do Campus II para o Hemope Caruaru. Doar sangue é um ato de amor e cuidado, valores fundamentais da nossa profissão. Todos os doadores receberão certificado de horas complementares de extensão."
-
+                title: "Ajuste de Grade Curricular",
+                date: "08 Março, 2026",
+                excerpt: "Confira as mudanças nos horários do 4º e 6º período.",
+                content: `
+                    <h2 style="color:var(--primary); margin-bottom:15px;">Novos Horários de Laboratório</h2>
+                    <p>Devido à reforma nos laboratórios de anatomia, as aulas práticas foram realocadas para o turno da tarde temporariamente.</p>
+                    <p>Confira o PDF completo no grupo de representantes.</p>
+                `
             }
-
         ];
 
+        // --- BANCO DE DADOS DE FOTOS ---
+        const fotos = [
+            { url: "https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=1000", caption: "Aula Prática de Semiotécnica" },
+            { url: "https://images.unsplash.com/photo-1584515169900-6110bff35f5e?q=80&w=1000", caption: "Reunião de Planejamento Gestão 2025" },
+            { url: "https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=1000", caption: "Visita Técnica ao Hospital Regional" }
+        ];
 
-
-        // RENDERIZAR NOTÍCIAS
-
+        // Renderizar Notícias
         const newsContainer = document.getElementById('newsContainer');
-
-        
-
-        function renderNews() {
-
+        if(newsContainer) {
             newsContainer.innerHTML = noticias.map(n => `
-
                 <div class="news-card" onclick="openNews(${n.id})" data-aos="fade-up">
-
-                    <span class="news-badge">${n.badge}</span>
-
-                    <p style="font-size: 0.8rem; color: var(--secondary); font-weight:600">${n.date}</p>
-
-                    <h3 style="margin: 10px 0; color: var(--primary)">${n.title}</h3>
-
-                    <p style="color: var(--text-light); font-size: 0.95rem">${n.excerpt}</p>
-
-                    <div style="margin-top: 15px; color: var(--primary); font-weight:700">Ler matéria completa →</div>
-
+                    <small style="color:var(--secondary); font-weight:bold;">${n.date}</small>
+                    <h3 style="margin: 10px 0;">${n.title}</h3>
+                    <p style="color:var(--text-muted); font-size:0.9rem;">${n.excerpt}</p>
+                    <strong style="display:block; margin-top:15px; color:var(--primary)">Ler comunicado completo +</strong>
                 </div>
-
             `).join('');
-
         }
 
+        // Renderizar Galeria
+        const galleryContainer = document.getElementById('galleryContainer');
+        if(galleryContainer) {
+            galleryContainer.innerHTML = fotos.map(f => `
+                <div class="gallery-item" onclick="openPhoto('${f.url}', '${f.caption}')" data-aos="zoom-in">
+                    <img src="${f.url}" alt="Foto">
+                    <div class="gallery-overlay-text" style="position:absolute; bottom:0; background:rgba(0,0,0,0.6); color:white; width:100%; padding:10px; font-size:0.8rem;">
+                        ${f.caption}
+                    </div>
+                </div>
+            `).join('');
+        }
 
-
-        // LÓGICA DO MODAL
-
-        const modal = document.getElementById('modalOverlay');
-
-        const closeModal = document.getElementById('closeModal');
-
-
-
+        // Funções dos Modais
         function openNews(id) {
-
-            const noticia = noticias.find(n => n.id === id);
-
-            document.getElementById('modalTitle').innerText = noticia.title;
-
-            document.getElementById('modalDate').innerText = noticia.date;
-
-            document.getElementById('modalText').innerText = noticia.content;
-
-            modal.classList.add('active');
-
-            document.body.style.overflow = 'hidden'; // Trava o scroll do fundo
-
+            const n = noticias.find(item => item.id === id);
+            if(n) {
+                document.getElementById('modalBody').innerHTML = n.content;
+                document.getElementById('newsModal').classList.add('active');
+                document.body.style.overflow = 'hidden'; // Trava o scroll do fundo
+            }
         }
 
+        function openPhoto(url, caption) {
+            document.getElementById('expandedImg').src = url;
+            document.getElementById('photoCaption').innerText = caption;
+            document.getElementById('photoModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
 
+        function closeAllModals() {
+            document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('active'));
+            document.body.style.overflow = 'auto'; // Devolve o scroll
+        }
 
-        closeModal.addEventListener('click', () => {
-
-            modal.classList.remove('active');
-
-            document.body.style.overflow = 'auto';
-
-        });
-
-
-
-        window.onclick = (event) => {
-
-            if (event.target == modal) {
-
-                modal.classList.remove('active');
-
-                document.body.style.overflow = 'auto';
-
-            }
-
+        // Fechar ao clicar fora ou na tecla ESC
+        window.onclick = (e) => {
+            if (e.target.classList.contains('modal-overlay')) closeAllModals();
         };
-
-
-
-        renderNews();
-
-    </script>
+        
+        window.onkeydown = (e) => {
+            if (e.key === "Escape") closeAllModals();
+        };
+    </script>    </script>
     
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
