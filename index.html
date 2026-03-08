@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DAEIR - Enfermagem</title>
     
-    <link rel="icon" type="image/png" href="/images/Logotipo DAEIR-fotor-20260308125841.png">
+    <link rel="icon" type="image/png" href="DAEIR/images/Logotipo DAEIR-fotor-20260308125841.png">
     
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
@@ -13,6 +13,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
+        /* 1. VARIÁVEIS DE DESIGN PREMIUM */
         :root {
             --primary: #005A40; 
             --primary-dark: #003222;
@@ -23,11 +24,13 @@
             --text-main: #1a1a1a;
             --text-light: #64746B;
             --shadow-premium: 0 10px 30px rgba(0,0,0,0.08);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 12px 30px rgba(0, 90, 64, 0.12);
             --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             --radius: 13px;
         }
 
-        /* Reset e Estilos Base */
+        /* 2. RESET E ESTILOS BASE */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { 
@@ -40,11 +43,16 @@
         h1, h2, h3, h4, .chapa { font-family: 'Poppins', sans-serif; }
         .container { width: 92%; max-width: 1300px; margin: 0 auto; }
 
-        /* Animações */
+        /* 3. ANIMAÇÕES */
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
         @keyframes kenburns { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
+        @keyframes pulse-yellow { 
+            0% { box-shadow: 0 0 0 0 rgba(242, 201, 76, 0.8); } 
+            70% { box-shadow: 0 0 0 20px rgba(242, 201, 76, 0); } 
+            100% { box-shadow: 0 0 0 0 rgba(242, 201, 76, 0); } 
+        }
 
-        /* --- CABEÇALHO PREMIUM --- */
+        /* 4. CABEÇALHO PREMIUM */
         .main-header { 
             background: linear-gradient(180deg, #ffffff 0%, #f9f9f9 100%);
             padding: 25px 0; 
@@ -52,143 +60,96 @@
             z-index: 2000;
             border-bottom: 1px solid rgba(0,0,0,0.03);
         }
-
-        .logo-container { 
-            display: flex; 
-            align-items: center; 
-            gap: 30px; 
-        }
-
+        .logo-container { display: flex; align-items: center; gap: 30px; }
         .logo { 
-            width: 150px; 
+            width: 140px; 
             height: auto; 
             filter: drop-shadow(0 8px 15px rgba(0, 50, 30, 0.15));
             animation: float 6s ease-in-out infinite;
             transition: var(--transition-smooth);
         }
-        
         .logo:hover { transform: scale(1.05); }
+        .header-text { border-left: 2px solid rgba(0, 90, 64, 0.1); padding-left: 30px; }
+        .header-text h1 { font-size: 1.9rem; color: var(--primary); font-weight: 800; margin: 0; letter-spacing: -0.5px; line-height: 1.1; }
+        .chapa { display: inline-block; margin-top: 5px; color: var(--secondary); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 3px; }
 
-        .header-text {
-            border-left: 2px solid rgba(0, 90, 64, 0.1); 
-            padding-left: 30px;
-        }
-
-        .header-text h1 { 
-            font-size: 1.9rem; 
-            color: var(--primary); 
-            font-weight: 800; 
-            margin: 0; 
-            letter-spacing: -0.5px;
-            line-height: 1.1;
-        }
-
-        .chapa { 
-            display: inline-block;
-            margin-top: 5px;
-            color: var(--secondary); 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            font-size: 0.85rem; 
-            letter-spacing: 3px;
-        }
-
-        /* --- NAVEGAÇÃO --- */
-        .main-nav { 
-            background-color: var(--primary); 
-            position: sticky; 
-            top: 0; 
-            z-index: 1500; 
-            box-shadow: var(--shadow-premium);
-        }
-
-        .nav-container { display: flex; align-items: center; justify-content: center; }
-
+        /* 5. NAVEGAÇÃO */
+        .main-nav { background-color: var(--primary); position: sticky; top: 0; z-index: 1500; box-shadow: var(--shadow-premium); }
+        .nav-container { display: flex; align-items: center; justify-content: center; position: relative; min-height: 60px; }
+        .mobile-menu-btn { display: none; background: none; border: none; color: white; font-size: 1.6rem; cursor: pointer; padding: 15px; position: absolute; left: 20px; }
         .nav-links { display: flex; }
-
         .nav-links a { 
-            color: rgba(255,255,255,0.9); 
-            text-decoration: none; 
-            padding: 18px 25px; 
-            font-size: 1.05rem; 
-            font-weight: 600; 
-            transition: var(--transition-smooth);
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            color: rgba(255,255,255,0.9); text-decoration: none; padding: 18px 25px; 
+            font-size: 1.05rem; font-weight: 600; transition: var(--transition-smooth);
+            display: flex; align-items: center; gap: 8px;
         }
+        .nav-links a:hover { background-color: rgba(255,255,255,0.1); color: var(--accent); }
 
-        .nav-links a:hover { 
-            background-color: rgba(255,255,255,0.1); 
-            color: var(--accent);
-        }
-
-        /* --- HERO SECTION --- */
+        /* 6. HERO SECTION COM BOTÃO PULSANDO */
         .hero-section {
-            position: relative;
-            height: 75vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            text-align: center;
-            color: white;
+            position: relative; height: 80vh; display: flex; align-items: center; justify-content: center;
+            overflow: hidden; text-align: center; color: white;
         }
-
         .hero-bg {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(rgba(0, 90, 64, 0.7), rgba(18, 38, 30, 0.85)), 
                         url('https://daeir-asces.github.io/DAEIR/images/IMG-20250512-WA0421 (1).jpg') center/cover;
-            z-index: -1;
-            animation: kenburns 20s infinite alternate;
+            z-index: -1; animation: kenburns 20s infinite alternate;
         }
-
         .hero-content h2 { font-size: 3.5rem; margin-bottom: 20px; text-shadow: 0 4px 15px rgba(0,0,0,0.3); }
         .hero-content p { font-size: 1.4rem; margin-bottom: 35px; opacity: 0.9; }
-
-        .cta-button { 
-            display: inline-block; background-color: var(--accent); color: var(--primary-dark); padding: 16px 40px; 
-            border-radius: 50px; text-decoration: none; font-weight: 800; transition: var(--transition-smooth);
-            box-shadow: 0 10px 20px rgba(242, 201, 76, 0.3);
-        }
-
-        .cta-button:hover { transform: translateY(-5px); box-shadow: 0 15px 25px rgba(242, 201, 76, 0.4); }
-
-        /* --- SEÇÃO NIC --- */
-        .section { padding: 100px 0; }
         
-        .nic-title-container {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-            margin-bottom: 50px;
+        .cta-button { 
+            display: inline-block; background-color: var(--accent); color: var(--primary-dark); 
+            padding: 16px 40px; border-radius: 50px; text-decoration: none; font-weight: 800; 
+            transition: var(--transition-smooth);
         }
+        /* Classe do Botão Pulsando */
+        .pulse-btn { animation: pulse-yellow 2s infinite; }
+        .cta-button:hover { transform: translateY(-5px); background-color: #fce28b; animation: none; box-shadow: 0 15px 25px rgba(242, 201, 76, 0.4); }
 
-        .nic-main-logo {
-            width: 100px; 
-            height: auto;
-            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
-        }
-
-        .nic-title-container h2 { color: var(--primary); font-size: 2.5rem; }
+        /* 7. SEÇÕES GERAIS E NIC */
+        .section { padding: 100px 0; }
+        .section-title { color: var(--primary); font-size: 2.5rem; text-align: center; margin-bottom: 50px; }
+        
+        /* Layout Específico do Título do NIC */
+        .nic-title-container { display: flex; align-items: center; justify-content: flex-start; gap: 25px; margin-bottom: 40px; }
+        .nic-main-logo { width: 90px; height: auto; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1)); }
+        .nic-title-container h2 { color: var(--primary); font-size: 2.5rem; margin: 0; }
+        .nic-header-desc { max-width: 800px; margin-bottom: 50px; color: var(--text-light); font-size: 1.15rem; }
 
         .nic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        
         .nic-card { 
             background: white; padding: 50px 35px; border-radius: var(--radius); text-align: center;
-            box-shadow: var(--shadow-sm); transition: var(--transition-smooth);
-            border: 1px solid rgba(0,0,0,0.03);
+            box-shadow: var(--shadow-sm); transition: var(--transition-smooth); border: 1px solid rgba(0,0,0,0.03);
         }
-
-        .nic-card:hover { transform: translateY(-12px); box-shadow: var(--shadow-md); }
+        .nic-card:hover { transform: translateY(-12px); box-shadow: var(--shadow-md); border-color: var(--primary-light); }
         .nic-card i { font-size: 3.5rem; color: var(--primary); margin-bottom: 25px; opacity: 0.9; }
+        .nic-card h3 { color: var(--primary-dark); margin-bottom: 15px; font-size: 1.5rem; }
+        .nic-card p { color: var(--text-light); font-size: 1rem; }
 
-        /* Responsividade */
+        /* 8. RODAPÉ */
+        .main-footer { background-color: var(--primary-dark); color: white; padding: 60px 0 30px; margin-top: 50px; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        .footer-bottom { text-align: center; padding-top: 40px; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; opacity: 0.7; }
+
+        /* 9. RESPONSIVIDADE (MOBILE) */
         @media (max-width: 900px) {
             .logo-container { flex-direction: column; text-align: center; gap: 15px; }
             .header-text { border-left: none; padding-left: 0; }
-            .nav-links { display: none; }
+            .header-text h1 { font-size: 1.5rem; }
             .hero-content h2 { font-size: 2.2rem; }
+            
+            .mobile-menu-btn { display: block; }
+            .nav-container { justify-content: flex-end; }
+            .nav-links { 
+                display: none; flex-direction: column; width: 100%; padding: 0; 
+                background-color: var(--primary); position: absolute; top: 100%; left: 0;
+            }
+            .nav-links.active { display: flex; }
+            .nav-links a { justify-content: center; border-bottom: 1px solid rgba(255,255,255,0.05); padding: 20px; }
+            
+            .nic-title-container { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -196,7 +157,7 @@
 
     <header class="main-header" data-aos="fade-down">
         <div class="container logo-container">
-            <img src="/images/Logotipo DAEIR-fotor-20260308125841.png" alt="Logo DAEIR" class="logo">
+            <img src="DAEIR/images/Logotipo DAEIR-fotor-20260308125841.png" alt="Logo DAEIR" class="logo">
             <div class="header-text">
                 <h1>Diretório Acadêmico de Enfermagem <span style="color: var(--primary-dark);">Irmã Ruth</span></h1>
                 <p class="chapa">Gestão 2025 - 2026</p>
@@ -206,7 +167,10 @@
 
     <nav class="main-nav">
         <div class="container nav-container">
-            <div class="nav-links">
+            <button class="mobile-menu-btn" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
                 <a href="#inicio"><i class="fas fa-home"></i> Início</a>
                 <a href="#nic"><i class="fas fa-microscope"></i> NIC</a>
                 <a href="#atletica"><i class="fas fa-trophy"></i> Atlética</a>
@@ -222,16 +186,18 @@
         <div class="hero-content" data-aos="zoom-in">
             <h2>Somos a enfermagem que queremos ter!</h2>
             <p>Representando, integrando e produzindo ciência com excelência acadêmica.</p>
-            <a href="#noticias" class="cta-button">Ver Últimas Notícias</a>
+            <a href="#noticias" class="cta-button pulse-btn">Ver Últimas Notícias</a>
         </div>
     </section>
 
-    <section id="nic" class="section" style="background-color: #f4f7f6;">
+    <section id="nic" class="section" style="background-color: var(--primary-light);">
         <div class="container">
             <div class="nic-title-container" data-aos="fade-right">
-                <img src="URL_DA_LOGO_DO_NIC_AQUI" alt="NIC Logo" class="nic-main-logo">
+                <img src="LINK_DA_LOGO_DO_NIC_AQUI" alt="NIC Logo" class="nic-main-logo">
                 <h2>Núcleo de Incentivo à Ciência (NIC)</h2>
             </div>
+            
+            <p class="nic-header-desc" data-aos="fade-up">O NIC é o braço científico do DAEIR, dedicado a transformar o potencial dos estudantes em produções de impacto na área da saúde.</p>
 
             <div class="nic-grid">
                 <div class="nic-card" data-aos="fade-up" data-aos-delay="100">
@@ -253,13 +219,84 @@
         </div>
     </section>
 
-    <footer style="background: var(--primary-dark); color: white; padding: 40px 0; text-align: center;">
-        <p>&copy; 2026 DAEIR - Todos os direitos reservados.</p>
+    <section id="atletica" class="section">
+        <div class="container" data-aos="fade-up">
+            <h2 class="section-title"><i class="fas fa-trophy" style="color: var(--secondary);"></i> Atlética Enfurecidos</h2>
+            <p style="text-align: center; color: var(--text-light);">Em breve, todas as novidades esportivas e produtos da nossa atlética!</p>
+        </div>
+    </section>
+
+    <section id="noticias" class="section" style="background-color: #f4f7f6;">
+        <div class="container" data-aos="fade-up">
+            <h2 class="section-title"><i class="fas fa-newspaper"></i> Mural de Notícias</h2>
+            <p style="text-align: center; color: var(--text-light);">Acompanhe nossas últimas ações e eventos.</p>
+        </div>
+    </section>
+
+    <section id="downloads" class="section">
+        <div class="container" data-aos="fade-up">
+            <h2 class="section-title"><i class="fas fa-download"></i> Central de Downloads</h2>
+            <p style="text-align: center; color: var(--text-light);">Manuais, Editais e Documentos Oficiais.</p>
+        </div>
+    </section>
+
+    <section id="contato" class="section" style="background-color: #f4f7f6;">
+        <div class="container" data-aos="fade-up">
+            <h2 class="section-title"><i class="fas fa-envelope"></i> Fale Conosco</h2>
+            <p style="text-align: center; color: var(--text-light);">Dúvidas, sugestões ou parcerias? Entre em contato!</p>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h2>DAEIR</h2>
+                    <p>Diretório Acadêmico de Enfermagem Irmã Ruth<br>ASCES-UNITA</p>
+                </div>
+                <div>
+                    <h4>Links Rápidos</h4>
+                    <p><a href="#nic" style="color: white; text-decoration: none;">NIC</a></p>
+                    <p><a href="#atletica" style="color: white; text-decoration: none;">Atlética</a></p>
+                    <p><a href="#downloads" style="color: white; text-decoration: none;">Documentos</a></p>
+                </div>
+                <div>
+                    <h4>Redes Sociais</h4>
+                    <p><i class="fab fa-instagram"></i> @daeir.asces</p>
+                    <p><i class="fas fa-envelope"></i> contato@daeir.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 DAEIR - Todos os direitos reservados. Feito com <i class="fas fa-heart" style="color: var(--secondary);"></i> pela Gestão.</p>
+            </div>
+        </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Inicializa as animações de rolagem
         AOS.init({ duration: 1000, once: true });
+
+        // Lógica do Menu Mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Fecha o menu ao clicar em um link (mobile)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            });
+        });
     </script>
 </body>
 </html>
