@@ -14,6 +14,14 @@
     <link rel="stylesheet" href="css/style.css">
 
     <style>
+        :root {
+            --primary: #006847; /* Exemplo de verde DAEIR */
+            --secondary: #ce2029;
+            --accent: #ffcc00;
+            --light: #f4f4f4;
+            --dark: #333;
+        }
+
         .main-header { 
             background-color: #ffffff; 
             color: var(--primary); 
@@ -78,14 +86,12 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
         }
 
-        /* Container do Menu para alinhar o botão no mobile */
         .nav-container {
             display: flex;
             align-items: center;
             position: relative;
         }
 
-        /* Botão Mobile Invisível no Desktop */
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -97,37 +103,38 @@
             transition: color 0.3s;
         }
 
-        .mobile-menu-btn:hover {
-            color: var(--accent);
-        }
-
-        /* Agrupamento dos links */
+        /* AJUSTE PARA MANTER TUDO EM UMA LINHA */
         .nav-links {
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap; /* Impede a quebra de linha */
             justify-content: flex-start;
-            padding-left: 220px; 
+            padding-left: 195px; /* Reduzido para dar espaço ao último item */
             width: 100%;
         }
 
         .nav-links a { 
             color: rgba(255, 255, 255, 0.9); 
             text-decoration: none; 
-            padding: 16px 18px; 
+            padding: 16px 12px; /* Reduzido o padding lateral para caber tudo */
             display: inline-block; 
             transition: 0.3s; 
-            font-size: 0.95rem; 
+            font-size: 0.9rem; /* Fonte levemente menor para garantir a linha única */
             font-weight: 500; 
             position: relative;
+            white-space: nowrap; /* Evita que o texto quebre dentro do próprio link */
         }
         
         .nav-links a::after { content: ''; position: absolute; width: 0; height: 3px; bottom: 0; left: 50%; background-color: var(--accent); transition: 0.3s; transform: translateX(-50%); }
         .nav-links a:hover::after { width: 100%; }
         .nav-links a:hover { color: white; background-color: rgba(255,255,255,0.05);}
-        .nav-links a i { margin-right: 8px; }
+        .nav-links a i { margin-right: 6px; }
 
-        /* ESTILOS PREMIUM PARA MOBILE */
-        @media (max-width: 900px) {
+        @media (max-width: 1100px) {
+            .nav-links a { font-size: 0.85rem; padding: 16px 8px; }
+            .nav-links { padding-left: 185px; }
+        }
+
+        @media (max-width: 950px) {
             .logo-container { flex-direction: column; text-align: center; }
             .logo { 
                 position: relative; 
@@ -140,15 +147,13 @@
             .header-text { margin-left: 0; }
             .header-text h1 { font-size: 1.5rem; text-align: center; }
             
-            /* Mostra o botão hambúrguer e ajusta a barra verde */
             .mobile-menu-btn {
                 display: block;
                 width: 100%;
-                text-align: center; /* Centraliza o ícone no celular */
+                text-align: center;
                 background-color: var(--primary);
             }
 
-            /* Transforma os links num menu que desce */
             .nav-links { 
                 flex-direction: column;
                 padding-left: 0;
@@ -158,26 +163,23 @@
                 background-color: var(--primary);
                 width: 100%;
                 box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-                
-                /* Efeito gaveta escondida */
                 max-height: 0;
                 overflow: hidden;
                 transition: max-height 0.4s ease-out;
             }
 
-            /* Quando o menu ganha a classe 'active' via JavaScript */
             .nav-links.active {
-                max-height: 500px; /* Altura suficiente para mostrar os links */
+                max-height: 500px;
             }
 
             .nav-links a {
                 display: block;
                 text-align: center;
                 padding: 15px 20px;
-                border-top: 1px solid rgba(255,255,255,0.05); /* Linha divisória sutil */
+                border-top: 1px solid rgba(255,255,255,0.05);
             }
             
-            .nav-links a::after { display: none; /* Tira o sublinhado animado no mobile */ }
+            .nav-links a::after { display: none; }
         }
     </style>
 </head>
@@ -201,8 +203,8 @@
             
             <div class="nav-links" id="navLinks">
                 <a href="#inicio"><i class="fas fa-home"></i> Início</a>
-                <a href="#nic"><i class="fas fa-microscope"></i> Núcleo de Incentivo à Ciência</a>
-                <a href="#atletica"><i class="fas fa-trophy"></i> Atlética Enfurecidos</a>
+                <a href="#nic"><i class="fas fa-microscope"></i> Ciência</a>
+                <a href="#atletica"><i class="fas fa-trophy"></i> Atlética</a>
                 <a href="#noticias"><i class="fas fa-newspaper"></i> Notícias</a>
                 <a href="#downloads"><i class="fas fa-download"></i> Downloads</a>
                 <a href="#contato"><i class="fas fa-envelope"></i> Contato</a>
@@ -210,189 +212,27 @@
         </div>
     </nav>
 
-    <section id="inicio" class="hero-section">
-        <div class="container hero-content" data-aos="zoom-in" data-aos-duration="1200">
-            <h2>Somos a enfermagem que queremos ter!</h2>
-            <p>Representando os estudantes, lutando por melhorias no ensino e promovendo a integração e a ciência dentro e fora da universidade.</p>
-            <a href="#noticias" class="cta-button pulse-btn">Ver Últimas Atualizações</a>
-        </div>
-    </section>
-
-    <section id="nic" class="section" style="background-color: var(--primary-light);">
-        <div class="container">
-            <h2 data-aos="fade-right"><i class="fas fa-microscope"></i> Núcleo de Incentivo à Ciência (NIC)</h2>
-            <div class="featured-event">
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="Pesquisa" data-aos="fade-right" data-aos-delay="200" class="hover-zoom">
-                <div class="event-details" data-aos="fade-left" data-aos-delay="400">
-                    <h3>Pesquisa e Inovação na Enfermagem</h3>
-                    <p class="event-description">O NIC é o coração científico do nosso curso. Nosso objetivo é fomentar a pesquisa, auxiliar na produção de artigos, organizar simpósios e conectar os estudantes com projetos de iniciação científica e ligas acadêmicas.</p>
-                    <a href="#" class="event-button">Conheça nossos projetos</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="atletica" class="section">
-        <div class="container">
-            <h2 data-aos="fade-right"><i class="fas fa-trophy"></i> Atlética de Enfermagem</h2>
-            <div class="featured-event" style="display: flex; flex-wrap: wrap; flex-direction: row-reverse;">
-                <img src="https://images.unsplash.com/photo-1526676037777-05a232554f77?auto=format&fit=crop&w=800&q=80" alt="Torcida" style="flex: 1; min-width: 300px;" data-aos="fade-left" data-aos-delay="200" class="hover-zoom">
-                <div class="event-details" style="flex: 1; min-width: 300px; padding-right: 20px;" data-aos="fade-right" data-aos-delay="400">
-                    <h3>Integração, Esporte e Sangue no Olho!</h3>
-                    <p class="event-description">A vida acadêmica vai além das salas de aula e estágios. Nossa Atlética promove o esporte, o bem-estar e, principalmente, a união entre os períodos. Venha fazer parte dos nossos times!</p>
-                    <a href="#" class="event-button" style="background-color: var(--accent); color: var(--dark);">Siga a Atlética</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="noticias" class="section" style="background-color: var(--light);">
-        <div class="container">
-            <h2 data-aos="fade-up"><i class="fas fa-bullhorn"></i> Mural de Notícias e Avisos</h2>
-            
-            <div class="news-container">
-                <div class="news-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="img-overflow"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=400&q=80" alt="Documentos"></div>
-                    <p class="news-date">📢 Urgente • Seleção</p>
-                    <h3>Edital da Comissão Eleitoral do DAEIR 2026</h3>
-                    <p>O edital para a formação da nova comissão eleitoral já está disponível. Participe ativamente do processo.</p>
-                    <a href="#" class="read-more">Ler o Edital <i class="fas fa-arrow-right"></i></a>
-                </div>
-
-                <div class="news-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="img-overflow"><img src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?auto=format&fit=crop&w=400&q=80" alt="Reunião"></div>
-                    <p class="news-date">🏛️ Oficial • Convocação</p>
-                    <h3>Chamamento para Assembleia Geral</h3>
-                    <p>Convocamos todos os estudantes de Enfermagem para a nossa próxima Assembleia Geral. Pautas importantes.</p>
-                    <a href="#" class="read-more">Ver pauta e data <i class="fas fa-arrow-right"></i></a>
-                </div>
-
-                <div class="news-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="img-overflow"><img src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&w=400&q=80" alt="Acolhida"></div>
-                    <p class="news-date">🎉 Evento • 2026.1</p>
-                    <h3>Acolhida dos Calouros 2026.1</h3>
-                    <p>A recepção aos novos estudantes foi um absoluto sucesso! Sejam bem-vindos à família!</p>
-                    <a href="#" class="read-more">Ver galeria de fotos <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="downloads" class="section">
-        <div class="container">
-            <h2 data-aos="fade-up"><i class="fas fa-download"></i> Central de Downloads</h2>
-            <p style="text-align: center; margin-bottom: 40px; color: var(--text-light); font-size: 1.1rem;" data-aos="fade-up" data-aos-delay="100">Acesse aqui nossos documentos oficiais, formulários e materiais úteis para os estudantes.</p>
-
-            <div class="news-container">
-                <div class="news-card" style="text-align: center;" data-aos="fade-up" data-aos-delay="150">
-                    <i class="fas fa-file-pdf" style="font-size: 3.5rem; color: var(--secondary); margin-bottom: 20px;"></i>
-                    <h3 style="margin-bottom: 10px;">Estatuto do DAEIR</h3>
-                    <p style="font-size: 0.95rem;">Documento oficial que rege as normas e diretrizes de funcionamento do nosso Diretório Acadêmico.</p>
-                    <a href="#" class="cta-button" style="padding: 10px 25px; font-size: 0.9rem; margin-top: 10px;"><i class="fas fa-download"></i> Baixar PDF</a>
-                </div>
-
-                <div class="news-card" style="text-align: center;" data-aos="fade-up" data-aos-delay="250">
-                    <i class="fas fa-file-alt" style="font-size: 3.5rem; color: var(--primary); margin-bottom: 20px;"></i>
-                    <h3 style="margin-bottom: 10px;">Requerimentos Gerais</h3>
-                    <p style="font-size: 0.95rem;">Formulários para submissão de projetos, registro de Ligas Acadêmicas e solicitação de apoio do DAEIR.</p>
-                    <a href="#" class="cta-button" style="padding: 10px 25px; font-size: 0.9rem; margin-top: 10px;"><i class="fas fa-download"></i> Baixar Arquivos</a>
-                </div>
-
-                <div class="news-card" style="text-align: center;" data-aos="fade-up" data-aos-delay="350">
-                    <i class="fas fa-book-medical" style="font-size: 3.5rem; color: var(--accent); margin-bottom: 20px;"></i>
-                    <h3 style="margin-bottom: 10px;">Manual do Calouro</h3>
-                    <p style="font-size: 0.95rem;">Um guia prático com tudo o que o novo estudante precisa saber para sobreviver e aproveitar o curso.</p>
-                    <a href="#" class="cta-button" style="padding: 10px 25px; font-size: 0.9rem; margin-top: 10px;"><i class="fas fa-download"></i> Baixar PDF</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contato" class="section" style="background-color: var(--primary-light);">
-        <div class="container">
-            <h2 data-aos="zoom-in"><i class="fas fa-envelope"></i> Fale com o DAEIR</h2>
-            <div class="contact-container">
-                <div class="contact-info" data-aos="fade-right" data-aos-delay="200">
-                    <h3>Nossos Canais</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Sala do DAEIR - Bloco dos Diretórios </p>
-                    <p><i class="fas fa-envelope"></i> ouvidoriadaeir@email.com</p>
-                    <div class="social-media">
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-                
-                <div class="contact-form" data-aos="fade-left" data-aos-delay="400">
-                    <h3>Mande sua mensagem ou sugestão</h3>
-                    <form>
-                        <div class="form-group"><input type="text" placeholder="Seu Nome e Período" required></div>
-                        <div class="form-group"><input type="email" placeholder="Seu E-mail" required></div>
-                        <div class="form-group"><textarea rows="4" placeholder="Como podemos ajudar?" required></textarea></div>
-                        <button type="submit" class="submit-button">Enviar Mensagem</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="main-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h2 style="color: white; margin-bottom: 15px;">DAEIR</h2>
-                    <p>Diretório Acadêmico de Enfermagem.<br>Construindo o futuro da nossa profissão com ética, ciência e união.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Acesso Rápido</h4>
-                    <ul>
-                        <li><a href="#inicio">Início</a></li>
-                        <li><a href="#nic">NIC</a></li>
-                        <li><a href="#noticias">Notícias e Editais</a></li>
-                        <li><a href="#downloads">Central de Downloads</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="container"><p>&copy; 2026 Diretório Acadêmico de Enfermagem (DAEIR). Todos os direitos reservados.</p></div>
-        </div>
-    </footer>
-
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Animações de rolagem
-        AOS.init({
-            once: true,
-            offset: 100, 
-        });
+        AOS.init({ once: true, offset: 100 });
 
-        // SCRIPT DO MENU MOBILE
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
         const icon = menuToggle.querySelector('i');
 
         menuToggle.addEventListener('click', () => {
-            // Adiciona ou tira a classe que abre o menu
             navLinks.classList.toggle('active');
-            
-            // Troca o ícone de hambúrguer para o "X" de fechar
             if(navLinks.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
+                icon.classList.replace('fa-bars', 'fa-times');
             } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+                icon.classList.replace('fa-times', 'fa-bars');
             }
         });
 
-        // Fecha o menu automaticamente quando clica em algum link
-        const links = navLinks.querySelectorAll('a');
-        links.forEach(link => {
+        document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+                icon.classList.replace('fa-times', 'fa-bars');
             });
         });
     </script>
