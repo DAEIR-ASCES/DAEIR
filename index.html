@@ -86,14 +86,17 @@
         .nav-container { display: flex; align-items: center; justify-content: center; position: relative; min-height: 60px; }
         .mobile-menu-btn { display: none; background: none; border: none; color: white; font-size: 1.6rem; cursor: pointer; padding: 15px; position: absolute; left: 20px; }
         .nav-links { display: flex; }
+        
         .nav-links a { 
+            position: relative; /* Modificado: Necessário para o efeito da linha amarela */
             color: rgba(255,255,255,0.85); text-decoration: none; padding: 18px 25px; 
-            font-size: 1.05rem; font-weight: 600; transition: var(--transition-smooth);
+            font-size: 1.05rem; font-weight: 600; transition: all 0.3s ease;
             display: flex; align-items: center; gap: 8px;
+            letter-spacing: 0.5px; /* Modificado: Deixa as letras sutilmente mais espaçadas e elegantes */
         }
         
         /* Cores exclusivas para os ícones da nav */
-        .nav-links a i { font-size: 1rem; opacity: 0.9; transition: var(--transition-smooth); }
+        .nav-links a i { font-size: 1rem; opacity: 0.9; transition: all 0.3s ease; }
         .nav-links a:nth-child(1) i { color: var(--icon-home); }
         .nav-links a:nth-child(2) i { color: var(--icon-nic); }
         .nav-links a:nth-child(3) i { color: var(--icon-atletica); }
@@ -101,8 +104,33 @@
         .nav-links a:nth-child(5) i { color: var(--icon-download); }
         .nav-links a:nth-child(6) i { color: var(--icon-contact); }
 
-        .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.1); transform: translateY(-2px); }
-        .nav-links a:hover i { transform: scale(1.2); }
+        /* Modificado: A linha amarela escondida no fundo do botão */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 4px;
+            background-color: var(--accent);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        /* Modificado: Efeito Hover Sério e Premium */
+        .nav-links a:hover { 
+            color: var(--accent); /* O texto fica no tom de amarelo premium */
+            background: rgba(255, 255, 255, 0.03); /* Fundo dá um leve brilho quase imperceptível */
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%; /* A linha amarela cresce do centro para as pontas */
+        }
+
+        .nav-links a:hover i { 
+            transform: scale(1.1); 
+            color: var(--accent); /* O ícone também acompanha a cor amarela no hover para unificar */
+        }
         
         /* 6. HERO SECTION (BANNER) */
         .hero-section {
