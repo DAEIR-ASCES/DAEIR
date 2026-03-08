@@ -753,3 +753,26 @@ body {
     height: clamp(180px, 45vw, 260px);
   }
 }
+
+/* Ajustes de Legibilidade - Seção Sobre */
+.about-content p {
+    text-align: justify;      /* Justifica o texto */
+    margin-bottom: 2rem;      /* Espaço generoso entre parágrafos */
+    font-weight: normal;      /* Garante que o texto não fique em negrito */
+    font-size: 1.1rem;        /* Tamanho confortável para leitura */
+}
+
+.objectives-list {
+    list-style: none;
+    padding-top: 10px;
+}
+
+.objectives-list li {
+    text-align: justify;      /* Justifica os itens da lista */
+    margin-bottom: 1.5rem;    /* Espaço entre cada objetivo */
+}
+
+.subtitle {
+    margin: 2rem 0 1rem 0;    /* Espaçamento em volta do título secundário */
+    color: var(--primary);
+}
