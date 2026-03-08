@@ -379,42 +379,125 @@
         </div>
     </section>
 
-    <section id="noticias" class="section" style="background-color: #f4f7f6;">
-        <div class="container" data-aos="fade-up">
-            <h2 class="section-title"><i class="fas fa-newspaper"></i> Mural de Notícias</h2>
-            <p style="color: var(--text-light); margin-bottom: 30px;">Acompanhe nossas últimas ações, eventos e comunicados importantes.</p>
-            
-            <div class="news-container">
-                <div class="news-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="img-overflow">
-                        <i class="fas fa-camera fa-3x"></i> 
-                    </div>
-                    <div class="news-date">10 Março 2026</div>
-                    <h3>Semana da Enfermagem 2026</h3>
-                    <p>Confira a programação completa da nossa semana acadêmica, com palestras, minicursos e muito mais.</p>
-                    <a href="#" class="read-more">Leia mais <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="news-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="img-overflow">
-                        <i class="fas fa-users fa-3x"></i>
-                    </div>
-                    <div class="news-date">05 Março 2026</div>
-                    <h3>Recepção dos Feras</h3>
-                    <p>Veja como foi a recepção calorosa dos novos alunos de enfermagem deste semestre pela gestão.</p>
-                    <a href="#" class="read-more">Leia mais <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="news-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="img-overflow">
-                        <i class="fas fa-book-medical fa-3x"></i>
-                    </div>
-                    <div class="news-date">28 Fevereiro 2026</div>
-                    <h3>Edital NIC Aberto</h3>
-                    <p>O Núcleo de Incentivo à Ciência abriu edital para novos membros. Saiba como participar e submeter seu projeto.</p>
-                    <a href="#" class="read-more">Leia mais <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
+    <section id="noticias" class="section">
+        <div class="container">
+            <h2 class="section-title">Comunicados</h2>
+            <span class="section-subtitle">Fique por dentro das últimas atualizações do diretório.</span>
+            <div class="news-grid" id="newsContainer"></div>
         </div>
     </section>
+
+    <section id="galeria" class="section" style="background-color: #f0f2f1;">
+        <div class="container">
+            <h2 class="section-title">Galeria de Fotos</h2>
+            <span class="section-subtitle">Registros dos nossos momentos e eventos acadêmicos.</span>
+            <div class="gallery-grid" id="galleryContainer"></div>
+        </div>
+    </section>
+
+    <div class="modal-overlay" id="newsModal">
+        <span class="close-modal" onclick="closeAllModals()">&times;</span>
+        <div class="modal-content">
+            <div id="modalBody" style="padding: 40px;">
+                </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="photoModal">
+        <span class="close-modal" onclick="closeAllModals()">&times;</span>
+        <div class="photo-modal-content">
+            <img id="expandedImg" src="" alt="Foto Expandida">
+            <p class="photo-caption" id="photoCaption"></p>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 DAEIR - Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+
+        // --- BANCO DE DADOS DE NOTÍCIAS ---
+        const noticias = [
+            {
+                id: 1,
+                title: "Inscrições para o Simpósio",
+                date: "12 Março, 2026",
+                excerpt: "As inscrições para o II Simpósio de Ética estão abertas.",
+                content: "<h2>Simpósio de Ética</h2><p>O evento ocorrerá no auditório principal com convidados da rede municipal de saúde. Garanta seu certificado de 20 horas complementares!</p>"
+            },
+            {
+                id: 2,
+                title: "Ajuste de Grade Curricular",
+                date: "08 Março, 2026",
+                excerpt: "Confira as mudanças nos horários do 4º e 6º período.",
+                content: "<h2>Novos Horários</h2><p>Devido à reforma nos laboratórios de anatomia, as aulas práticas foram realocadas para o turno da tarde temporariamente.</p>"
+            }
+        ];
+
+        // --- BANCO DE DADOS DE FOTOS ---
+        // Adicione suas URLs de imagens aqui
+        const fotos = [
+            { url: "https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=1000", caption: "Aula Prática de Semiotécnica" },
+            { url: "https://images.unsplash.com/photo-1584515169900-6110bff35f5e?q=80&w=1000", caption: "Reunião de Planejamento Gestão 2025" },
+            { url: "https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=1000", caption: "Visita Técnica ao Hospital Regional" },
+            { url: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1000", caption: "Laboratório de Microscopia" },
+            { url: "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=1000", caption: "Ação Social no Bairro Salgado" },
+            { url: "https://images.unsplash.com/photo-1551601651-2a8555f1a136?q=80&w=1000", caption: "Comemoração Dia do Enfermeiro" }
+        ];
+
+        // Renderizar Notícias
+        const newsContainer = document.getElementById('newsContainer');
+        newsContainer.innerHTML = noticias.map(n => `
+            <div class="news-card" onclick="openNews(${n.id})" data-aos="fade-up">
+                <small style="color:var(--secondary)">${n.date}</small>
+                <h3>${n.title}</h3>
+                <p>${n.excerpt}</p>
+                <strong style="display:block; margin-top:15px; color:var(--primary)">Ler mais +</strong>
+            </div>
+        `).join('');
+
+        // Renderizar Galeria
+        const galleryContainer = document.getElementById('galleryContainer');
+        galleryContainer.innerHTML = fotos.map(f => `
+            <div class="gallery-item" onclick="openPhoto('${f.url}', '${f.caption}')" data-aos="zoom-in">
+                <img src="${f.url}" alt="Foto">
+                <div class="gallery-overlay">
+                    <span>${f.caption}</span>
+                </div>
+            </div>
+        `).join('');
+
+        // Funções dos Modais
+        function openNews(id) {
+            const n = noticias.find(item => item.id === id);
+            document.getElementById('modalBody').innerHTML = n.content;
+            document.getElementById('newsModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function openPhoto(url, caption) {
+            document.getElementById('expandedImg').src = url;
+            document.getElementById('photoCaption').innerText = caption;
+            document.getElementById('photoModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAllModals() {
+            document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('active'));
+            document.body.style.overflow = 'auto';
+        }
+
+        // Fechar ao clicar fora do conteúdo
+        window.onclick = (e) => {
+            if (e.target.classList.contains('modal-overlay')) closeAllModals();
+        };
+    </script>
+</body>
+
+</section>
 
     <section id="downloads" class="section" style="background-color: #ffffff;">
         <div class="container" data-aos="fade-up">
