@@ -353,3 +353,89 @@ body {
         font-size: 35px;
     }
 }
+
+
+/* --- ESTILOS DA CENTRAL DE DOWNLOADS --- */
+.download-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px; 
+    margin-top: 40px; 
+}
+.download-card { 
+    background: white; 
+    border-radius: var(--radius); 
+    padding: 30px 25px; 
+    box-shadow: var(--shadow-sm); 
+    border: 1px solid rgba(0,0,0,0.05); 
+    text-align: center; 
+    transition: var(--transition-smooth); 
+    display: flex; 
+    flex-direction: column; 
+    height: 100%; 
+    position: relative; 
+    top: 0; 
+}
+.download-card:hover { 
+    top: -10px; 
+    box-shadow: var(--shadow-md); 
+    border-color: rgba(0,90,64,0.1); 
+}
+.file-icon { 
+    font-size: 3.5rem; 
+    margin-bottom: 20px; 
+    transition: transform 0.4s ease;
+}
+.download-card:hover .file-icon { 
+    transform: scale(1.1) rotate(-5deg); 
+}
+
+/* Cores dos Ícones por Tipo de Arquivo */
+.icon-pdf { color: #E03E45; } /* Vermelho DAEIR */
+.icon-doc { color: #2B579A; } /* Azul Word */
+.icon-xls { color: #217346; } /* Verde Excel */
+
+.doc-title { 
+    color: var(--primary-dark); 
+    font-size: 1.25rem; 
+    font-weight: 700; 
+    margin-bottom: 10px; 
+    font-family: 'Poppins', sans-serif;
+}
+.doc-desc { 
+    color: var(--text-light); 
+    font-size: 0.95rem; 
+    margin-bottom: 25px; 
+    line-height: 1.5; 
+    flex-grow: 1; /* Faz o botão descer pro final do card */
+}
+.doc-meta { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    font-size: 0.85rem; 
+    color: #888; 
+    margin-bottom: 20px; 
+    padding-top: 15px; 
+    border-top: 1px dashed #eee;
+}
+.download-btn { 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 8px; 
+    width: 100%; 
+    padding: 12px; 
+    background-color: var(--primary-light); 
+    color: var(--primary); 
+    font-weight: 600; 
+    text-decoration: none; 
+    border-radius: 8px; 
+    transition: var(--transition-smooth); 
+    font-family: 'Poppins', sans-serif;
+}
+.download-btn:hover { 
+    background-color: var(--primary); 
+    color: white; 
+    box-shadow: 0 4px 10px rgba(0, 90, 64, 0.2);
+}
