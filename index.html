@@ -19,7 +19,7 @@
 
     <header class="main-header" data-aos="fade-down" data-aos-duration="800">
         <div class="container logo-container">
-            <img src="images/Logotipon.png" alt="Logo DAEIR" class="logo anime-float">
+            <img src="images/Logotipo.png" alt="Logo DAEIR" class="logo anime-float">
             <div class="header-text">
                 <h1>Diretório Acadêmico de Enfermagem Irmã Ruth - DAEIR</h1>
                 <p class="chapa">Gestão 2025 - 2026</p>
@@ -33,6 +33,7 @@
             <a href="#nic"><i class="fas fa-microscope"></i> Núcleo de Incentivo à Ciência</a>
             <a href="#atletica"><i class="fas fa-trophy"></i> Atlética Enfurecidos</a>
             <a href="#noticias"><i class="fas fa-newspaper"></i> Notícias</a>
+            <a href="#downloads"><i class="fas fa-download"></i> Downloads</a>
             <a href="#contato"><i class="fas fa-envelope"></i> Contato</a>
         </div>
     </nav>
@@ -101,19 +102,41 @@
                     <p>A recepção aos novos estudantes foi um absoluto sucesso! Sejam bem-vindos à família!</p>
                     <a href="#" class="read-more">Ver galeria de fotos <i class="fas fa-arrow-right"></i></a>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="news-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="img-overflow"><img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=400&q=80" alt="Esportes"></div>
-                    <p class="news-date">🏆 Esportes • Integração</p>
-                    <h3>Resultados dos Jogos Intermódulos</h3>
-                    <p>Nossos atletas deram um show de garra nos Jogos Intermódulos deste semestre. Confira os placares.</p>
-                    <a href="#" class="read-more">Ver resultados <i class="fas fa-arrow-right"></i></a>
+    <section id="downloads" class="section">
+        <div class="container">
+            <h2 data-aos="fade-up"><i class="fas fa-download"></i> Central de Downloads</h2>
+            <p style="text-align: center; margin-bottom: 40px; color: var(--text-light); font-size: 1.1rem;" data-aos="fade-up" data-aos-delay="100">Acesse aqui nossos documentos oficiais, formulários e materiais úteis para os estudantes.</p>
+
+            <div class="news-container">
+                <div class="news-card" style="text-align: center;" data-aos="fade-up" data-aos-delay="150">
+                    <i class="fas fa-file-pdf" style="font-size: 3.5rem; color: var(--secondary); margin-bottom: 20px;"></i>
+                    <h3 style="margin-bottom: 10px;">Estatuto do DAEIR</h3>
+                    <p style="font-size: 0.95rem;">Documento oficial que rege as normas e diretrizes de funcionamento do nosso Diretório Acadêmico.</p>
+                    <a href="#" class="cta-button" style="padding: 10px 25px; font-size: 0.9rem; margin-top: 10px;"><i class="fas fa-download"></i> Baixar PDF</a>
+                </div>
+
+                <div class="news-card" style="text-align: center;" data-aos="fade-up" data-aos-delay="250">
+                    <i class="fas fa-file-alt" style="font-size: 3.5rem; color: var(--primary); margin-bottom: 20px;"></i>
+                    <h3 style="margin-bottom: 10px;">Requerimentos Gerais</h3>
+                    <p style="font-size: 0.95rem;">Formulários para submissão de projetos, registro de Ligas Acadêmicas e solicitação de apoio do DAEIR.</p>
+                    <a href="#" class="cta-button" style="padding: 10px 25px; font-size: 0.9rem; margin-top: 10px;"><i class="fas fa-download"></i> Baixar Arquivos</a>
+                </div>
+
+                <div class="news-card" style="text-align: center;" data-aos="fade-up" data-aos-delay="350">
+                    <i class="fas fa-book-medical" style="font-size: 3.5rem; color: var(--accent); margin-bottom: 20px;"></i>
+                    <h3 style="margin-bottom: 10px;">Manual do Calouro</h3>
+                    <p style="font-size: 0.95rem;">Um guia prático com tudo o que o novo estudante precisa saber para sobreviver e aproveitar o curso.</p>
+                    <a href="#" class="cta-button" style="padding: 10px 25px; font-size: 0.9rem; margin-top: 10px;"><i class="fas fa-download"></i> Baixar PDF</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contato" class="section">
+    <section id="contato" class="section" style="background-color: var(--primary-light);">
         <div class="container">
             <h2 data-aos="zoom-in"><i class="fas fa-envelope"></i> Fale com o DAEIR</h2>
             <div class="contact-container">
@@ -153,8 +176,8 @@
                     <ul>
                         <li><a href="#inicio">Início</a></li>
                         <li><a href="#nic">NIC</a></li>
-                        <li><a href="#atletica">Atlética</a></li>
                         <li><a href="#noticias">Notícias e Editais</a></li>
+                        <li><a href="#downloads">Central de Downloads</a></li>
                     </ul>
                 </div>
             </div>
@@ -168,8 +191,8 @@
     <script>
         // Inicia as animações quando o usuário rola a página
         AOS.init({
-            once: true, // A animação acontece só uma vez quando o elemento aparece
-            offset: 100, // Começa a animar um pouco antes do elemento aparecer todo
+            once: true,
+            offset: 100, 
         });
     </script>
 </body>
