@@ -78,7 +78,7 @@
         }
         .nav-links a { 
             color: rgba(255,255,255,0.9); text-decoration: none; padding: 18px 20px; 
-            font-size: 1.50rem; /* Aumentado em 15% */
+            font-size: 1.03rem; 
             font-weight: 600; 
             transition: var(--transition); position: relative;
         }
@@ -86,7 +86,7 @@
         .nav-links a:hover::after { width: 100%; }
         .nav-links a:hover { background-color: rgba(255,255,255,0.05); color: white; }
 
-        /* Hero Section com Zoom Background */
+        /* Hero Section */
         .hero-section {
             position: relative;
             height: 80vh;
@@ -107,7 +107,7 @@
         }
         .hero-content { max-width: 850px; padding: 20px; }
         .hero-content h2 { 
-            font-size: 3.15rem; /* Reduzido em 10% */
+            font-size: 3.15rem; 
             text-shadow: 2px 4px 10px rgba(0,0,0,0.5); 
             margin-bottom: 20px; 
             line-height: 1.2;
@@ -120,7 +120,7 @@
         .pulse-btn { animation: pulse 2s infinite; }
         .cta-button:hover { transform: translateY(-5px); background-color: #fce28b; }
 
-        /* Seção NIC Estilizada */
+        /* Seção NIC Customizada com Logo */
         .section { padding: 90px 0; }
         .section h2 { color: var(--primary); font-size: 2.2rem; margin-bottom: 40px; }
         .nic-header-desc { max-width: 800px; margin-bottom: 50px; color: var(--text-light); font-size: 1.1rem; }
@@ -131,7 +131,17 @@
             box-shadow: var(--shadow-sm); transition: var(--transition); border-bottom: 4px solid transparent;
         }
         .nic-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-md); border-color: var(--secondary); }
-        .nic-card i { font-size: 3rem; color: var(--primary); margin-bottom: 20px; }
+        
+        /* Estilo para a Logo do NIC nos cards */
+        .nic-logo-card { 
+            width: 100px; 
+            height: 100px; 
+            object-fit: contain; 
+            margin-bottom: 25px; 
+            transition: var(--transition);
+        }
+        .nic-card:hover .nic-logo-card { transform: scale(1.1); }
+
         .nic-card h3 { color: var(--primary); margin-bottom: 15px; font-size: 1.4rem; }
         .nic-card p { color: var(--text-light); font-size: 0.95rem; }
 
@@ -203,17 +213,19 @@
             
             <div class="nic-grid">
                 <div class="nic-card" data-aos="fade-up" data-aos-delay="100">
-                    <i class="fas fa-flask"></i>
+                    <img src="COLOQUE_O_CAMINHO_DA_LOGO_DO_NIC_AQUI" alt="Logo NIC" class="nic-logo-card">
                     <h3>Iniciação Científica</h3>
                     <p>Orientação e suporte para alunos ingressarem em projetos de pesquisa institucionais.</p>
                 </div>
+                
                 <div class="nic-card" data-aos="fade-up" data-aos-delay="200">
-                    <i class="fas fa-file-signature"></i>
+                    <img src="COLOQUE_O_CAMINHO_DA_LOGO_DO_NIC_AQUI" alt="Logo NIC" class="nic-logo-card">
                     <h3>Escrita Científica</h3>
                     <p>Mentoria para produção de resumos, artigos e submissões em congressos nacionais.</p>
                 </div>
+                
                 <div class="nic-card" data-aos="fade-up" data-aos-delay="300">
-                    <i class="fas fa-lightbulb"></i>
+                    <img src="COLOQUE_O_CAMINHO_DA_LOGO_DO_NIC_AQUI" alt="Logo NIC" class="nic-logo-card">
                     <h3>Ligas Acadêmicas</h3>
                     <p>Gestão e apoio às ligas, fortalecendo o ensino prático e teórico especializado.</p>
                 </div>
