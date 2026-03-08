@@ -73,19 +73,37 @@ h1, h2, h3, h4, .chapa { font-family: 'Poppins', sans-serif; }
 .main-nav a:hover { color: white; background-color: rgba(255,255,255,0.05);}
 .main-nav a i { margin-right: 8px; }
 
-/* Hero Section Animada */
+/* Hero Section Animada e com Efeitos nas Letras */
 .hero-section {
-    background: linear-gradient(to right, rgba(0, 90, 64, 0.85), rgba(18, 38, 30, 0.85)), url('../images/IMG-20250512-WA0421.jpg');
+    background: linear-gradient(to right, rgba(0, 90, 64, 0.5), rgba(18, 38, 30, 0.6)), url('https://daeir-asces.github.io/DAEIR/images/IMG-20250512-WA0421.jpg');
+    background-size: cover;
     background-position: center;
     color: white;
-    padding: 140px 0;
+    padding: 160px 0;
     text-align: center;
     animation: kenburns 20s ease-out forwards; /* Movimento lento no fundo */
     overflow: hidden;
 }
 .hero-content { max-width: 800px; margin: 0 auto; position: relative; z-index: 2;}
-.hero-content h2 { font-size: 3.2rem; margin-bottom: 20px; font-weight: 700; line-height: 1.2; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);}
-.hero-content p { font-size: 1.15rem; margin-bottom: 35px; opacity: 0.9; }
+
+.hero-content h2 { 
+    font-size: 3.5rem; 
+    margin-bottom: 20px; 
+    font-weight: 700; 
+    line-height: 1.2; 
+    /* Efeito premium: Sombra escura + brilho verde suave */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 90, 64, 0.8);
+    letter-spacing: 1px;
+}
+
+.hero-content p { 
+    font-size: 1.25rem; 
+    margin-bottom: 35px; 
+    font-weight: 500;
+    /* Sombra projetada forte para destacar em cima de partes claras da foto */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+    line-height: 1.6;
+}
 
 .cta-button {
     display: inline-block; background-color: var(--accent); color: var(--dark); padding: 14px 36px; border-radius: 50px; text-decoration: none; font-weight: 600; font-family: 'Poppins', sans-serif; transition: var(--transition); box-shadow: 0 4px 15px rgba(242, 201, 76, 0.3);
@@ -122,44 +140,4 @@ h1, h2, h3, h4, .chapa { font-family: 'Poppins', sans-serif; }
 .read-more:hover { color: var(--secondary); gap: 10px; } /* Setinha desliza para o lado */
 
 /* Contato */
-.contact-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; margin-top: 40px; }
-.contact-info h3 { color: var(--primary); margin-bottom: 25px; font-size: 1.6rem; }
-.contact-info p { margin-bottom: 18px; display: flex; align-items: center; gap: 12px; color: var(--text-light); transition: var(--transition);}
-.contact-info p:hover { color: var(--primary); transform: translateX(5px); } /* Texto desliza de leve */
-.contact-info i { color: var(--secondary); font-size: 1.2rem; }
-
-.social-media { display: flex; gap: 15px; margin-top: 30px; }
-.social-icon { display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; background-color: white; box-shadow: var(--shadow-sm); color: var(--primary); border-radius: 50%; transition: var(--transition); font-size: 1.2rem; }
-.social-icon:hover { background-color: var(--secondary); color: white; transform: translateY(-8px) rotate(360deg); } /* Ícone gira e sobe */
-
-.contact-form { background-color: white; padding: 35px; border-radius: var(--radius); box-shadow: var(--shadow-sm); }
-.contact-form h3 { color: var(--primary); margin-bottom: 25px; font-size: 1.6rem; }
-.form-group { margin-bottom: 20px; }
-.form-group input, .form-group textarea { width: 100%; padding: 14px 15px; border: 1px solid #E2E8F0; border-radius: 8px; font-family: inherit; transition: var(--transition); background-color: #FAFAFA; }
-.form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--primary); background-color: white; box-shadow: 0 0 0 4px rgba(0, 90, 64, 0.1); transform: translateY(-2px); }
-
-.submit-button { background-color: var(--primary); color: white; border: none; padding: 14px 30px; border-radius: 50px; font-weight: 600; font-family: 'Poppins', sans-serif; cursor: pointer; transition: var(--transition); width: 100%; }
-.submit-button:hover { background-color: var(--dark); transform: translateY(-3px); box-shadow: var(--shadow-md); }
-
-/* Rodapé */
-.main-footer { background-color: var(--dark); color: white; padding: 70px 0 0; }
-.footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px; margin-bottom: 50px; }
-.footer-logo h2 { margin:0; }
-.footer-logo p { opacity: 0.8; line-height: 1.6; color: #E8F1EF; margin-top:10px;}
-.footer-links h4 { font-size: 1.2rem; margin-bottom: 25px; position: relative; padding-bottom: 12px; }
-.footer-links h4::after { content: ''; position: absolute; bottom: 0; left: 0; width: 40px; height: 3px; background-color: var(--accent); border-radius: 2px; }
-.footer-links ul { list-style: none; }
-.footer-links li { margin-bottom: 12px; }
-.footer-links a { color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: var(--transition); display: inline-block; }
-.footer-links a:hover { color: var(--accent); transform: translateX(8px); }
-.footer-bottom { text-align: center; padding: 25px 0; border-top: 1px solid rgba(255,255,255,0.05); background-color: #0A1611; }
-.footer-bottom p { opacity: 0.6; font-size: 0.9rem; margin: 0; }
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .logo-container { flex-direction: column; text-align: center; }
-    .hero-content h2 { font-size: 2.2rem; }
-    .section { padding: 50px 0; }
-    .featured-event { flex-direction: column !important; }
-}
-
+.contact-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; margin-top:
