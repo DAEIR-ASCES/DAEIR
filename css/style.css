@@ -117,7 +117,14 @@
 
         /* Estilos do NIC */
         .nic-title-container { display: flex; align-items: center; justify-content: flex-start; gap: 20px; margin-bottom: 25px; }
-        .nic-main-logo { width: 90px; height: 90px; object-fit: cover; border-radius: 50%; box-shadow: 0 8px 25px rgba(0,0,0,0.08); border: 4px solid var(--white-premium); }
+        .nic-main-logo { 
+            width: 110px; /* Largura fixa */
+            height: 110px; /* Altura IGUAL à largura para o círculo ficar perfeito */
+            object-fit: cover; /* Impede que a imagem fique esticada ou amassada */
+            border-radius: 50%; /* O segredo que deixa 100% redondo */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Sombra suave ao redor do círculo */
+            border: 3px solid var(--white-premium); /* Bordinha branca para dar um acabamento premium */
+        }
         .nic-title-container h2 { color: var(--primary-dark); font-size: 2.8rem; margin: 0; font-weight: 800; letter-spacing: -1px; }
         .nic-title-container h2::after { display: none; /* Remove a linha vermelha do título do NIC para ficar clean */ }
         .nic-header-desc { max-width: 850px; margin-bottom: 60px; color: var(--text-light); font-size: 1.15rem; line-height: 1.8; }
@@ -202,3 +209,4 @@
             
             .nic-title-container { flex-direction: column; text-align: center; }
         }
+
