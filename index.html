@@ -577,103 +577,82 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
+<script>
+    AOS.init();
 
-       <script>
-           
-        // Inicializa animações
-        AOS.init({ duration: 800, once: true });
-
-        // --- BANCO DE DADOS DE NOTÍCIAS ---
-        const noticias = [
-            {
-                id: 1,
-                title: "Inscrições para o Simpósio",
-                date: "12 Março, 2026",
-                excerpt: "As inscrições para o II Simpósio de Ética estão abertas.",
-                content: `
-                    <h2 style="color:var(--primary); margin-bottom:15px;">II Simpósio de Ética em Enfermagem</h2>
-                    <p style="margin-bottom:10px;">O evento ocorrerá no auditório principal com convidados renomados da rede municipal de saúde.</p>
-                    <p><strong>Carga Horária:</strong> 20 horas complementares.</p>
-                    <p><strong>Local:</strong> Auditório Bloco C.</p>
-                `
-            },
-            {
-                id: 2,
-                title: "Ajuste de Grade Curricular",
-                date: "08 Março, 2026",
-                excerpt: "Confira as mudanças nos horários do 4º e 6º período.",
-                content: `
-                    <h2 style="color:var(--primary); margin-bottom:15px;">Novos Horários de Laboratório</h2>
-                    <p>Devido à reforma nos laboratórios de anatomia, as aulas práticas foram realocadas para o turno da tarde temporariamente.</p>
-                    <p>Confira o PDF completo no grupo de representantes.</p>
-                `
-            }
-        ];
-
-        // --- BANCO DE DADOS DE FOTOS ---
-        const fotos = [
-            { url: "https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=1000", caption: "Aula Prática de Semiotécnica" },
-            { url: "https://images.unsplash.com/photo-1584515169900-6110bff35f5e?q=80&w=1000", caption: "Reunião de Planejamento Gestão 2025" },
-            { url: "https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=1000", caption: "Visita Técnica ao Hospital Regional" }
-        ];
-
-        // Renderizar Notícias
-        const newsContainer = document.getElementById('newsContainer');
-        if(newsContainer) {
-            newsContainer.innerHTML = noticias.map(n => `
-                <div class="news-card" onclick="openNews(${n.id})" data-aos="fade-up">
-                    <small style="color:var(--secondary); font-weight:bold;">${n.date}</small>
-                    <h3 style="margin: 10px 0;">${n.title}</h3>
-                    <p style="color:var(--text-muted); font-size:0.9rem;">${n.excerpt}</p>
-                    <strong style="display:block; margin-top:15px; color:var(--primary)">Ler comunicado completo +</strong>
-                </div>
-            `).join('');
+    // BANCO DE DADOS DE NOTÍCIAS (Agora com campo 'image')
+    const noticias = [
+        {
+            id: 1,
+            title: "Semana da Enfermagem 2026",
+            date: "12 Março, 2026",
+            image: "https://daeir-asces.github.io/DAEIR/images/IMG-20250512-WA0421%20(1).jpg", // Link da imagem aqui
+            excerpt: "Inscrições abertas para a nossa jornada acadêmica.",
+            content: "O evento contará com palestras exclusivas e oficinas práticas no laboratório de semiologia. Não perca o prazo de inscrição via formulário oficial."
+        },
+        {
+            id: 2,
+            title: "Edital de Monitoria NIC",
+            date: "08 Março, 2026",
+            image: "https://daeir-asces.github.io/DAEIR/images/IMG-20250512-WA0418.jpg", // Outra imagem aqui
+            excerpt: "Confira as vagas disponíveis para o núcleo científico.",
+            content: "O Núcleo de Incentivo à Ciência (NIC) abre vagas para novos pesquisadores voluntários. Os pré-requisitos incluem estar cursando a partir do 3º período."
         }
+    ];
 
-        // Renderizar Galeria
-        const galleryContainer = document.getElementById('galleryContainer');
-        if(galleryContainer) {
-            galleryContainer.innerHTML = fotos.map(f => `
-                <div class="gallery-item" onclick="openPhoto('${f.url}', '${f.caption}')" data-aos="zoom-in">
-                    <img src="${f.url}" alt="Foto">
-                    <div class="gallery-overlay-text" style="position:absolute; bottom:0; background:rgba(0,0,0,0.6); color:white; width:100%; padding:10px; font-size:0.8rem;">
-                        ${f.caption}
-                    </div>
-                </div>
-            `).join('');
+    // Renderizar os cards na tela
+    const newsContainer = document.getElementById('newsContainer');
+    if (newsContainer) {
+        newsContainer.innerHTML = noticias.map(n => `
+            <div class="news-card" onclick="openNews(${n.id})" style="cursor:pointer; background:#f9f9f9; padding:20px; border-radius:15px; margin-bottom:15px;">
+                <img src="${n.image}" style="width:100%; height:150px; object-fit:cover; border-radius:10px; margin-bottom:10px;">
+                <small style="color:var(--secondary)">${n.date}</small>
+                <h3 style="margin:5px 0">${n.title}</h3>
+                <p style="font-size:14px; color:#666">${n.excerpt}</p>
+            </div>
+        `).join('');
+    }
+
+    // FUNÇÃO PARA ABRIR A NOTÍCIA
+    function openNews(id) {
+        const n = noticias.find(item => item.id === id);
+        if (!n) return;
+
+        const modalBody = document.getElementById('modalBody');
+        const modal = document.getElementById('newsModal');
+
+        // Criando o conteúdo com imagem e texto
+        modalBody.innerHTML = `
+            <img src="${n.image}" class="modal-news-img" onerror="this.style.display='none'">
+            <div class="modal-news-body">
+                <small style="color:var(--secondary)">${n.date}</small>
+                <h2 style="margin: 15px 0; color:var(--primary)">${n.title}</h2>
+                <div style="line-height:1.6; color:#444">${n.content}</div>
+            </div>
+        `;
+
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Trava o fundo
+    }
+
+    // FUNÇÃO PARA FECHAR
+    function closeAllModals() {
+        document.getElementById('newsModal').classList.remove('active');
+        document.getElementById('photoModal').classList.remove('active');
+        document.body.style.overflow = 'auto'; // Libera o fundo
+    }
+
+    // Fechar ao clicar fora do conteúdo branco
+    window.onclick = function(event) {
+        const newsModal = document.getElementById('newsModal');
+        const photoModal = document.getElementById('photoModal');
+        if (event.target == newsModal || event.target == photoModal) {
+            closeAllModals();
         }
+    }
+</script>
 
-        // Funções dos Modais
-        function openNews(id) {
-            const n = noticias.find(item => item.id === id);
-            if(n) {
-                document.getElementById('modalBody').innerHTML = n.content;
-                document.getElementById('newsModal').classList.add('active');
-                document.body.style.overflow = 'hidden'; // Trava o scroll do fundo
-            }
-        }
-
-        function openPhoto(url, caption) {
-            document.getElementById('expandedImg').src = url;
-            document.getElementById('photoCaption').innerText = caption;
-            document.getElementById('photoModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeAllModals() {
-            document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('active'));
-            document.body.style.overflow = 'auto'; // Devolve o scroll
-        }
-
-        // Fechar ao clicar fora ou na tecla ESC
-        window.onclick = (e) => {
-            if (e.target.classList.contains('modal-overlay')) closeAllModals();
-        };
-        
-        window.onkeydown = (e) => {
-            if (e.key === "Escape") closeAllModals();
-        };
-    </script>    </script>
+</script>
     
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
