@@ -442,20 +442,40 @@
         </div>
     </section>
 
-    </section> <section id="contato" class="section" style="background-color: var(--light);">
+</section> <section id="contato" class="section" style="background-color: var(--light);">
         <div class="container" data-aos="fade-up">
             <h2 class="section-title center"><i class="fas fa-envelope"></i> Fale Conosco</h2>
+            <p style="text-align: center; color: var(--text-light); font-size: 1.1rem; margin-top: -30px; margin-bottom: 40px;">Tem alguma dúvida, sugestão ou precisa de ajuda? Mande uma mensagem direta para a nossa ouvidoria.</p>
+            
+            <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; max-width: 800px; margin: 0 auto;">
+                
+                <div style="flex: 2; min-width: 300px; background: white; padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow-sm); border: 1px solid rgba(0,0,0,0.05);">
+                    <h3 style="color: var(--primary-dark); margin-bottom: 25px; font-family: 'Poppins', sans-serif; text-align: center;">Envie sua mensagem</h3>
+                    
+                    <form action="https://formspree.io/f/SEU_CODIGO_AQUI" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+                        
+                        <input type="text" name="Nome" placeholder="Seu Nome Completo" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; outline: none; font-family: 'Inter', sans-serif; font-size: 1rem;">
+                        
+                        <input type="email" name="Email" placeholder="Seu E-mail Institucional" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; outline: none; font-family: 'Inter', sans-serif; font-size: 1rem;">
+                        
+                        <textarea name="Mensagem" rows="5" placeholder="Como podemos ajudar?" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; outline: none; font-family: 'Inter', sans-serif; font-size: 1rem; resize: vertical;"></textarea>
+                        
+                        <button type="submit" style="background: var(--primary); color: white; border: none; padding: 16px 30px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: var(--transition-smooth); width: 100%; font-family: 'Poppins', sans-serif; font-size: 1.1rem; margin-top: 10px;">
+                            Enviar Mensagem <i class="fas fa-paper-plane" style="margin-left: 8px;"></i>
+                        </button>
+                    </form>
+                </div>
+
             </div>
         </div>
     </section>
-    
     <div class="modal-overlay" id="newsModal">
         <span class="close-modal" onclick="closeAllModals()">&times;</span>
         <div class="modal-content">
             <div id="modalBody"></div>
         </div>
     </div>
-
+    
     <div class="modal-overlay" id="photoModal">
         <span class="close-modal" onclick="closeAllModals()">&times;</span>
         <div class="photo-modal-content">
