@@ -1,86 +1,42 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DAEIR - Diretório Acadêmico de Enfermagem</title>
+/* Importando fontes modernas do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap');
+
+/* Variáveis de cores e Design System */
+:root {
+    --primary: #005A40; 
+    --primary-light: #E8F1EF; 
+    --secondary: #E03E45; 
+    --accent: #F2C94C; 
+    --light: #F8F9FA;
+    --dark: #12261E; 
+    --text: #333333;
+    --text-light: #64746B;
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    --radius: 12px;
+    --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 12px 30px rgba(0, 90, 64, 0.12);
+    --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
 
-    <header class="main-header" data-aos="fade-down" data-aos-duration="800">
-        <div class="container logo-container">
-            <img src="https://via.placeholder.com/80x80/005A40/FFFFFF?text=Logo" alt="Logo DAEIR" class="logo anime-float">
-            <div class="header-text">
-                <h1>Diretório Acadêmico de Enfermagem - DAEIR</h1>
-                <p class="chapa">Gestão Atual - Construindo o Futuro</p>
-            </div>
-        </div>
-    </header>
+/* Reset, Estilos Base e Movimento Suave */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-    <nav class="main-nav" data-aos="fade-down" data-aos-duration="800" data-aos-delay="100">
-        <div class="container">
-            <a href="#inicio"><i class="fas fa-home"></i> Início</a>
-            <a href="#nic"><i class="fas fa-microscope"></i> NIC</a>
-            <a href="#atletica"><i class="fas fa-trophy"></i> Atlética</a>
-            <a href="#noticias"><i class="fas fa-newspaper"></i> Notícias</a>
-            <a href="#contato"><i class="fas fa-envelope"></i> Contato</a>
-        </div>
-    </nav>
+html {
+    scroll-behavior: smooth; /* Movimento suave ao clicar nos links do menu */
+}
 
-    <section id="inicio" class="hero-section">
-        <div class="container hero-content" data-aos="zoom-in" data-aos-duration="1200">
-            <h2>A voz e a força da Enfermagem</h2>
-            <p>Representando os estudantes, lutando por melhorias no ensino e promovendo a integração e a ciência dentro e fora da universidade.</p>
-            <a href="#noticias" class="cta-button pulse-btn">Ver Últimas Atualizações</a>
-        </div>
-    </section>
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background-color: #FAFAFA;
+    overflow-x: hidden;
+}
 
-    <section id="nic" class="section" style="background-color: var(--primary-light);">
-        <div class="container">
-            <h2 data-aos="fade-right"><i class="fas fa-microscope"></i> Núcleo de Incentivo à Ciência (NIC)</h2>
-            <div class="featured-event">
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="Pesquisa" data-aos="fade-right" data-aos-delay="200" class="hover-zoom">
-                <div class="event-details" data-aos="fade-left" data-aos-delay="400">
-                    <h3>Pesquisa e Inovação na Enfermagem</h3>
-                    <p class="event-description">O NIC é o coração científico do nosso curso. Nosso objetivo é fomentar a pesquisa, auxiliar na produção de artigos, organizar simpósios e conectar os estudantes com projetos de iniciação científica e ligas acadêmicas.</p>
-                    <a href="#" class="event-button">Conheça nossos projetos</a>
-                </div>
-            </div>
-        </div>
-    </section>
+h1, h2, h3, h4, .chapa { font-family: 'Poppins', sans-serif; }
 
-    <section id="atletica" class="section">
-        <div class="container">
-            <h2 data-aos="fade-right"><i class="fas fa-trophy"></i> Atlética de Enfermagem</h2>
-            <div class="featured-event" style="display: flex; flex-wrap: wrap; flex-direction: row-reverse;">
-                <img src="https://images.unsplash.com/photo-1526676037777-05a232554f77?auto=format&fit=crop&w=800&q=80" alt="Torcida" style="flex: 1; min-width: 300px;" data-aos="fade-left" data-aos-delay="200" class="hover-zoom">
-                <div class="event-details" style="flex: 1; min-width: 300px; padding-right: 20px;" data-aos="fade-right" data-aos-delay="400">
-                    <h3>Integração, Esporte e Sangue no Olho!</h3>
-                    <p class="event-description">A vida acadêmica vai além das salas de aula e estágios. Nossa Atlética promove o esporte, o bem-estar e, principalmente, a união entre os períodos. Venha fazer parte dos nossos times!</p>
-                    <a href="#" class="event-button" style="background-color: var(--accent); color: var(--dark);">Siga a Atlética</a>
-                </div>
-            </div>
-        </div>
-    </section>
+.container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
 
-    <section id="noticias" class="section" style="background-color: var(--light);">
-        <div class="container">
-            <h2 data-aos="fade-up"><i class="fas fa-bullhorn"></i> Mural de Notícias e Avisos</h2>
-            
-            <div class="news-container">
-                <div class="news-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="img-overflow"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=400&q=80" alt="Documentos"></div>
-                    <p class="news-date">📢 Urgente • Seleção</p>
-                    <h3>Edital da Comissão Eleitoral do DAEIR 2026</h3>
-                    <p>O edital para a formação da nova comissão eleitoral já está disponível. Participe ativamente do processo.</p>
-                    <a href="#" class="read-more">Ler o Edital <i class="fas fa-arrow
+/* Animações Customizadas */
+@keyframes float {
+    0% { transform: translateY
