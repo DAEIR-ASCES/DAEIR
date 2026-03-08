@@ -66,15 +66,75 @@
         .chapa { margin: 2px 0 0; font-weight: 600; color: var(--secondary); font-size: 1.05rem; letter-spacing: 2px; text-transform: uppercase;}
 
         /* Menu */
-        .main-nav { background-color: var(--primary); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .nav-container { display: flex; align-items: center; justify-content: center; position: relative; min-height: 60px; }
-        .mobile-menu-btn { display: none; background: none; border: none; color: white; font-size: 1.6rem; cursor: pointer; padding: 15px; position: absolute; left: 15px; }
-        .nav-links { display: flex; }
-        .nav-links a { color: rgba(255, 255, 255, 0.9); text-decoration: none; padding: 16px 24px; display: inline-block; transition: var(--transition); font-size: 0.95rem; font-weight: 500; position: relative;}
-        .nav-links a::after { content: ''; position: absolute; width: 0; height: 3px; bottom: 0; left: 50%; background-color: var(--accent); transition: var(--transition); transform: translateX(-50%); }
-        .nav-links a:hover::after { width: 100%; }
-        .nav-links a:hover { color: white; background-color: rgba(255,255,255,0.05);}
-        .nav-links a i { margin-right: 8px; }
+        /* Container principal do menu */
+.menu-navegacao {
+  background-color: #0b5936; /* Ajuste para o verde exato do seu site */
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra sutil para dar profundidade premium */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  position: relative; /* Necessário para o efeito da linha amarela */
+}
+
+/* Estilo padrão dos botões */
+.nav-links a {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espaço entre o ícone e o texto */
+  padding: 20px 24px;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.5px; /* Espaçamento leve nas letras dá um tom mais sério */
+  transition: all 0.3s ease; /* Deixa qualquer mudança suave */
+}
+
+/* --- O EFEITO PREMIUM AMARELO --- */
+
+/* Criando a linha invisível embaixo do botão */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%; /* Começa do centro */
+  width: 0; /* Começa invisível */
+  height: 4px; /* Espessura da linha amarela */
+  background-color: #F4D03F; /* O tom de amarelo do seu botão central */
+  transition: all 0.3s ease; /* Animação suave da linha */
+  transform: translateX(-50%); /* Mantém centralizado enquanto cresce */
+}
+
+/* O que acontece quando o mouse passa por cima (Hover) */
+.nav-links a:hover {
+  color: #F4D03F; /* Texto fica amarelo suavemente */
+  background-color: rgba(255, 255, 255, 0.05); /* Fundo dá uma clareada quase imperceptível */
+}
+
+/* A linha amarela cresce no Hover */
+.nav-links a:hover::after {
+  width: 100%; /* A linha expande para preencher o botão */
+}
+
+/* Estilo para a aba que está "Ativa" (página atual) */
+.nav-links a.active {
+  color: #F4D03F;
+  background-color: rgba(0, 0, 0, 0.15); /* Fundo levemente mais escuro */
+}
+
+.nav-links a.active::after {
+  width: 100%; /* Mantém a linha amarela fixa na página atual */
+}
 
         /* 6. HERO SECTION (BANNER) */
         .hero-section {
@@ -209,4 +269,5 @@
             
             .nic-title-container { flex-direction: column; text-align: center; }
         }
+
 
