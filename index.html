@@ -524,8 +524,17 @@
         const navLinks = document.getElementById('navLinks');
         
         if(menuToggle && navLinks) {
+            // Abre e fecha ao clicar no ícone do menu
             menuToggle.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
+            });
+
+            // Fecha o menu automaticamente ao clicar em qualquer link (no mobile)
+            const mobileLinks = navLinks.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                });
             });
         }
 
