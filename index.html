@@ -17,7 +17,7 @@
         :root {
             --primary: #005A40; 
             --primary-dark: #003222;
-            --primary-light: #E8F1EF; /* Verde clarinho para fundo neutro */
+            --primary-light: #E8F1EF;
             --secondary: #E03E45; 
             --accent: #F2C94C; 
             --light: #F8F9FA;
@@ -223,6 +223,7 @@
         .close-modal {
             position: fixed; top: 20px; right: 30px; font-size: 45px;
             color: white; cursor: pointer; z-index: 10001; transition: var(--transition-smooth); line-height: 1;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.6); /* Sombra para ficar visível em fotos claras */
         }
         .close-modal:hover { color: var(--accent); transform: scale(1.1); }
 
@@ -241,6 +242,7 @@
         @media (max-width: 900px) {
             .logo-container { flex-direction: column; text-align: center; gap: 10px;}
             .header-text h1 { font-size: 1.6rem; }
+            .hero-section { padding: 100px 0; } /* Ajuste de padding para não ficar gigante no mobile */
             .hero-content h2 { font-size: 2.2rem; }
             .hero-content p { font-size: 1.1rem; margin-bottom: 30px; }
             .section { padding: 60px 0; }
@@ -255,6 +257,8 @@
             .nic-action, .atletica-action { justify-content: center; }
             .section-title::after { left: 50%; transform: translateX(-50%); }
             .section-title { text-align: center; }
+
+            .close-modal { top: 10px; right: 15px; font-size: 35px; } /* Botão de fechar mais acessível no celular */
         }
     </style>
 </head>
@@ -493,18 +497,27 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-       <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
         AOS.init();
     
         // Menu Mobile Toggle
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
+        
         if(menuToggle && navLinks) {
             menuToggle.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
             });
         }
+
+        // NOVIDADE UX: Fecha o menu automaticamente quando clica em um link pelo celular
+        const mobileLinks = document.querySelectorAll('.nav-links a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if(navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
 
         // --- BANCO DE DADOS DE NOTÍCIAS ---
         const noticias = [
@@ -584,7 +597,7 @@
             { url: "https://images.unsplash.com/photo-1551601651-2a8555f1a136?q=80&w=1000", caption: "Comemoração Dia do Enfermeiro" }
         ];
 
-        // Renderizar Notícias na Tela (Resolvido com a div img-overflow como fundo)
+        // Renderizar Notícias na Tela
         const newsContainer = document.getElementById('newsContainer');
         if (newsContainer) {
             newsContainer.innerHTML = noticias.map(n => `
@@ -616,7 +629,6 @@
             const n = noticias.find(item => item.id === id);
             if (!n) return;
 
-            // Injeta a imagem no topo e o texto formatado no corpo do modal
             document.getElementById('modalBody').innerHTML = `
                 <img src="${n.image}" style="width: 100%; height: 280px; object-fit: cover; border-radius: 12px 12px 0 0;" alt="Capa da Notícia">
                 <div style="padding: 30px;">
