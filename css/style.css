@@ -46,9 +46,9 @@ body {
    2. CABEÇALHO E LOGO
    ============================================================ */
 .main-header { 
-    background: var(--white); 
+    background: var(--white-premium, #ffffff); 
     padding: 20px 0; 
-    border-bottom: 2px solid var(--primary-light);
+    border-bottom: 2px solid var(--primary-light, #E8F1EF);
 }
 
 .logo-container { 
@@ -60,6 +60,11 @@ body {
 .logo { 
     height: 60px; 
     width: auto; 
+    /* Previne o bug de repetição/faixas na imagem no celular */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
 }
 
 .header-text h1 { 
@@ -67,6 +72,7 @@ body {
     color: var(--primary); 
     font-size: 1.5rem; 
     line-height: 1.2;
+    margin: 0; /* Evita que o navegador empurre o texto para baixo */
 }
 
 .chapa { 
@@ -79,6 +85,17 @@ body {
     margin-top: 5px;
 }
 
+/* --- Ajuste Responsivo Exclusivo para o Cabeçalho --- */
+@media (max-width: 768px) {
+    .logo-container {
+        flex-direction: column; /* Coloca a logo em cima e o texto embaixo */
+        text-align: center;
+        gap: 10px;
+    }
+    .logo {
+        height: 75px; /* Deixa a logo um pouquinho maior no celular para destacar */
+    }
+}
 /* ============================================================
    3. MENU DE NAVEGAÇÃO
    ============================================================ */
@@ -322,38 +339,39 @@ body {
     margin-top: 40px;
 }
 
-/* ============================================================
-   9. RESPONSIVIDADE (CELULARES)
-   ============================================================ */
-@media (max-width: 768px) {
-    .nav-links { display: none; /* Menu escondido no celular provisoriamente */ }
-    
-    .hero-content h2 { font-size: 2.2rem; }
-    .header-text h1 { font-size: 1.3rem; }
-    .section-title { font-size: 1.8rem; }
+/* 12. RESPONSIVIDADE (MOBILE) */
+        @media (max-width: 900px) {
+            .logo-container { flex-direction: column; text-align: center; gap: 10px;}
+            
+            /* Desliga a animação no mobile para matar o bug visual das faixas de vez */
+            .logo { animation: none; filter: none; }
+            
+            .header-text h1 { font-size: 1.6rem; }
+            .hero-section { padding: 100px 0; } 
+            .hero-content h2 { font-size: 2.2rem; }
+            .hero-content p { font-size: 1.1rem; margin-bottom: 30px; }
+            .section { padding: 60px 0; }
+            
+            .mobile-menu-btn { display: block; }
+            .nav-container { justify-content: flex-end; }
+            
+            /* CORREÇÃO DO MENU: Adicionado height: auto */
+            .nav-links { 
+                display: none; flex-direction: column; width: 100%; padding: 0; 
+                background-color: var(--primary-dark); position: absolute; 
+                top: 100%; left: 0; box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+                height: auto; /* <--- O SEGREDINHO QUE FALTAVA! */
+            }
+            .nav-links.active { display: flex; }
+            .nav-links a { display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(255,255,255,0.05); padding: 20px; width: 100%;}
+            
+            .nic-title-container, .atletica-title-container { flex-direction: column; text-align: center; }
+            .nic-action, .atletica-action { justify-content: center; }
+            .section-title::after { left: 50%; transform: translateX(-50%); }
+            .section-title { text-align: center; }
 
-    /* Ajustes do Modal para Mobile */
-    .modal-content {
-        max-width: 95%;
-        border-radius: 15px;
-    }
-
-    .modal-news-img {
-        height: 200px; 
-        border-radius: 15px 15px 0 0;
-    }
-
-    .modal-news-body {
-        padding: 20px; 
-    }
-
-    .close-modal {
-        top: 10px;
-        right: 15px;
-        font-size: 35px;
-    }
-}
-
+            .close-modal { top: 10px; right: 15px; font-size: 35px; } 
+        }
 
 /* --- ESTILOS DA CENTRAL DE DOWNLOADS --- */
 .download-grid { 
@@ -439,3 +457,4 @@ body {
     color: white; 
     box-shadow: 0 4px 10px rgba(0, 90, 64, 0.2);
 }
+
