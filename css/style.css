@@ -76,12 +76,11 @@ h1, h2, h3, h4, .chapa { font-family: 'Poppins', sans-serif; }
 }
 
 .logo { 
-    height: 60px; /* <-- CORREÇÃO AQUI: Altura fixa para não ficar gigante */
-    width: auto;  /* <-- CORREÇÃO AQUI: Largura automática para não distorcer */
+    height: 60px; /* Mantém a altura fixa correta */
+    width: auto; 
     filter: drop-shadow(0 8px 15px rgba(0, 50, 30, 0.15));
     animation: float 6s ease-in-out infinite; 
     transition: var(--transition-smooth);
-    /* Proteção extra contra bugs visuais: */
     -webkit-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0);
     will-change: transform;
@@ -196,7 +195,6 @@ h1, h2, h3, h4, .chapa { font-family: 'Poppins', sans-serif; }
 .nic-card:nth-child(1) .icon-wrapper { background: rgba(151, 117, 250, 0.15); color: #845EF7; }
 .nic-card:nth-child(2) .icon-wrapper { background: rgba(51, 154, 240, 0.15); color: #339AF0; }
 .nic-card:nth-child(3) .icon-wrapper { background: rgba(255, 146, 43, 0.15); color: #FF922B; }
-
 .nic-card:nth-child(1):hover .icon-wrapper { background: #845EF7; color: white; transform: scale(1.1); }
 .nic-card:nth-child(2):hover .icon-wrapper { background: #339AF0; color: white; transform: scale(1.1); }
 .nic-card:nth-child(3):hover .icon-wrapper { background: #FF922B; color: white; transform: scale(1.1); }
@@ -204,7 +202,6 @@ h1, h2, h3, h4, .chapa { font-family: 'Poppins', sans-serif; }
 .atletica-card:nth-child(1) .icon-wrapper { background: rgba(224, 62, 69, 0.15); color: var(--secondary); }
 .atletica-card:nth-child(2) .icon-wrapper { background: rgba(242, 201, 76, 0.2); color: #D4A017; }
 .atletica-card:nth-child(3) .icon-wrapper { background: rgba(0, 90, 64, 0.15); color: var(--primary); }
-
 .atletica-card:nth-child(1):hover .icon-wrapper { background: var(--secondary); color: white; transform: scale(1.1); }
 .atletica-card:nth-child(2):hover .icon-wrapper { background: #D4A017; color: white; transform: scale(1.1); }
 .atletica-card:nth-child(3):hover .icon-wrapper { background: var(--primary); color: white; transform: scale(1.1); }
@@ -220,9 +217,7 @@ h1, h2, h3, h4, .chapa { font-family: 'Poppins', sans-serif; }
 .news-card { background-color: white; border-radius: var(--radius); padding: 25px; box-shadow: var(--shadow-sm); transition: var(--transition-smooth); border: 1px solid rgba(0,0,0,0.03); position: relative; top: 0; cursor: pointer;}
 .news-card:hover { top: -10px; box-shadow: var(--shadow-md); border-color: rgba(0, 90, 64, 0.1);}
 
-.img-overflow { overflow: hidden; border-radius: 8px; margin-bottom: 15px; height: 200px; display: flex; align-items: center; justify-content: center; transition: var(--transition-smooth); }
-.img-overflow i { transition: transform 0.6s ease; color: white;}
-.news-card:hover .img-overflow i { transform: scale(1.1); }
+.news-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
 
 .news-date { color: var(--secondary); font-weight: 600; margin-bottom: 12px; font-size: 0.9rem; display: block; }
 .news-card h3 { color: var(--primary-dark); margin-bottom: 15px; font-size: 1.3rem; line-height: 1.4; }
@@ -243,129 +238,35 @@ h1, h2, h3, h4, .chapa { font-family: 'Poppins', sans-serif; }
 /* ============================================================
    10. CENTRAL DE DOWNLOADS
    ============================================================ */
-.download-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 30px; 
-    margin-top: 40px; 
-}
-.download-card { 
-    background: white; 
-    border-radius: var(--radius); 
-    padding: 30px 25px; 
-    box-shadow: var(--shadow-sm); 
-    border: 1px solid rgba(0,0,0,0.05); 
-    text-align: center; 
-    transition: var(--transition-smooth); 
-    display: flex; 
-    flex-direction: column; 
-    height: 100%; 
-    position: relative; 
-    top: 0; 
-}
-.download-card:hover { 
-    top: -10px; 
-    box-shadow: var(--shadow-md); 
-    border-color: rgba(0,90,64,0.1); 
-}
-.file-icon { 
-    font-size: 3.5rem; 
-    margin-bottom: 20px; 
-    transition: transform 0.4s ease;
-}
-.download-card:hover .file-icon { 
-    transform: scale(1.1) rotate(-5deg); 
-}
-
-/* Cores dos Ícones por Tipo de Arquivo */
-.icon-pdf { color: #E03E45; } /* Vermelho DAEIR */
-.icon-doc { color: #2B579A; } /* Azul Word */
-.icon-xls { color: #217346; } /* Verde Excel */
-
-.doc-title { 
-    color: var(--primary-dark); 
-    font-size: 1.25rem; 
-    font-weight: 700; 
-    margin-bottom: 10px; 
-    font-family: 'Poppins', sans-serif;
-}
-.doc-desc { 
-    color: var(--text-light); 
-    font-size: 0.95rem; 
-    margin-bottom: 25px; 
-    line-height: 1.5; 
-    flex-grow: 1; /* Faz o botão descer pro final do card */
-}
-.doc-meta { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    font-size: 0.85rem; 
-    color: #888; 
-    margin-bottom: 20px; 
-    padding-top: 15px; 
-    border-top: 1px dashed #eee;
-}
-.download-btn { 
-    display: inline-flex; 
-    align-items: center; 
-    justify-content: center; 
-    gap: 8px; 
-    width: 100%; 
-    padding: 12px; 
-    background-color: var(--primary-light); 
-    color: var(--primary-dark); 
-    font-weight: 600; 
-    text-decoration: none; 
-    border-radius: 8px; 
-    transition: var(--transition-smooth); 
-    font-family: 'Poppins', sans-serif;
-}
-.download-btn:hover { 
-    background-color: var(--primary); 
-    color: white; 
-    box-shadow: 0 4px 10px rgba(0, 90, 64, 0.2);
-}
+.download-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+.download-card { background: white; border-radius: var(--radius); padding: 30px 25px; box-shadow: var(--shadow-sm); border: 1px solid rgba(0,0,0,0.05); text-align: center; transition: var(--transition-smooth); display: flex; flex-direction: column; height: 100%; position: relative; top: 0; }
+.download-card:hover { top: -10px; box-shadow: var(--shadow-md); border-color: rgba(0,90,64,0.1); }
+.file-icon { font-size: 3.5rem; margin-bottom: 20px; transition: transform 0.4s ease; }
+.download-card:hover .file-icon { transform: scale(1.1) rotate(-5deg); }
+.icon-pdf { color: #E03E45; } .icon-doc { color: #2B579A; } .icon-xls { color: #217346; }
+.doc-title { color: var(--primary-dark); font-size: 1.25rem; font-weight: 700; margin-bottom: 10px; font-family: 'Poppins', sans-serif; }
+.doc-desc { color: var(--text-light); font-size: 0.95rem; margin-bottom: 25px; line-height: 1.5; flex-grow: 1; }
+.doc-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #888; margin-bottom: 20px; padding-top: 15px; border-top: 1px dashed #eee; }
+.download-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px; background-color: var(--primary-light); color: var(--primary-dark); font-weight: 600; text-decoration: none; border-radius: 8px; transition: var(--transition-smooth); font-family: 'Poppins', sans-serif; }
+.download-btn:hover { background-color: var(--primary); color: white; box-shadow: 0 4px 10px rgba(0, 90, 64, 0.2); }
 
 /* ============================================================
    11. MODAIS (Notícias e Fotos)
    ============================================================ */
-.modal-overlay {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.85); display: none;
-    justify-content: center; align-items: center; z-index: 9999;
-    padding: 20px; backdrop-filter: blur(8px);
-}
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); display: none; justify-content: center; align-items: center; z-index: 9999; padding: 20px; backdrop-filter: blur(8px); }
 .modal-overlay.active { display: flex !important; }
-.modal-content, .photo-modal-content {
-    background: var(--white-premium); width: 100%; max-width: 700px;
-    border-radius: var(--radius); position: relative; max-height: 90vh;
-    overflow-y: auto; box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-    animation: modalEntrada 0.3s ease;
-}
-@keyframes modalEntrada {
-    from { opacity: 0; transform: translateY(-30px) scale(0.95); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
-}
+.modal-content, .photo-modal-content { background: var(--white-premium); width: 100%; max-width: 700px; border-radius: var(--radius); position: relative; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 50px rgba(0,0,0,0.3); animation: modalEntrada 0.3s ease; }
+@keyframes modalEntrada { from { opacity: 0; transform: translateY(-30px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
 .photo-modal-content { background: transparent; box-shadow: none; text-align: center; max-width: 900px; }
 .photo-modal-content img { max-width: 100%; max-height: 80vh; border-radius: var(--radius); border: 2px solid white; }
 .photo-caption { color: white; margin-top: 15px; font-size: 1.2rem; font-weight: 600; }
-.close-modal {
-    position: fixed; top: 20px; right: 30px; font-size: 45px;
-    color: white; cursor: pointer; z-index: 10001; transition: var(--transition-smooth); line-height: 1;
-}
+.close-modal { position: fixed; top: 20px; right: 30px; font-size: 45px; color: white; cursor: pointer; z-index: 10001; transition: var(--transition-smooth); line-height: 1; }
 .close-modal:hover { color: var(--accent); transform: scale(1.1); }
 
 /* ============================================================
    12. RODAPÉ
    ============================================================ */
-.main-footer { 
-    background-color: var(--dark); 
-    color: white; 
-    padding: 30px 0; 
-    text-align: center; 
-    margin-top: 40px;
-}
+.main-footer { background-color: var(--dark); color: white; padding: 30px 0; text-align: center; margin-top: 40px; }
 
 /* ============================================================
    13. RESPONSIVIDADE (MOBILE)
@@ -373,8 +274,13 @@ h1, h2, h3, h4, .chapa { font-family: 'Poppins', sans-serif; }
 @media (max-width: 900px) {
     .logo-container { flex-direction: column; text-align: center; gap: 10px;}
     
-    /* Desliga a animação no mobile para matar o bug visual das faixas de vez */
-    .logo { animation: none !important; filter: none !important; height: 75px; }
+    /* Logo corrigida para mobile, sem chance de ficar gigante */
+    .logo { 
+        height: 60px !important; 
+        width: auto !important; 
+        animation: none !important; 
+        filter: none !important; 
+    }
     
     .header-text h1 { font-size: 1.6rem; }
     .hero-section { padding: 100px 0; }
@@ -385,19 +291,7 @@ h1, h2, h3, h4, .chapa { font-family: 'Poppins', sans-serif; }
     .mobile-menu-btn { display: block; }
     .nav-container { justify-content: flex-end; }
     
-    /* CORREÇÃO DO MENU: Adicionado height: auto */
-    .nav-links { 
-        display: none; 
-        flex-direction: column; 
-        width: 100%; 
-        padding: 0; 
-        background-color: var(--primary-dark); 
-        position: absolute; 
-        top: 100%; 
-        left: 0; 
-        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        height: auto !important; 
-    }
+    .nav-links { display: none; flex-direction: column; width: 100%; padding: 0; background-color: var(--primary-dark); position: absolute; top: 100%; left: 0; box-shadow: 0 10px 20px rgba(0,0,0,0.2); height: auto !important; }
     .nav-links.active { display: flex; }
     .nav-links a { display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(255,255,255,0.05); padding: 20px; width: 100%;}
     
@@ -408,4 +302,3 @@ h1, h2, h3, h4, .chapa { font-family: 'Poppins', sans-serif; }
 
     .close-modal { top: 10px; right: 15px; font-size: 35px; }
 }
-
